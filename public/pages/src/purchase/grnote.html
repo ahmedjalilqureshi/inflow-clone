@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Good Receiving Note</title>
+
+    <!-- <link rel="stylesheet" href="../../../css/style.css"> -->
+    <link rel="stylesheet" href="../../../css/salesStyle.css">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
+        <style>
+                /* .pm-0 {
+                    padding: 0px !important;
+        
+                    margin: 0px !important;
+                } */
+        
+                .pm-0 {
+                    padding: 0px !important;
+        
+                    margin: 0px !important;
+                }
+        
+                tr td {
+                    padding: 2px !important;
+                    margin: 0 !important;
+                }
+        
+                tr th {
+                    padding: 2px !important;
+                    margin: 0 !important;
+                }
+        
+                body {
+                    /* overflow: hidden;
+                    sc */
+                    margin: 0;
+                    padding: 0;
+                    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif
+
+                }
+            </style>
+</head>
+
+<body onload="fill()">
+
+  
+        <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+                <img src="../../../assets/img/aa-logo.jpg" class=" float-right md-logo" alt="logo" width="70px">
+                <a class="navbar-brand text-dark navbar-left ml-3" href="#">
+        
+                    ABBAS ALI & SONS UNIFORMS AND TEXTILES
+                </a>
+                <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div>
+                    &nbsp;
+                </div>
+        
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto text-light">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Sales
+                            </a>
+                            <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item text-info" href="/sale/sales_order">Sales Order</a>
+                                <a class="dropdown-item text-info" href="/sale/packing_list">Packing List</a>
+                                <a class="dropdown-item text-info" href="/sale/commercial_invoice">Commercial Invoice</a>
+                                <a class="dropdown-item text-info" href="/sale/reciept_voucher">Reciept Voucher</a>
+        
+                            </div>
+                        </li>
+        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Purchase
+                            </a>
+                            <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item text-info" href="/purchase/purchase_order">Purchase Order</a>
+                                <a class="dropdown-item text-info" href="/purchase/gr_note">Good Recieving Note / Invoice</a>
+                                <a class="dropdown-item text-info" href="/purchase/payment_voucher">Vendor Payment</a>
+                            </div>
+                        </li>
+        
+        
+        
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/production">Production</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Reports
+                            </a>
+                            <div class="dropdown-menu text-dark bg-dark" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item text-info" href="/reports/sales_report">Sales Report</a>
+                                <a class="dropdown-item text-info" href="/reports/purchase_report">Purchase Report</a>
+                                <a class="dropdown-item text-info" href="/reports/production_report">Production Report</a>
+                                <a class="dropdown-item text-info" href="/reports/accounts_report">Accounts Report</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/master" tabindex="-1" aria-disabled="true">Master Data</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/master_view" tabindex="-1" aria-disabled="true">Master
+                                View</a>
+                        </li>
+                    </ul>
+        
+                </div>
+            </nav>
+            <hr class="pm-0">
+
+    <div id="main" class="wrapper container-fluid m-3">
+ 
+        <div class="container-fluid">
+
+        <!-- Page Content  -->
+       <div class="container sales-container"  >
+
+                <div class="text-center doc-head-text">
+                    <h5>Goods Receiving Note / Purchase Invoice</h5>
+                    
+                </div>
+
+                <div class="gr-info">
+
+                    <div class="row">
+                        <div class="col-7">
+                                <div class="row">
+                                        <div class="col-md-2">
+                                                <label class='form-control-label'>Vendors</label>
+                        
+                                        </div>
+                                        <div class="col-md-4">
+                                            <select id='vendors_select' name='number' onChange="po_set(this)" class='form-control' ></select>
+                                        </div>          
+                                       
+        
+                                </div>
+                                <br><br>
+                                <div class="row">
+                                        <div class="col-md-2">
+                                                <label class='form-control-label'>PO Ref#</label>
+                        
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select id='s_po_select' class='form-control' onchange="set_items(this)" ></select>
+                                        </div>
+                                </div>
+
+                        </div>
+
+                        <div class="col-5">
+
+                           
+
+                          
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Invoice No:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" id="gr-invoice-num" class="form-control">
+                                </div>
+
+                                <!--fetch purchase invoice number-->
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Date :</p>
+                                </div>
+                                <div class="col-8">
+                                    <input type="date" id="gr-date" class="form-control">
+                                </div>
+
+                                <!--good receiving note generate date-->
+                            </div>
+                            <div class="row">
+                                    <div class="col-4">
+                                        <p>Recieved By :</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" id="recieved_by" class="form-control">
+                                    </div>
+    
+                                    <!--good receiving note generate date-->
+                             </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="d-flex">
+                            <td class="col-2">Product Category</td>
+                            <td class="col-4">Description</td>
+                            <td class="col-2">Recieved Qty</td>
+                            <td class="col-2">Total Qty</td>
+                            <td class="col-2">Unit Price (<span id='per_item_currency'></span>)</td>
+                        </tr>
+                    </thead>
+                    <tbody id="container">
+                        <tr class="d-flex">
+                            <td class="col-2 td-cells">
+                                <input type="text" class="form-control" id="pro1category">
+                            </td>
+                            <td class="col-4 td-cells">
+                                <input type="text" class="form-control" id="pro1description">
+                            </td>
+                            <td class="col-2 td-cells">
+                                <input type="text" class="form-control" id="pro1quantityavailable">
+                            </td>
+                            <td class="col-2 td-cells">
+                                <input type="text" class="form-control" id="pro1quantityorder">
+                            </td>
+                            <td class="col-2 td-cells">
+                                <input type="text" class="form-control" id="pro1unitprice" onkeypress="sales_add_new(event)">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <section class="color-1 text-center">
+                    <p>
+                        <button onclick="generate_gr_note(this)" class="btn btn-primary ">Generate</button>
+                    </p>
+                </section>
+
+
+            </div>
+
+           
+    
+            </div>
+    
+        
+    </div>
+    <!-- <p id="n"></p> -->
+    <!-- <button onclick="waqaskhan();">Submit</button>
+<input type="button" id="create_pdf" value="Generate PDF">  -->
+   
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+<script src="../../../js/app.js"></script>
+
+<script>
+    let lpos,pos;
+  function fill(){
+       //// lpos get 
+  var xhttp3 = new XMLHttpRequest();
+  xhttp3.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     pos = JSON.parse(this.responseText).pos;
+      str = '<option value="null">Select L.P.O</option>';
+    // alert(e.innerHTML.length)
+        pos.forEach((po)=>{
+        str += `<option value="`+po.po_num+`">`+po.ref+"/"+po.po_num+`</option>`;
+    });
+    document.getElementById('lpo_ref').innerHTML = str;
+    
+     console.log("pos:",pos)
+    }
+  };
+  xhttp3.open("GET", "/get_pos", true);
+  xhttp3.send(); 
+
+  //// lpos get
+
+ 
+
+  //// vendors get ///
+
+  var xhttp6 = new XMLHttpRequest();
+        xhttp6.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+               vendors = JSON.parse(this.responseText).vendors;
+                let c_text = '<option value="">Select Vendor</option>';
+                // alert(e.innerHTML.length)
+                vendors.forEach((vendor) => {
+                    c_text += `<option value='`+vendor.company_name+`'>` + vendor.company_name+ `</option>`;
+                });
+                document.getElementById('vendors_select').innerHTML = c_text;
+
+            }
+        };
+        xhttp6.open("GET", "/get_vendors", true);
+        xhttp6.send();
+
+
+  //// vendors get
+ 
+  }
+  function po_set(e){
+       let select = document.getElementById("s_po_select");
+       let pos_txt = '<option value="">Select PO</option>';
+       let company_name = e.value;
+       console.log("pos",pos);
+       pos.forEach((po)=>{
+        if(po.vendor===company_name)
+            {
+               pos_txt += `<option value="`+po.po_num+`">`+po.ref+"/"+po.po_num+`</option>` 
+            }
+       });
+       select.innerHTML = pos_txt;
+    }
+  
+  function set_items(e){
+     // console.log("clicked");
+  let value = e.value;
+  let str =``;
+  if(value !== null){
+      pos.forEach((po)=>{
+          if(po.po_num===value){
+             
+              console.log(JSON.stringify(po.purchase_array));
+              let purchase_item = JSON.parse(po.purchase_array);
+              document.getElementById('container').innerHTML='';
+              document.getElementById('per_item_currency').innerHTML = po.currency
+              purchase_item.forEach((item,index)=>{
+                  console.log(item);
+                  str +=`<tr class="d-flex">
+                            <td class="col-2 td-cells">
+                                <input type="text" class="form-control" id="pro`+(index+1)+`category" value="`+item.item+`" readonly>
+                            </td>
+                            <td class="col-4 td-cells">
+                                <input type="text" class="form-control" id="pro`+(index+1)+`description" value="`+item.description+`" readonly>
+                            </td>
+                            <td class="col-2 td-cells">
+                                <input type="text" class="form-control" id="pro`+(index+1)+`quantityavailable">
+                            </td>
+                            <td class="col-2 td-cells">
+                                <input type="text" class="form-control" id="pro`+(index+1)+`quantityorder" value="`+item.quantity+`" readonly>
+                            </td>
+                            <td class="col-2 td-cells">
+                                <input type="text" class="form-control" readonly value="`+item.price+`" id="pro`+(index+1)+`unitprice" >
+                            </td>
+                        </tr>`;
+              });
+              document.getElementById('container').innerHTML=str;
+             
+          }
+
+          
+      })
+  }
+  }
+ function generate_gr_note(e){
+  let  invoice_num = document.getElementById("gr-invoice-num").value;
+   let date = document.getElementById("gr-date").value;
+   let vendor = document.getElementById("vendors_select").value;
+   let recieved_by = document.getElementById("recieved_by").value;
+   let po_ref = document.getElementById("s_po_select").value;
+   let currency = document.getElementById('per_item_currency').innerHTML;
+
+let table = document.getElementById('container');
+let tr = table.getElementsByTagName('tr');
+let qtys=[];
+let items_array = [];
+for(let i=0; i < tr.length ; i++){
+ qtys[i]  = tr[i].getElementsByTagName('td')[2].getElementsByTagName('input')[0].value;
+}
+
+for (let i = 0; i < tr.length; i++) {
+                item = tr[i].getElementsByTagName('td')[0].getElementsByTagName('input')[0].value;
+                description = tr[i].getElementsByTagName('td')[1].getElementsByTagName('input')[0].value;
+                recieved = tr[i].getElementsByTagName('td')[2].getElementsByTagName('input')[0].value;
+                quantity = tr[i].getElementsByTagName('td')[3].getElementsByTagName('input')[0].value;
+                price = tr[i].getElementsByTagName('td')[4].getElementsByTagName('input')[0].value;
+                if(item !== "" && recieved > 0 && price > 0){
+                    obj = { item: item, description: description,  quantity: quantity, price: price,recieved:recieved };
+                items_array.push(obj);
+                }
+               
+
+            };
+qtys = JSON.stringify(qtys);
+var xhttp3 = new XMLHttpRequest();
+  xhttp3.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        alert("Goods Recieving Note is Generated");
+                    e.disabled = false; 
+                    var link = document.createElement("a");
+                    link.download = 'goods_recieving_note.xlsx';
+                     link.href = '/gr_note_report';
+                     link.click();
+                     document.location.reload();    }
+  };
+  xhttp3.open("POST", "/generate_gr_note", true);
+    xhttp3.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp3.send("qtys="+qtys+"&po_num="+encodeURIComponent(po_ref)+"&vendor="+encodeURIComponent(vendor)+"&date="+date+"&invoice_num="+invoice_num+"&recieved_by="+recieved_by+"&currency="+currency+"&items_list="+JSON.stringify(items_array));
+    
+
+
+
+}   
+
+
+</script>
+
+</html>

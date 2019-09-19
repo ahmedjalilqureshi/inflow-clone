@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Production Line</title>
+
+    <!-- <link rel="stylesheet" href="../../../css/style.css"> -->
+    <link rel="stylesheet" href="../../../css/salesStyle.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <meta name="description" content="Creative Button Styles  - Modern and subtle styles &amp; effects for buttons" />
+    <meta name="keywords" content="button styles, css3, modern, flat button, subtle, effects, hover, web design" />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/default.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <script src='https://cdn.jsdelivr.net/npm/jsbarcode@3.8.0/dist/JsBarcode.all.min.js' ></script>
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
+<style>
+@page { size: auto;  margin: 0mm; }
+</style>
+  <style>
+        /* .pm-0 {
+            padding: 0px !important;
+
+            margin: 0px !important;
+        } */
+
+        .pm-0 {
+            padding: 0px !important;
+
+            margin: 0px !important;
+        }
+
+        tr td {
+            padding: 2px !important;
+            margin: 0 !important;
+        }
+
+        tr th {
+            padding: 2px !important;
+            margin: 0 !important;
+        }
+
+        body {
+            /* overflow: hidden;
+            sc */
+            margin: 0;
+            padding: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+                <img src="../../../assets/img/aa-logo.jpg" class=" float-right md-logo" alt="logo" width="70px">
+                <a class="navbar-brand text-dark navbar-left ml-3" href="#">
+        
+                    ABBAS ALI & SONS UNIFORMS AND TEXTILES
+                </a>
+                <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div>
+                    &nbsp;
+                </div>
+        
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto text-light">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Sales
+                            </a>
+                            <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item text-info" href="/sale/sales_order">Sales Order</a>
+                                <a class="dropdown-item text-info" href="/sale/packing_list">Packing List</a>
+                                <a class="dropdown-item text-info" href="/sale/commercial_invoice">Commercial Invoice</a>
+                                <a class="dropdown-item text-info" href="/sale/reciept_voucher">Reciept Voucher</a>
+        
+                            </div>
+                        </li>
+        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Purchase
+                            </a>
+                            <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item text-info" href="/purchase/purchase_order">Purchase Order</a>
+                                <a class="dropdown-item text-info" href="/purchase/gr_note">Good Recieving Note / Invoice</a>
+                                <a class="dropdown-item text-info" href="/purchase/payment_voucher">Vendor Payment</a>
+                            </div>
+                        </li>
+        
+        
+        
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/production">Production</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Reports
+                            </a>
+                            <div class="dropdown-menu text-dark bg-dark" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item text-info" href="/reports/sales_report">Sales Report</a>
+                                <a class="dropdown-item text-info" href="/reports/purchase_report">Purchase Report</a>
+                                <a class="dropdown-item text-info" href="/reports/production_report">Production Report</a>
+                                <a class="dropdown-item text-info" href="/reports/accounts_report">Accounts Report</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/master" tabindex="-1" aria-disabled="true">Master Data</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/master_view" tabindex="-1" aria-disabled="true">Master
+                                View</a>
+                        </li>
+                    </ul>
+        
+                </div>
+            </nav>
+            <hr class="pm-0">
+    <div id="main" class="container-fluid">
+        <div class="container production-container">
+                <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                          <a class="nav-link active" data-toggle="tab" href="#jsc">JOB SLIP CREATION</a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#printing">JOB SLIPS PRINTING</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#operation">OPERATIONS</a>
+                        </li>
+                        
+                        
+                      </ul>
+                      
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+                        <div class="tab-pane container active" id="jsc"> 
+                            <div class="row" >
+                                <div class='container'>
+                                    <br>
+                                    <div class='col-md-12'>
+                                            <div class='row' style="display:none">
+                                                    <div class='col-md-4'><label class='form-control-label' style='margin-right:16px'>Starting Number#</label>
+                        
+                                                    </div>
+                                                    <div class='col-md-6'>
+                                                        <p class='form-control' id='starting_number_2'></p>
+                                                        <input class='form-control' id='starting_number' name='starting_number' required >
+                                                    </div>
+                                                </div>
+                                        <div class='row'>
+                                            <div class='col-md-4'><label class='form-control-label' style='margin-right:16px'>L.P.O
+                                                    Ref:</label>
+                
+                                            </div>
+                                            <div class='col-md-6'> <select class='form-control' required id='lpo_select' name='lpo_ref' onchange='set_style(this)'>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <br>
+                                          <div class='row'>
+                                                <div class='col-md-4'> <label class='form-control-label' style='margin-right:16px'>Style:</label>
+                                                </div>
+                                                <div class='col-md-6'> <select required class='form-control' name='style' id="style_select" onChange="set_product_list(this)" >
+                                                    </select>
+                                                </div>
+                                            </div> 
+                                            <br>
+                                           <div class="row">
+                                               <table class="table table-striped table-light"><thead>
+                                                   <tr><th>Product</th><th>Fabric Code</th>
+                                                    <th>Details</th><th>Measurements</th>
+                                                    <th>Quantity</th><th>Size</th>
+                                                    <th style='width:180px;min-width:180px'>Person</th><th>&nbsp;</th></tr>
+                                               </thead>
+                                               <tbody id="product_list">
+
+                                               </tbody>
+                                            </table>
+                                           </div> 
+                                            
+                                           
+                                        </div>
+                                    </div>
+                                
+                
+                                </div></div>
+                        <div class="tab-pane container fade" id="operation"><div class="row" >
+                              <!----         left card section    -->
+<div class='col-md-6'>
+        <div class="card">
+            <div class="card-header"><h5>Information About Job Slip</h5></div>
+            <div class='card-body'>
+                <div class='container-fluid'>
+                        <!-- <div class='row'>
+                                <div class="col-md-2">
+                                        <label class='form-control-label'>LPO REF#</label>
+                
+                                </div>
+                                <div class="col-md-4">
+                                    <select id='unique_lpos2' name='number' onChange="js_set2(this)" class='form-control' required></select>
+                                </div>          
+                                <div class="col-md-2">
+                                        <label class='form-control-label'>JOB SLIP#</label>
+                
+                                </div>
+                                <div class="col-md-4">
+                                    <select id='js_select' name='number' onChange='set_js()' class='form-control' required></select>
+                                </div>
+                            </div> -->
+                            <!--- ammendment -->
+                            <div class='row'>
+                                <div class="col-md-2">
+                                        <label class='form-control-label'>Client</label>
+                
+                                </div>
+                                <div class="col-md-4">
+                                    <select id='clients_select' name='number' onChange="lpo_set(this)" class='form-control' ></select>
+                                </div>          
+                                <div class="col-md-2">
+                                        <label class='form-control-label'>LPO ref#</label>
+                
+                                </div>
+                                <div class="col-md-4">
+                                    <select id='s_lpo_select' class='form-control' ></select>
+                                </div>
+                            </div>
+                            <!------  ammendment  -->
+                            <hr/>
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="form-inline">
+                                        <label for="" class="form-control-label">BARCODE NUMBER:</label>
+                                        <input type="search" class="form-control" style='margin-left:0.25em' onsearch="bc_info(this)">
+                                    </div>
+
+                                </div>
+                                <div class="card-body">
+                                    <div id="bc_info"></div>
+                                </div>
+                            </div>
+                            
+                    <table class='table table-dark table-striped' style="display: none">
+                        <tr><td colspan="1">L.P.O ref</td><th id='ref' colspan="2"></th></tr>
+                        <tr><td colspan="1">Product</td><th id='product' colspan="2"></th></tr>
+                        <tr><td colspan="1">Style</td><th id='style' colspan="2"></th></tr>
+                        <tr><td colspan="1">Total Quantity</td><th id='quantity' colspan="2"></th></tr>
+                        <tr><td colspan="1">Starting Barcode Number</td><th colspan="2" id='starting_number_1'></th></tr>
+                        <tr><td colspan="1">Quantity Delivered</td><td colspan="2" id="delivering_number"></td></tr>
+                        <tr><td colspan="1">Quantity Cut</td><td colspan="2" id='cutting_number' >
+                        </td></tr>
+                        <tr><td>Cutting By:<span id="cutting_by"></span></td><td>Time:<span id="cutting_on"></span></td></tr>
+                        <tr><td colspan="1">Quantity Stitch</td><td colspan="2" id='stitching_number'>
+            
+                            </td></tr>  
+                        <tr><td>Stitching By:<span id='stitching_by'></span></td><td>Time:<span id="stitching_on"></span></td></tr>                        
+                        <tr><td colspan="1">Quantity Finalized</td><td colspan="2" id='qc_number'>
+                        </td></tr>
+                        <tr><td>Finalised By:<span id="qc_by"></span></td><td>Time:<span id='qc_on'></span></td></tr>       
+            
+                        <tr><td colspan="1">Quantity Packed</td><td colspan="2" id='packing_number'>
+                            </td></tr> 
+                        <tr><td>Packing By:<span id="packing_by"></span></td><td>Time:<span id="packing_on"></span></td></tr>                          
+                          </table>
+
+                </div>
+
+            </div>
+        </div>
+        </div> 
+<!----         left card section    -->  
+                             <div class='col-md-6'>
+                                    <br>
+                                    <ul class="nav nav-tabs">
+                                            <li class="nav-item">
+                                              <a class="nav-link active" data-toggle="tab" href="#cut">Cutting</a>
+                                            </li>
+                                            <li class="nav-item">
+                                              <a class="nav-link" data-toggle="tab" href="#stitch">Stitching</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#qc">Quality Checking</a>
+                                              </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#pack">Packing</a>
+                                              </li>
+                                            <!-- <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#deliver">Delivering</a>
+                                             </li> -->
+                                            
+                                          </ul>
+                                          <div class="tab-content">
+
+                                           <!--- cutting phase -->
+                                <div class="tab-pane container active" id='cut'>
+                                        <div class="row">
+                                               <div class='col-md-12'>
+                                                      <br>
+                                                      <h5>CUTTING DONE</h5>
+                                                       
+                                                           <br>
+                                                           <div class='container-fluid'>
+                                                                   <div class='row'>
+                                                                       <div class="col-md-4">
+                                                                               <label class='form-control-label'>Job Slip# / Job Slip Range</label>
+       
+                                                                       </div>
+                                                                       <div class="col-md-6">
+                                                                            <input required type='hidden' name='number' id='hidden_1' />
+
+                                                                           <input required id='q_cut_input' type='text'  class='form-control'/>
+                                                                       </div>
+                                                                   </div>
+                                                                   <br>
+                                                                   <div class='row'>
+                                                                        <div class="col-md-4">
+                                                                                <label class='form-control-label'>Cut By(Person Incharge)</label>
+        
+                                                                        </div>
+                                                                        <div class="col-md-6">
+ 
+                                                                            <input required id='cutting_by_input' type='text'  class='form-control' />
+                                                                        </div>
+                                                                    </div>
+                                                                   
+                                                               </div>
+                                                               <br>
+                                                           <div class="container-fluid">
+                                                               <div class="row">
+                                                                   <div class="col-md-4">
+                                                                       <button class="btn btn-primary" onclick="cutting_done(this)">Add</button>
+                                                                   </div>
+                                                               </div>
+                                                           </div>    
+                                                     </div>
+                                                     <script>
+                                                            function cutting_done(e){
+                                                               // e.disabled = true;
+                                                                let lpo_ref = document.getElementById("s_lpo_select").value,
+                                                                     q = document.getElementById("q_cut_input").value,
+                                                                     by = document.getElementById("cutting_by_input").value,
+                                                                      d = new Date(),
+                                                                       time = d.getDate() + "/" + (d.getMonth()+1) + "/" + d.getFullYear() + "--" + d.getHours() +":" + d.getMinutes(); 
+      
+                                                                    
+                                                                     console.log("quantity:"+q);
+
+                                                                     var xhttp = new XMLHttpRequest();
+                                                                       xhttp.onreadystatechange = function () {
+                                                                      if (this.readyState == 4 && this.status == 200) {
+                                                                       
+                                                                        let not_found = JSON.parse(this.responseText).not_found;
+                                                                        if(not_found){
+                                                                            alert("selected sequence does not exist in current job slip");
+                                                                            return;
+                                                                        }
+                                                                     let range_out = JSON.parse(this.responseText).range_out;
+                                                                     let duplicate = JSON.parse(this.responseText).duplicate;
+                                                                     if(range_out || duplicate ){
+                                                                        if(range_out)
+                                                                        {
+                                                                            alert("selected sequence is out of range of current job slip");
+                                                                        }
+                                                                        else if(range_out && duplicate){
+                                                                            alert("selected sequence is out of range of current job slip , and some are duplications");
+
+                                                                        }
+                                                                        else{
+                                                                            alert("There are some duplications");
+
+                                                                        }
+
+                                                                     }
+                                                                     else{
+                                                                         alert("success");
+                                                                     }
+                                                                    //    alert(msg);
+                                                                          
+                                                                                  }
+                                                                                  };
+                                                                          xhttp.open("POST", "/job_slip/cutting", true);
+                                                                          xhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
+                                                                          xhttp.send("lpo_ref="+lpo_ref+"&q="+q+"&date="+time+"&by="+by);
+                                                                         // location.reload();
+
+      
+                                                            }
+                                                           </script>
+                                       
+                                       </div>
+                                       </div>
+                                    <!--- cutting phase -->
+                                     <!--- stitching phase -->
+                                <div class="tab-pane container fade" id='stitch'>
+                                        <div class="row">
+                                               <div class='col-md-12'>
+                                                      <br>
+                                                      <h5>STITCHING DONE</h5>
+                                                       
+                                                           <br>
+                                                           <div class='container-fluid'>
+                                                                   <div class='row'>
+                                                                       <div class="col-md-4">
+                                                                               <label class='form-control-label'>Job Slip# / Job Slip Range</label>
+       
+                                                                       </div>
+                                                                       <div class="col-md-6">
+                                                                           <input required type='hidden' name='number' id='hidden_2' />
+                                                                           <input id='q_stitched_input' name='quantity' type='text'  class='form-control' required/>
+                                                                       </div>
+                                                                   </div>
+                                                                   <br>
+                                                                   <div class='row'>
+                                                                        <div class="col-md-4">
+                                                                                <label class='form-control-label'>Stitched By(Person Incharge)</label>
+        
+                                                                        </div>
+                                                                        <div class="col-md-6">
+ 
+                                                                            <input id='stitching_by_input' type='text'  class='form-control' />
+                                                                        </div>
+                                                                    </div>
+                                                                   
+                                                               </div>
+                                                               <br>
+                                                           <div class="container-fluid">
+                                                               <div class="row">
+                                                                   <div class="col-md-4">
+                                                                       <button class="btn btn-primary" onClick="stitching_done(this)">Add</button>
+                                                                   </div>
+                                                               </div>
+                                                           </div>    
+                                                     </div>
+                                                     <script>
+                                                      function stitching_done(e){
+                                                         // e.disabled = true;
+                                                          let lpo_ref = document.getElementById("s_lpo_select").value,
+                                                               q = document.getElementById("q_stitched_input").value,
+                                                               by = document.getElementById("stitching_by_input").value,
+                                                                d = new Date(),
+                                                                 time = d.getDate() + "/" + (d.getMonth()+1) + "/" + d.getFullYear() + "--" + d.getHours() +":" + d.getMinutes(); 
+
+                                                                
+                                
+                                                                     console.log("quantity:"+q);
+                                                               var xhttp = new XMLHttpRequest();
+                                                                 xhttp.onreadystatechange = function () {
+                                                                if (this.readyState == 4 && this.status == 200) {
+                                                                    let not_found = JSON.parse(this.responseText).not_found;
+                                                                        if(not_found){
+                                                                            alert("selected sequence does not exist in current job slip");
+                                                                            return;
+                                                                        }
+
+                                                                     let range_out = JSON.parse(this.responseText).range_out;
+                                                                     let duplicate = JSON.parse(this.responseText).duplicate;
+                                                                     let violation = JSON.parse(this.responseText).violation;
+                                                                     
+                                                                     if(range_out || duplicate || violation ){
+                                                                        if(range_out)
+                                                                        {
+                                                                            alert("selected sequence is out of range of current job slip");
+                                                                        }
+                                                                        else if(range_out && duplicate){
+                                                                            alert("selected sequence is out of range of current job slip , and some are duplications");
+
+                                                                        }
+                                                                        else if(violation){
+                                                                            alert("cutting should be done first!!!");
+                                                                        }
+                                                                        else{
+                                                                            alert("There are some duplications");
+
+                                                                        }
+
+                                                                     }
+                                                                     else{
+                                                                         alert("success");
+                                                                     }
+                                                                    
+                                                                            }
+                                                                            };
+                                                                    xhttp.open("POST", "/job_slip/stitching", true);
+                                                                    xhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
+                                                                    xhttp.send("lpo_ref="+lpo_ref+"&q="+q+"&date="+time+"&by="+by);
+                                                                   // location.reload();
+
+                                                      }
+                                                     </script>
+                                       
+                                       
+                                       </div>
+                                       </div>
+                                    <!--- stitching phase -->
+                                     <!--- qc phase -->
+                                <div class="tab-pane container fade" id='qc'>
+                                    <div class="row">
+                                           <div class='col-md-12'>
+                                                  <br>
+                                                  <h5>Quality Checked/Finalized</h5>
+                                                   
+                                                       <br>
+                                                       <div class='container-fluid'>
+                                                               <div class='row'>
+                                                                   <div class="col-md-4">
+                                                                           <label class='form-control-label'>Job Slip# / Job Slip Range</label>
+   
+                                                                   </div>
+                                                                   <div class="col-md-6">
+                                                                       <input required type='hidden' name='number' id='hidden_5' />
+                                                                       <input id='q_qc_input'  type='text' min='0' class='form-control' />
+                                                                   </div>
+                                                               </div>
+                                                               <br>
+                                                               <div class='row'>
+                                                                    <div class="col-md-4">
+                                                                            <label class='form-control-label'>QC By(Person Incharge)</label>
+    
+                                                                    </div>
+                                                                    <div class="col-md-6">
+
+                                                                        <input required id='qc_by_input' type='text'  class='form-control' />
+                                                                    </div>
+                                                                </div>
+                                                               
+                                                           </div>
+                                                           <br>
+                                                       <div class="container-fluid">
+                                                           <div class="row">
+                                                               <div class="col-md-4">
+                                                                   <button class="btn btn-primary" onClick="qc_done(this)">Add</button>
+                                                               </div>
+                                                           </div>
+                                                       </div>    
+                                                 </div>
+                                                 <script>
+                                                        function qc_done(e){
+                                                           // e.disabled = true;
+                                                           let lpo_ref = document.getElementById("s_lpo_select").value,
+                                                                 q = document.getElementById("q_qc_input").value,
+                                                                 by = document.getElementById("qc_by_input").value,
+                                                                  d = new Date(),
+                                                                   time = d.getDate() + "/" + (d.getMonth()+1) + "/" + d.getFullYear() + "--" + d.getHours() +":" + d.getMinutes(); 
+  
+                                                                   
+  
+                                  
+                                                                       console.log("quantity:"+q);
+                                                                 var xhttp = new XMLHttpRequest();
+                                                                   xhttp.onreadystatechange = function () {
+                                                                  if (this.readyState == 4 && this.status == 200) {
+                                                                    let not_found = JSON.parse(this.responseText).not_found;
+                                                                        if(not_found){
+                                                                            alert("selected sequence does not exist in current job slip");
+                                                                            return;
+                                                                        }
+
+                                                                     let range_out = JSON.parse(this.responseText).range_out;
+                                                                     let duplicate = JSON.parse(this.responseText).duplicate;
+                                                                     let violation = JSON.parse(this.responseText).violation;
+                                                                     
+                                                                     if(range_out || duplicate || violation ){
+                                                                        if(range_out)
+                                                                        {
+                                                                            alert("selected sequence is out of range of current job slip");
+                                                                        }
+                                                                        else if(range_out && duplicate){
+                                                                            alert("selected sequence is out of range of current job slip , and some are duplications");
+
+                                                                        }
+                                                                        else if(violation){
+                                                                            alert("previous steps should be done first!!!");
+                                                                        }
+                                                                        else{
+                                                                            alert("There are some duplications");
+
+                                                                        }
+
+                                                                     }
+                                                                     else{
+                                                                         alert("success");
+                                                                     }
+                                                                    
+         
+                                                                              }
+                                                                              };
+                                                                      xhttp.open("POST", "/job_slip/qc", true);
+                                                                      xhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
+                                                                      xhttp.send("lpo_ref="+lpo_ref+"&q="+q+"&date="+time+"&by="+by);
+                                                                     // location.reload();
+
+                                                        }
+                                                       </script>
+                                   
+                                   </div>
+                                   </div>
+                                <!--- qc phase -->
+                                     <!--- packed phase -->
+                                <div class="tab-pane container fade" id='pack'>
+                                        <div class="row">
+                                               <div class='col-md-12'>
+                                                      <br>
+                                                      <h5>PACKING DONE</h5>
+                                                       
+                                                           <br>
+                                                           <div class='container-fluid'>
+                                                                   <div class='row'>
+                                                                       <div class="col-md-4">
+                                                                               <label class='form-control-label'>Job Slip# / Job Slip Range</label>
+       
+                                                                       </div>
+                                                                       <div class="col-md-6">
+                                                                            <input required type='hidden' name='number' id='hidden_3' />
+
+                                                                           <input id='q_packed_input' name='quantity' type='text'  class='form-control' />
+                                                                       </div>
+                                                                   </div>
+                                                                   <br>
+                                                                   <div class='row'>
+                                                                        <div class="col-md-4">
+                                                                                <label class='form-control-label'>Packed By(Person Incharge)</label>
+        
+                                                                        </div>
+                                                                        <div class="col-md-6">
+ 
+                                                                            <input required id='packing_by_input' type='text'  class='form-control' />
+                                                                        </div>
+                                                                    </div>
+                                                                   
+                                                               </div>
+                                                               <br>
+                                                           <div class="container-fluid">
+                                                               <div class="row">
+                                                                   <div class="col-md-4">
+                                                                       <button class="btn btn-primary" onclick="packing_done(this)">Add</button>
+                                                                   </div>
+                                                               </div>
+                                                           </div>    
+                                                       </form>
+                                                     </div>
+                                       
+                                                     <script>
+                                                        function packing_done(e){
+                                                           // e.disabled = true
+                                                           let lpo_ref = document.getElementById("s_lpo_select").value,
+                                                                 q = document.getElementById("q_packed_input").value,
+                                                                 by = document.getElementById("packing_by_input").value,
+                                                                  d = new Date(),
+                                                                   time = d.getDate() + "/" + (d.getMonth()+1) + "/" + d.getFullYear() + "--" + d.getHours() +":" + d.getMinutes(); 
+  
+                                                                 var xhttp = new XMLHttpRequest();
+                                                                   xhttp.onreadystatechange = function () {
+                                                                    if (this.readyState == 4 && this.status == 200) {
+                                                                    let not_found = JSON.parse(this.responseText).not_found;
+                                                                        if(not_found){
+                                                                            alert("selected sequence does not exist in current job slip");
+                                                                            return;
+                                                                        }
+
+                                                                     let range_out = JSON.parse(this.responseText).range_out;
+                                                                     let duplicate = JSON.parse(this.responseText).duplicate;
+                                                                     let violation = JSON.parse(this.responseText).violation;
+                                                                     
+                                                                     if(range_out || duplicate || violation ){
+                                                                        if(range_out)
+                                                                        {
+                                                                            alert("selected sequence is out of range of current job slip");
+                                                                        }
+                                                                        else if(range_out && duplicate){
+                                                                            alert("selected sequence is out of range of current job slip , and some are duplications");
+
+                                                                        }
+                                                                        else if(violation){
+                                                                            alert("previous steps should be done first!!!");
+                                                                        }
+                                                                        else{
+                                                                            alert("There are some duplications");
+
+                                                                        }
+
+                                                                     }
+                                                                     else{
+                                                                         alert("success");
+                                                                     }
+                                                                    
+         
+                                                                              }
+                                                                              };
+                                                                      xhttp.open("POST", "/job_slip/packing", true);
+                                                                      xhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
+                                                                      xhttp.send("lpo_ref="+lpo_ref+"&q="+q+"&date="+time+"&by="+by);
+                                                                    //  location.reload();
+
+                                                        }
+                                                       </script>
+                                       </div>
+                                       </div>
+                                    <!--- packed phase -->
+                                     <!-- - delivered phase -->
+                                <!-- <div class="tab-pane container fade" id='deliver'>
+                                        <div class="row">
+                                               <div class='col-md-12'>
+                                                      <br>
+                                                      <h5>READY TO DELIVER</h5>
+                                                          <br>
+                                                          <br>
+                                        <a href="#" id='done_btn'><button class='btn btn-info'>Done!!!</button></a> 
+                                                     </div>
+                                       
+                                       
+                                       </div>
+                                       </div> -->
+                                    <!--- delivered phase -->
+                                    </div>
+                                                                                                     
+   
+                             </div>
+                               
+                
+                                </div></div>
+                            <!--- printing -->
+                        <div class="tab-pane container fade" id='printing'>
+                            <br>
+                            <h5>Printing</h5>
+                            <br>
+                            <div class="row">
+                                    <div class='col-md-5'>
+                                            <div class='row'>
+                                                   
+                                                    <div class="col-md-2">
+                                                            <label class='form-control-label'>LPO REF#</label>
+                                    
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <select id='unique_lpos'  class='form-control' required onchange="js_set(this)"></select>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                            <label class='form-control-label'>Person,Product,Size</label>
+                                    
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <select id='js_select_1'  class='form-control' required onchange="jsp_set(this)"></select>
+                                                    </div>
+                                                </div>
+                                             <br>
+                                             <div class='row'>
+                                                   
+                                                    <div class="col-md-4">
+                                                            <label class='form-control-label'>LPO REF#</label>
+                                    
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <span id='jsp_l'   ></span>
+                                                    </div>
+                                                </div>
+                                                <div class='row'>
+                                                   
+                                                        <div class="col-md-4">
+                                                                <label class='form-control-label'>Product</label>
+                                        
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <span id='jsp_p'   ></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class='row'>
+                                                   
+                                                            <div class="col-md-4">
+                                                                    <label class='form-control-label'>Starting#</label>
+                                            
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <span id='jsp_s' ></span>
+                                                            </div>
+                                                        </div>  
+                                                    <div class='row'>
+                                                   
+                                                            <div class="col-md-4">
+                                                                    <label class='form-control-label'>Quantity</label>
+                                            
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <span id='jsp_q' ></span>
+                                                            </div>
+                                                        </div>  
+                                                        
+                                               
+                                                        <br>
+                                                        <div class='row'>
+                                                   
+                                                                <div class="col-md-4">
+                                                                        <label class='form-control-label'>Slips# Starting from</label>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <input id='printing_start_number' name='number' class='form-control' required min='1'></select>
+                                                                </div>
+                                                            </div>  
+                                                            <br>
+                                                            
+                                             <div class='row'>
+                                                   
+                                                    <div class="col-md-4">
+                                                            <label class='form-control-label'>Total Slips Quantity#</label>
+                                    
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input id='printing_quantity' name='number' class='form-control' required min='1'></select>
+                                                    </div>
+                                                </div>  
+                                                <br>
+                                                
+                                                <div class='row'>
+                                                        <div class="col-md-4">
+                                                                <button class='btn btn-primary' onClick='generate_slip()'>Print Job Slip</button>
+
+                                                        </div>
+                                                        <div class="col-md-4" style="margin-left:30px;">
+                                                                <button class='btn btn-primary' onClick='generate_slips()'>Print Barcode Stickers</button>
+
+                                                        </div>
+                                                        
+                                                    </div>
+                                                       
+                                    </div>
+                                    <!----  printable area    -->
+                                    <div class="col-md-7">
+                                        <div class='container-fluid'>
+                                            <div class="row" style='min-height: 400px;overflow: scroll;max-height: 800px'>
+                                                <div class="col-md-12" id='printing_area' style="padding:0px">
+        
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12"><button class='btn btn-primary' id='print_btn' onclick="printDiv('printing_area')" disabled="true">Print</button></div>
+                                            </div>
+                                        </div>
+        
+                                    </div>
+                                    <!----  printable area    -->
+                            </div>
+                            
+
+                        </div>     
+                        <!---- printing  -->   
+                        
+
+                      </div>
+           
+         </div>
+    </div>
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+
+<script src="../../../js/app.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+<!-- <script src="js/classie.js"></script> -->
+
+<script src="../../../dist/jspdf.min.js"></script>
+
+<script src="js/modernizr.custom.js"></script>
+<script>
+    let lpos, products,job_slips,styles,sizes=``;
+    function set_product_list(e){
+        let text='';
+        styles.forEach((style)=>{
+            if(style._id===e.value)
+            {
+                
+                
+                let product_list = JSON.parse(style.product);
+                product_list.forEach((product)=>{
+                    text += `<tr>
+                        <td>`+product.product+`</td><td>`+product.fabric_code+`</td>
+                        <td>`+product.details+`</td><td><textarea rows='4' class='form-control'></textarea></td>
+                        <td><input type="number" class="form-control"></td>
+                        <td style='width:150px'><select class="form-control">
+                               ${sizes}
+
+                            </select></td>
+                        <td><input class="form-control"></td><td><button class="btn btn-primary" onClick="create_job_slip(this)">Create Job Slip</button></td>
+                        </tr>`
+                })
+            }
+        });
+        document.getElementById("product_list").innerHTML = text;
+        console.log(text);
+    }
+    function create_job_slip(e){
+        e.disabled = true;
+        let lpo_ref = document.getElementById("lpo_select").value
+         si = document.getElementById("style_select").value,
+         ss = '';
+         styles.forEach((st)=>{
+             if(st._id === si){
+                 ss = st.title;
+             }
+         })
+    
+         p=e.parentNode.parentNode.getElementsByTagName("td")[0].innerHTML,
+         q=e.parentNode.parentNode.getElementsByTagName("td")[4].getElementsByTagName("input")[0].value,
+         s=e.parentNode.parentNode.getElementsByTagName("td")[5].getElementsByTagName("select")[0].value,
+         pe=e.parentNode.parentNode.getElementsByTagName("td")[6].getElementsByTagName("input")[0].value,
+          m = e.parentNode.parentNode.getElementsByTagName("td")[3].getElementsByTagName("textarea")[0].value,
+          d = new Date().getTime();
+         if(lpo_ref==="")
+        {
+            alert("please select LPO ref");
+            e.disabled = false;
+
+        }
+        else if(p ==="" || q ==="" || s==="" || pe==="" || m ===""){
+            alert("please fill measurements,quantity,size and person!!");
+            e.disabled = false;
+
+        }
+        else{
+            var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let starting_number = JSON.parse(this.responseText).starting_number;
+                let quantity = JSON.parse(this.responseText).quantity;
+                let product = JSON.parse(this.responseText).product;
+                let person = JSON.parse(this.responseText).person;
+
+                e.disabled = false;
+                e.parentNode.parentNode.getElementsByTagName("td")[4].getElementsByTagName("input")[0].value='';
+         e.parentNode.parentNode.getElementsByTagName("td")[5].getElementsByTagName("select")[0].value='';
+         e.parentNode.parentNode.getElementsByTagName("td")[6].getElementsByTagName("input")[0].value='';
+         e.parentNode.parentNode.getElementsByTagName("td")[3].getElementsByTagName("textarea")[0].value='';
+         swal(`Job Slip is created of ${product} , series starting from ${starting_number} ,total quantity = ${quantity} , for ${person} `);
+
+        //  alert("job slip is created for lpo ref#"+lpo_ref+" for "+q+" "+p );
+               load_job_slips();
+            }
+        };
+        xhttp.open("POST", "/create_job_slip", true);
+        xhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        xhttp.send("lpo_ref="+lpo_ref+"&ss="+ss+"&si="+si+"&q="+q+"&p="+p+"&s="+s+"&pe="+pe+"&m="+m+"&d="+d);
+
+
+        }
+
+    }
+        
+    function load_lpos_styles() {
+        var xhttp3 = new XMLHttpRequest();
+        xhttp3.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                lpos = JSON.parse(this.responseText).lpos;
+                str = '<option value="">Select L.P.O</option>';
+                // alert(e.innerHTML.length)
+                lpos.forEach((lpo) => {
+                    str += `<option value="`+lpo.ref+`">` + lpo.ref + `</option>`;
+                });
+                document.getElementById('lpo_select').innerHTML = str;
+
+                console.log(lpos)
+            }
+        };
+        xhttp3.open("GET", "/get_lpos", true);
+        xhttp3.send();
+        ////
+
+          var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+               styles = JSON.parse(this.responseText).styles;
+                
+            }
+        };
+        xhttp.open("GET", "/get_styles", true);
+        xhttp.send();
+        ///////////////
+        var xhttp2 = new XMLHttpRequest();
+        xhttp2.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+               let info = JSON.parse(this.responseText).info;
+                console.log(info);
+               let size_txt = `<option value="">Select Size</option>`;
+                info[0].sizes.forEach((s)=>{
+                    size_txt += `<option value="${s}">${s}</option>` ;
+                })
+                sizes = size_txt;
+                document.getElementById('starting_number').value = (info[0].last_number)+ 1;
+                document.getElementById('starting_number_2').innerHTML = (info[0].last_number)+ 1;
+
+            }
+        };
+        xhttp2.open("GET", "/get_info", true);
+        xhttp2.send();
+        ////
+        load_job_slips();
+        
+                //// clients list
+
+        var xhttp6 = new XMLHttpRequest();
+        xhttp6.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+               clients = JSON.parse(this.responseText).clients;
+                let c_text = '<option value="">Select Client</option>';
+                // alert(e.innerHTML.length)
+                clients.forEach((client) => {
+                    c_text += `<option value='`+client.company_name+`'>` + client.company_name+ `</option>`;
+                });
+                document.getElementById('clients_select').innerHTML = c_text;
+
+            }
+        };
+        xhttp6.open("GET", "/get_clients", true);
+        xhttp6.send();
+
+    }
+    function set_style(e){
+        let client = e.value.split("/")[1];
+        str = '<option >Select Style</option>';
+                // alert(e.innerHTML.length)
+                styles.forEach((style) => {
+                    if(client === style.client)
+                    {
+                        str += `<option value='`+style._id+`'>` + style.title+ `</option>`;
+                    }
+                });
+                document.getElementById('style_select').innerHTML = str;
+
+    }
+    function load_job_slips(){
+            var xhttp4 = new XMLHttpRequest();
+        xhttp4.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                job_slips = JSON.parse(this.responseText).job_slips;
+               // str = '<option value="null">Select Job Slip #</option>';
+                // job_slips.reverse().forEach((job_slip) => {
+                //     str += `<option value='`+job_slip.number+`'>`+job_slip.ref+"/js#" + job_slip.style + `</option>`;
+                // });
+                // document.getElementById('js_select').innerHTML = str;
+                // document.getElementById('js_select_1').innerHTML = str;
+                console.log("job_slip",job_slips);
+                let unique_lpos = [];
+                job_slips.forEach((js)=>{
+                    if(unique_lpos.indexOf(js.ref) === -1){
+                        unique_lpos.push(js.ref);
+                    }
+                });
+                let u_lpo ='<option value="">Select LPO</option>';
+                unique_lpos.reverse().forEach((lpo)=>{
+                    u_lpo += `<option value="`+lpo+`">`+lpo+`</option>`
+                });
+                document.getElementById("unique_lpos").innerHTML = u_lpo;
+                document.getElementById("unique_lpos2").innerHTML = u_lpo;
+                console.log("unique_lpo",unique_lpos);
+
+            }
+        };
+        xhttp4.open("GET", "/get_job_slips", true);
+        xhttp4.send();
+
+
+        }
+    function lpo_set(e){
+       let select = document.getElementById("s_lpo_select");
+       let lpos_txt = '<option value="">Select LPO</option>';
+       let company_name = e.value;
+       console.log("lpos",lpos);
+       lpos.forEach((lpo)=>{
+        if(lpo.client===company_name)
+            {
+               lpos_txt += `<option value="`+lpo.ref+`">`+lpo.ref+`</option>` 
+            }
+       });
+       select.innerHTML = lpos_txt;
+    }
+    function js_set(e){
+        jsp_set("");
+       let js = document.getElementById("js_select_1");
+       let js_html='<option value="">Select Job Slip</option>';
+       job_slips.forEach((js)=>{
+           if(js.ref===e.value){
+               js_html += `<option value="`+js.number+`">`+js.person+`-`+js.product+`-`+js.size+`</option>`
+           }
+       })
+       js.innerHTML = js_html;
+    }
+    function js_set2(e){
+    //     jsp_set("");
+       let js = document.getElementById("js_select");
+       let js_html='<option value="">Select Job Slip</option>';
+       job_slips.forEach((js)=>{
+           if(js.ref===e.value){
+               js_html += `<option value="`+js.number+`">`+js.product+`-`+js.size+`</option>`
+           }
+       })
+       js.innerHTML = js_html;
+    //alert(e.value);
+    }
+    // function load_products() {
+    //     let product_select = document.getElementById('product_select');
+    //     let company_name = document.getElementById('company_name');
+    //     let lpo_select = document.getElementById('lpo_select');
+    //     lpos.forEach((lpo) => {
+    //         if (lpo.ref === lpo_select.value) {
+    //             products = JSON.parse(lpo.items_array);
+    //             let str = '<option>Select Product</option>'
+    //             products.forEach((product) => {
+    //                 str += `<option value='` + product.item + `'>` + product.item + `</option>`
+    //             })
+    //             product_select.innerHTML = str;
+    //             company_name.value = lpo.client
+    //             // alert(products);
+    //         }
+    //     })
+    // }
+    // function set_product() {
+    //     let quantity = document.getElementById('product_quantity');
+    //     let product_value = document.getElementById('product_select').value;
+    //     products.forEach((product) => {
+    //         if (product.item === product_value) {
+    //             quantity.value = product.quantity;
+    //         }
+    //     })
+    // }
+    function set_js(){
+        job_slips.reverse().forEach((js)=>{
+            if(js.number===document.getElementById('js_select').value)
+            {
+                console.log(js);
+                document.getElementById('hidden_1').value = js.number;
+                document.getElementById('hidden_2').value = js.number;
+                document.getElementById('hidden_3').value = js.number;
+                document.getElementById('hidden_5').value = js.number;
+
+
+                document.getElementById('ref').innerHTML = js.ref;
+                document.getElementById('product').innerHTML = js.product;
+                document.getElementById('style').innerHTML = js.style;
+                document.getElementById('quantity').innerHTML = js.quantity;
+                document.getElementById('starting_number_1').innerHTML = js.starting_number;
+                document.getElementById('cutting_number').innerHTML = js.cutting;
+                document.getElementById('cutting_by').innerHTML = js.cutting_by;
+                document.getElementById('stitching_by').innerHTML = js.stitching_by;
+                document.getElementById('packing_by').innerHTML = js.packing_by;
+                document.getElementById('qc_by').innerHTML = js.qc_by;
+                document.getElementById('cutting_on').innerHTML = js.cutting_on;
+                document.getElementById('stitching_on').innerHTML = js.stitching_on;
+                document.getElementById('packing_on').innerHTML = js.packing_on;
+                document.getElementById('qc_on').innerHTML = js.qc_on;
+
+
+                document.getElementById('stitching_number').innerHTML = js.stitching;
+                document.getElementById('packing_number').innerHTML = js.packing;
+                document.getElementById('delivering_number').innerHTML = js.delivered;
+                document.getElementById('qc_number').innerHTML = js.qc;
+                document.getElementById("q_cut_input").setAttribute("max",(parseInt(js.quantity)-parseInt(js.cutting)));
+               document.getElementById("q_stitched_input").setAttribute("max",(parseInt(js.cutting)-parseInt(js.stitching)));
+              document.getElementById("q_qc_input").setAttribute("max",(parseInt(js.stitching)-parseInt(js.qc)));
+              document.getElementById("q_packed_input").setAttribute("max",(parseInt(js.qc)-parseInt(js.packing)));
+               // document.getElementById("done_btn").setAttribute("href","/job_slip/complete/"+js.number);
+            }
+        })
+    }
+    load_lpos_styles();
+</script>
+<script> 
+         function generate_slip(){
+             let number =  document.getElementById('js_select_1').value;
+             let start = document.getElementById('printing_start_number').value;
+           let quantity =  document.getElementById('printing_quantity').value;
+             job_slips.reverse().forEach((job_slip)=>{
+                if(job_slip.number===number)
+                {  
+                    if(job_slip.quantity>=quantity && start >= job_slip.starting_number){
+
+                    let d = new Date(),str='';
+                    
+                  let date = d.getDate() +"/"+ (d.getMonth() + 1) +"/"+ d.getFullYear(), 
+                    item = job_slip.product,
+                    lpo = job_slip.ref,
+                    //js_num = job_slip.number,
+                    person = job_slip.person,
+                    measurements = job_slip.measurements,
+                    size = job_slip.size,
+                    company = job_slip.ref.split("/")[1],
+                    style = job_slip.style,
+                    style_details;
+                    styles.forEach((style_)=>{
+                        if(style_.title===style){
+                            style_details = style_.details
+                        }
+                      });
+                      for( let i = 1 ; i<=quantity ; i ++)
+                      {
+                        js_num = parseInt(start) + (i-1);
+
+                        str += `
+                   <div style="width: 100%;margin:5px; max-height: 630px;min-height: 630px ; border-bottom:3px dotted black">
+        <div style="width: 100%;display: block;border-bottom: 1px dashed black;">
+            <h5 style="text-align: center; padding:0; margin: 0px ;margin-top:15px">ABBAS ALI & SONS</h5>
+            <h6 style="text-align: center; padding:0; margin: 0px ;margin-top:5px">Uniforms Co.</h6>
+            <p style="text-align: center;margin-bottom: 0px; padding: 0px;font-size: 14px"><b>PRODUCTION
+                    DEPARTMENT / JOB SLIP</b></p>
+        </div>
+        <div style="width: 100%;display: block;padding-left:30px;padding-right:30px;">
+            <div style="width:100%;margin-bottom: 10px">
+                <div style="display: flex ; margin-bottom:10px">
+                    <div style="flex: 1">
+                        <div style="font-size: 14px">DATE: <span style='font-size:16px'>${date}</span></div>
+                    </div>
+                    <div style="flex: 1">
+                        <div style="font-size: 14px">SLIP # : <span style='font-size:16px'>${js_num}</span></div>
+                    </div>
+                    <div style="flex: 1">
+                        <div>
+                            <div style="font-size: 14px">LPO# : <span style='font-size:16px'>${lpo}</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex ; margin-bottom:10px">
+                    <div style="flex: 1">
+                        <div style=" font-size: 14px">COMPANY : <span style='font-size:16px'>${company}</span></div>
+                    </div>
+                    <div style="flex: 1">
+                        <div style=" font-size: 14px">PERSON: <span style='font-size:16px'>${person}</span></div>
+                    </div>
+                    <div style="flex: 1">
+                        <div style=" font-size: 14px">DEP/DES : <span style='font-size:16px'>${person}</span></div>
+                    </div>
+                </div>
+
+
+                <div style="display: flex ; margin-bottom:10px">
+                    <div style="flex: 1">
+                        <div style="font-size:14px">ITEM : <span style='font-size:16px'>${item}</span></div>
+                    </div>
+                    <div style="flex: 1">
+                        <div style="font-size:14px">STYLE : <span style='font-size:16px'>${style}</span></div>
+                    </div>
+                    <div style="flex: 1">
+                        <div style="font-size:14px">QTY : <span style='font-size:16px'>1</span></div>
+                    </div>
+                </div>
+
+                <div style="display: flex ; margin-bottom:10px">
+                    <div style="flex: 1">
+                        <div style="font-size: 14px">Size :  ${size}</div>
+                    </div>
+                   
+                </div>
+               
+                <div style="display: flex">
+                    <div style="flex: 1; font-size: 14px">Measurement Detail</div>
+                    <div style="flex: 4; word-wrap: break-word; font-size: 14px ; min-height:200px">
+                        <p style='font-size:16px'>${measurements}</p>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 100%;">
+                <div style="width:50%;display: inline;font-size:14px">Cutting Date/Cut By <span>_ _ _ _ _ _ _ _ _ _
+                        _ _
+                        _ _ </span></div>
+                <div style="width:50%;display: inline;float: right;font-size:14px">Stitching <span>_ _ _ _ _ _ _ _
+                        _ _
+                        _ _ _ _ </span></div>
+            </div>
+            <div style="width: 100%;">
+                <div style="width:50%;display: inline;font-size:14px">Quality Check Date/Quality Check By <span>_ _
+                        _ _
+                        _ _ _ _ _ _ _ _ _ _ </span></div>
+                <div style="width:50%;display: inline;float: right;font-size:14px">Recieved in Store By <span>_ _ _
+                        _ _
+                        _ _ _ _ _ _ _ _ _ </span></div>
+            </div>
+            <div style="width: 100%;">
+                <div style="width:50%;display: inline;font-size:14px">Store Recieving Date <span>_ _ _ _ _ _ _ _ _
+                        _ _
+                        _ _ _ </span></div>
+                <div style="width:50%;display: inline;float: right;font-size:14px">JOB SLIP PRINT DATE <span>
+                        ${date}</span></div>
+            </div>
+        </div>
+    </div>
+    `;
+                      }
+                      
+                    document.getElementById("printing_area").innerHTML = str;  
+                    document.getElementById("print_btn").disabled = false;
+                   // alert(JSON.stringify(job_slip));
+                
+              }
+              else{
+                alert(`quantity must be equal or less than ${job_slip.quantity} and starting sequence should be equal or greater than ${job_slip.starting_number}`);
+              }
+            }
+            })
+
+         };
+        function generate_slips(){
+           let start = document.getElementById('printing_start_number').value;
+           let number =  document.getElementById('js_select_1').value;
+           let quantity =  document.getElementById('printing_quantity').value;
+           let printing_area = document.getElementById('printing_area');
+           job_slips.forEach((job_slip)=>{
+               if(job_slip.number===number)
+               {   
+                 if(job_slip.quantity>=quantity && start >= job_slip.starting_number){
+                     let barcode_num ,qty,item,lpo,style,company,str='';
+                     item = job_slip.product;
+                    style = job_slip.style;
+                    lpo = job_slip.ref;
+                    company = job_slip.ref.split("/")[1];
+                    console.log(company);
+
+                   for(let i=1 ; i<= quantity ; i++ )
+                   {
+                    barcode_num = parseInt(start) + (i-1);
+
+                    qty = i;
+
+                    str += `<div style="max-height:2in;max-width: 3in;min-width:3in;min-height:4in;max-height:4in">
+                <div style="padding: 10px; border: 2px dotted black;margin: 2px;border-radius:5px;margin:4px;margin-top:16px">
+                    
+                    <div style="display:flex">
+                        <h4 style='text-align:center'>Uniforms Co.</h4>
+                    </div>
+                    <div style="display:flex">
+                        <div style="flex:1;font-size: 14px">Customer: <span style='font-weight:800;font-size:14px'>${company}</span></div>
+                    </div>
+                    <div style="display:flex">
+                        <div style="flex:1;font-size: 14px">Person: <span style='font-weight:800;font-size:14px'>${job_slip.person}</span></div>
+
+                    </div>
+                    <div style="display:flex">
+                            <div  style="flex:1;font-size: 14px">Item: <span style='font-weight:800;font-size:14px'>${item}</span></div>
+                            <div style="flex:1;font-size: 14px">Size: <span style='font-weight:800;font-size:14px'>${job_slip.size}</span> </div>
+                    </div>
+                    <div style="display:flex">
+                        <div style="flex:1;font-size: 14px">PO# : <span style='font-weight:800;font-size:14px'>${lpo}</span></div>
+                    </div>
+                    <div style="display:flex">
+                            <div style="flex:1;font-size: 14px">Qty: <span style='font-weight:800;font-size:14px'>1</span></div>
+                            <div style="flex:1;font-size: 14px">Job Slip# : <span style='font-weight:800;font-size:14px'>${barcode_num}</span> </div>
+                    </div>
+                    <div>
+                            <div>
+                               <image id='img_`+i+`' style='max-height:160px;width:90%'/>
+                                </div>
+                    </div>
+                    
+                </div>
+                <br>
+            </div>
+                    `
+
+                    
+                   }
+                   printing_area.innerHTML = str;
+                   for(let i = 1 ; i<= quantity ; i++)
+                   {
+                    barcode_num = parseInt(start) + (i-1);
+
+                    JsBarcode("#img_"+i, barcode_num);
+
+                   }
+                   document.getElementById("print_btn").disabled = false;
+
+
+                   
+                
+                
+                }
+                   else{
+                       alert(`quantity must be equal or less than ${job_slip.quantity} and starting sequence should be equal or greater than ${job_slip.starting_number}`);
+                   }
+                   
+               }
+           }) 
+            
+        }
+        function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+function jsp_set(e){
+    let lpo = document.getElementById('jsp_l'),
+   product =   document.getElementById('jsp_p'),
+   quantity =  document.getElementById('jsp_q') ,
+   starting =  document.getElementById('jsp_s') ;
+   lpo.innerHTML = "";
+           product.innerHTML = "";
+           quantity.innerHTML = "";
+           starting.innerHTML = "";
+    
+
+//    alert(e.value);
+   job_slips.forEach((job_slip)=>{
+       if(job_slip.number === e.value){
+           lpo.innerHTML = job_slip.ref;
+           product.innerHTML = job_slip.product;
+           quantity.innerHTML = job_slip.quantity;
+           starting.innerHTML = job_slip.starting_number;
+       }
+   })
+
+    
+}
+
+        </script>  
+        <script>
+            function bc_info(e){
+                let bc_num = e.value;
+                document.getElementById('bc_info').innerHTML = `<div><i>Loading.....</i></div>`;
+
+                var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let success = JSON.parse(this.responseText).success;
+                if(success){
+                    let cutting = JSON.parse(this.responseText).cutting ? "Done" : "Not Done";
+                    let stitching = JSON.parse(this.responseText).stitching ? "Done" : "Not Done";
+                    let qc = JSON.parse(this.responseText).qc ? "Done" : "Not Done";
+                    let packing = JSON.parse(this.responseText).packing ? "Done" : "Not Done";
+
+                    let str = `
+                    <div class='container-fluid'>
+                    <div class='row'>
+                        <div class='col-md-6'>Cutting</div>
+                        <div class='col-md-6'>${cutting}</div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-6'>Stitching</div>
+                        <div class='col-md-6'>${stitching}</div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-6'>QC</div>
+                        <div class='col-md-6'>${qc}</div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-6'>Packing</div>
+                        <div class='col-md-6'>${packing}</div>
+                    </div>
+                        </div>`
+                        document.getElementById('bc_info').innerHTML = str;
+                    
+                    console.log(cutting,stitching,qc,packing)
+
+                }
+                else{
+                    msg= JSON.parse(this.responseText).msg;
+
+                    document.getElementById('bc_info').innerHTML = `<div>${msg}</div>`;
+
+         //  alert(msg)
+                }
+            }
+        };
+        xhttp.open("POST", "/barcode_info", true);
+        xhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        xhttp.send("bc_num="+bc_num);
+
+               
+                console.log(e.value)
+            }
+            </script>
+        
+
+</html>

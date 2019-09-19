@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Packing List</title>
+
+    <!-- <link rel="stylesheet" href="../../../css/style.css"> -->
+    <link rel="stylesheet" href="../../../css/salesStyle.css">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
+    </script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
+    </script>
+      <style>
+            /* .pm-0 {
+                padding: 0px !important;
+    
+                margin: 0px !important;
+            } */
+    
+            .pm-0 {
+                padding: 0px !important;
+    
+                margin: 0px !important;
+            }
+    
+            tr td {
+                padding: 2px !important;
+                margin: 0 !important;
+            }
+    
+            tr th {
+                padding: 2px !important;
+                margin: 0 !important;
+            }
+    
+            body {
+                /* overflow: hidden;
+                sc */
+                margin: 0;
+                padding: 0;
+                font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif
+
+            }
+        </style>
+</head>
+
+<body onload="fill()">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+        <img src="../../../assets/img/aa-logo.jpg" class=" float-right md-logo" alt="logo" width="70px">
+        <a class="navbar-brand text-dark navbar-left ml-3" href="#">
+
+            ABBAS ALI & SONS UNIFORMS AND TEXTILES
+        </a>
+        <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div>
+            &nbsp;
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto text-light">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sales
+                    </a>
+                    <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item text-info" href="/sale/sales_order">Sales Order</a>
+                        <a class="dropdown-item text-info" href="/sale/packing_list">Packing List</a>
+                        <a class="dropdown-item text-info" href="/sale/commercial_invoice">Commercial Invoice</a>
+                        <a class="dropdown-item text-info" href="/sale/reciept_voucher">Reciept Voucher</a>
+
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Purchase
+                    </a>
+                    <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item text-info" href="/purchase/purchase_order">Purchase Order</a>
+                        <a class="dropdown-item text-info" href="/purchase/gr_note">Good Recieving Note / Invoice</a>
+                        <a class="dropdown-item text-info" href="/purchase/payment_voucher">Vendor Payment</a>
+                    </div>
+                </li>
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/production">Production</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Reports
+                    </a>
+                    <div class="dropdown-menu text-dark bg-dark" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item text-info" href="/reports/sales_report">Sales Report</a>
+                        <a class="dropdown-item text-info" href="/reports/purchase_report">Purchase Report</a>
+                        <a class="dropdown-item text-info" href="/reports/production_report">Production Report</a>
+                        <a class="dropdown-item text-info" href="/reports/accounts_report">Accounts Report</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/master" tabindex="-1" aria-disabled="true">Master Data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/master_view" tabindex="-1" aria-disabled="true">Master
+                        View</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <hr class="pm-0">
+
+
+    <div id="main" class="wrapper container-fluid m-3">
+
+
+        <div class="container sales-container" id="main_place">
+
+            <div class="container-fluid payscript-container">
+                <h5 class="doc-head-text">Delivery Order/Packing List</h5>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="col-md-4">
+                            L.P.O Ref
+                        </div>
+                        <div class="col-md-8">
+                            <select class="form-control" id="lpo_ref" onchange="fill_items(this)">
+                                <option value="">Select Lpo</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="col-md-4">
+                            Invoice#
+                        </div>
+                        <div class="col-md-8">
+                            <input class="form-control" id="invoice_ref" type="text" />
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="col-md-4">
+                            Date
+                        </div>
+                        <div class="col-md-12">
+                            <input class="form-control" id="date" type="date" />
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td>Organization Name:</td>
+                        <td>Address:</td>
+                        <td>Contact:</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="td-cells"><span id="buyer-organization-name"></span></td>
+                        <td class="td-cells"><span id="buyer-address"></span></td>
+                        <td class="td-cells"><span id="buyer-number"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="d-flex">
+                        <td class="col-2">Person</td>
+                        <td class="col-2">Item</td>
+                        <td class="col-2">Size</td>
+                        <td class="col-1">Qty</td>
+                        <td class="col-2">Ctn/bale no</td>
+                        <td class="col-2">pcs per ctn/bale</td>
+                        <td class="col-1">Add in List</td>
+                    </tr>
+                </thead>
+                <tbody id="container">
+
+                </tbody>
+            </table>
+
+            <section class="color-1 text-center">
+                <p>
+                    <button onclick="generate_packing_list(this)" class="btn btn-primary" disabled id='pl_btn'>Generate
+                        Packing List</button>
+                </p>
+            </section>
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+    <!-- <p id="n"></p> -->
+    <!-- <button onclick="waqaskhan();">Submit</button>
+<input type="button" id="create_pdf" value="Generate PDF">  -->
+
+</body>
+<script>
+    let client, lpos;
+
+    function fill() {
+
+        //// lpos get 
+        var xhttp3 = new XMLHttpRequest();
+        xhttp3.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                lpos = JSON.parse(this.responseText).lpos;
+                str = '<option value="">Select L.P.O</option>';
+                // alert(e.innerHTML.length)
+                lpos.forEach((lpo) => {
+                    str += `<option value="` + lpo.ref + `">` + lpo.ref + `</option>`;
+                });
+                document.getElementById('lpo_ref').innerHTML = str;
+
+                console.log(lpos)
+            }
+        };
+        xhttp3.open("GET", "/get_lpos", true);
+        xhttp3.send();
+
+        var xhttp4 = new XMLHttpRequest();
+        xhttp4.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let d = new Date();
+                document.getElementById("invoice_ref").value = d.getFullYear() + "/" + JSON.parse(this.responseText)
+                    .info[0].invoice_num;
+
+                console.log(this.responseText)
+            }
+        };
+        xhttp4.open("GET", "/get_info", true);
+        xhttp4.send();
+
+    }
+
+    function fill_items(e) {
+        let value = e.value;
+        set_client(value);
+        set_list(value);
+
+    }
+
+    function set_client(val) {
+        let value = val;
+        if (value.length > 0) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText);
+                    client = JSON.parse(this.responseText).client;
+                    document.getElementById('buyer-organization-name').innerHTML = client.company_name;
+                    document.getElementById('buyer-address').innerHTML = client.street + "," + client.city;
+                    document.getElementById('buyer-number').innerHTML = client.phone
+                }
+            };
+            xhttp.open("GET", "/get_client?lpo=" + encodeURIComponent(val), true);
+            xhttp.send();
+        } else {
+            alert("null")
+            document.getElementById('buyer-organization-name').value = '';
+            document.getElementById('buyer-address').value = '';
+            document.getElementById('buyer-number').value = '';
+        }
+
+
+    }
+
+    function check_for_max(e) {
+        if (e.value > e.max) {
+            e.value = e.max;
+        }
+    }
+
+    function set_list(val) {
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+                document.getElementById("pl_btn").disabled = false;
+                let str = '';
+                let job_lists = JSON.parse(this.responseText).job_slips;
+                job_lists.forEach((js) => {
+                    if ((parseInt(js.packing) - parseInt(js.delivered)) > 0) {
+                        str += `
+                        <tr class="d-flex" id="` + js.number + `">
+                                <th class="col-2">` + js.person + `</th>
+                            <th class="col-2">` + js.product + `</th>
+                            <th class="col-2">` + js.size + `</th>
+                            <th class="col-1 ">
+                                <input type='text' class='form-control' value='` + (parseInt(js.packing) - parseInt(js
+                            .delivered)) + `' onChange='check_for_max(this)' max='` + (parseInt(js
+                            .packing) - parseInt(js.delivered)) + `' ></th>
+                            <td class="col-2 td-cells">
+                                <input type='text' class='form-control' >
+                            </td>
+                            <td class="col-2 td-cells">
+                                <input type='text' class='form-control' >
+                            </td>
+                            <td class="col-1"><input type='hidden' value="" />
+                            <button onClick="add_in_list(this)">Add in List</button></td>
+                        </tr>`;
+                    }
+
+                })
+                // alert(str);
+                document.getElementById("container").innerHTML = str;
+                // client = JSON.parse(this.responseText).client;
+                // document.getElementById('buyer-organization-name').innerHTML = client.company_name;
+                // document.getElementById('buyer-address').innerHTML = client.street + "," + client.city;
+                // document.getElementById('buyer-number').innerHTML = client.phone
+            }
+        };
+        xhttp.open("GET", "/get_job_slips?lpo=" + encodeURIComponent(val), true);
+        xhttp.send();
+
+    }
+
+    function generate_packing_list(e) {
+        e.disabled = true;
+        let company = document.getElementById('buyer-organization-name').innerHTML;
+        let lpo_ref = document.getElementById('lpo_ref').value;
+        let invoice_num = document.getElementById('invoice_ref').value;
+        let date = document.getElementById('date').value;
+
+
+        let items_array = [],
+            total = 0;
+        let table = document.getElementById('container');
+        console.log("table:" + table);
+        let tr = table.getElementsByTagName('tr');
+        let item, size, qty, ctn, pcs;
+        for (let i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].getElementsByTagName('input')[0].value == "added") {
+                js_num = tr[i].id;
+                item = tr[i].getElementsByTagName('th')[1].innerHTML;
+                size = tr[i].getElementsByTagName('th')[2].innerHTML;
+                qty = tr[i].getElementsByTagName('th')[3].getElementsByTagName('input')[0].value;
+                ctn = tr[i].getElementsByTagName('td')[0].getElementsByTagName('input')[0].value;
+                pcs = tr[i].getElementsByTagName('td')[1].getElementsByTagName('input')[0].value;
+                obj = {
+                    js_num: js_num,
+                    item: item,
+                    size: size,
+                    qty: qty,
+                    ctn: ctn,
+                    pcs: pcs
+                };
+                items_array.push(obj);
+            }
+
+        };
+        console.log(items_array);
+        items_array = JSON.stringify(items_array);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                alert("Packing List is generated");
+                e.disabled = false;
+
+                var link = document.createElement("a");
+                link.download = 'packing_list.xlsx';
+                link.href = '/packing_list_report';
+                link.click();
+                document.location.reload();
+            }
+        };
+        xhttp.open("POST", "/generate_packing_list", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("lpo_ref=" + encodeURIComponent(lpo_ref) + "&invoice_num=" + invoice_num + "&date=" + date + "&packing_list=" +
+        encodeURIComponent(items_array));
+
+
+
+
+
+    }
+
+    function add_in_list(e) {
+        let added = e.parentNode.getElementsByTagName("input")[0].value;
+        if (added === "") {
+            e.style.border = "1px solid blue";
+            e.style.backgroundColor = "cyan";
+            e.parentNode.getElementsByTagName("input")[0].value = "added"
+        } else {
+            e.style.border = "";
+            e.style.backgroundColor = "";
+            e.parentNode.getElementsByTagName("input")[0].value = ""
+        }
+    }
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+</script>
+
+<script src="../../../js/app.js"></script>
+
+<script>
+    //  let index = 1;
+</script>
+
+</html>

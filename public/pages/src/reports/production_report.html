@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Production Report</title>
+
+    <!-- <link rel="stylesheet" href="../../../css/style.css"> -->
+    <link rel="stylesheet" href="../../../css/salesStyle.css">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
+    </script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
+    </script>
+    <style>
+        .s_date,
+        .e_date {
+            display: none;
+            max-width: 200px;
+
+        }
+    </style>
+    <style>
+        /* .pm-0 {
+                    padding: 0px !important;
+        
+                    margin: 0px !important;
+                } */
+
+        .pm-0 {
+            padding: 0px !important;
+
+            margin: 0px !important;
+        }
+
+        tr td {
+            padding: 2px !important;
+            margin: 0 !important;
+        }
+
+        tr th {
+            padding: 2px !important;
+            margin: 0 !important;
+        }
+
+        body {
+            /* overflow: hidden;
+                    sc */
+            margin: 0;
+            padding: 0
+        }
+    </style>
+</head>
+
+<body onload="fill()">
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+        <img src="../../../assets/img/aa-logo.jpg" class=" float-right md-logo" alt="logo" width="70px">
+        <a class="navbar-brand text-dark navbar-left ml-3" href="#">
+
+            ABBAS ALI & SONS UNIFORMS AND TEXTILES
+        </a>
+        <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div>
+            &nbsp;
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto text-light">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sales
+                    </a>
+                    <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item text-info" href="/sale/sales_order">Sales Order</a>
+                        <a class="dropdown-item text-info" href="/sale/packing_list">Packing List</a>
+                        <a class="dropdown-item text-info" href="/sale/commercial_invoice">Commercial Invoice</a>
+                        <a class="dropdown-item text-info" href="/sale/reciept_voucher">Reciept Voucher</a>
+
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Purchase
+                    </a>
+                    <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item text-info" href="/purchase/purchase_order">Purchase Order</a>
+                        <a class="dropdown-item text-info" href="/purchase/gr_note">Good Recieving Note / Invoice</a>
+                        <a class="dropdown-item text-info" href="/purchase/payment_voucher">Vendor Payment</a>
+                    </div>
+                </li>
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/production">Production</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Reports
+                    </a>
+                    <div class="dropdown-menu text-dark bg-dark" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item text-info" href="/reports/sales_report">Sales Report</a>
+                        <a class="dropdown-item text-info" href="/reports/purchase_report">Purchase Report</a>
+                        <a class="dropdown-item text-info" href="/reports/production_report">Production Report</a>
+                        <a class="dropdown-item text-info" href="/reports/accounts_report">Accounts Report</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/master" tabindex="-1" aria-disabled="true">Master Data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/master_view" tabindex="-1" aria-disabled="true">Master
+                        View</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <hr class="pm-0">
+
+
+    <div id="main" class="wrapper container-fluid">
+
+        <div id="content" class="container-fluid">
+            <hr>
+            <h2 class="text-center">PRODUCTION REPORTS</h2>
+            <hr>
+            <br>
+            <div class="container cus-container">
+
+                <div class="">
+                    <div class="row">
+                        <div class="col-6">
+                            <button class='btn btn-primary' onclick="print(this)">Download Printable</button>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class="col-4">&nbsp;</div>
+                        <div class="col-8" style='float:right'>
+                            <div class="input-group mb-3">
+
+                                <div class="input-group-prepend">
+                                    <span class='input-group-text'>Client</span>
+                                </div>
+                                <select id='clients_select' onChange="cpo_set(this)" class='form-control'>
+                                </select>
+                                <div class="input-group-prepend">
+                                    <span class='input-group-text'>C.P.O #</span>
+                                </div>
+                                <select id='s_lpo_select' onChange="update()" class='form-control'>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!---  input search -->
+
+
+                    <!----- input search  -->
+                    <div class="container-fluid">
+                        <table class="table table-light table-bordered table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>Client</th>
+                                    <th>C.P.O#</th>
+                                    <th>Job Slip Range</th>
+                                    <th>Product</th>
+                                    <th>Style</th>
+                                    <th>Quantity</th>
+                                    <th>Cutting Done</th>
+                                    <th>Cutting Detail</th>
+                                    <th>Stitching Done</th>
+                                    <th>Stitching Detail</th>
+                                    <th>Finalized</th>
+                                    <th>Finalizing Detail</th>
+                                    <th>Packing Done</th>
+                                    <th>Packing Detail</th>
+                                    <th>Delivering Done</th>
+                                    <th>Delivery Remaining</th>
+
+                                </tr>
+                            </thead>
+                            <tbody id='js_table'>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+                </div>
+                <hr>
+
+
+
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+</script>
+
+<script src="../../../js/app.js"></script>
+
+<script>
+    var clients, lpos;
+
+    function fill() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                clients = JSON.parse(this.responseText).clients;
+                let txt = '<option value="all">All</option>';
+                clients.forEach((client) => {
+                    txt += `<option value="` + client.company_name + `">` + client.company_name +
+                        `</option>`;
+                });
+                document.getElementById("clients_select").innerHTML = txt;
+            }
+        };
+        xhttp.open("GET", "/get_clients", true);
+        xhttp.send();
+        // lpos
+        var xhttp2 = new XMLHttpRequest();
+        xhttp2.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                lpos = JSON.parse(this.responseText).lpos;
+
+            }
+        };
+        xhttp2.open("GET", "/get_lpos", true);
+        xhttp2.send();
+    }
+
+    function load_js() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                job_slips = JSON.parse(this.responseText).job_slips;
+                let txt = '';
+                job_slips.forEach((js) => {
+                    let vendor = js.ref.split("/")[1];
+                    txt += `<tr><td>` + vendor + `</td>
+                            <td>` + js.ref + `</td>
+                            <td>` + js.starting_number + `-` + (js.starting_number + js.quantity - 1) + `</td>
+                            <td>` + js.product + `</td>
+                            <td>` + js.style + `</td>
+                            <td>` + js.quantity + `</td>
+                            <td>` + js.cutting + `</td>
+                            <td>` + js.cutting_by + ` cut on ` + js.cutting_on + `</td>
+                            <td>` + js.stitching + `</td>
+                            <td>` + js.stitching_by + ` stitched on ` + js.stitching_on +
+                        `</td>                                <td>` + js.qc + `</td>
+                            <td>` + js.qc_by + ` finalized on ` + js.qc_on + `</td>
+                            <td>` + js.packing + `</td>
+                            <td>` + js.packing_by + ` packing on ` + js.packing_on + `</td>
+                            <td>` + js.delivered + `</td>
+                            <td>` + (js.quantity - js.delivered) + `</td></tr>`
+                })
+                document.getElementById('js_table').innerHTML = txt;
+
+            }
+        };
+        xhttp.open("GET", "/get_job_slips", true);
+        xhttp.send();
+    }
+    load_js();
+
+    function search(input, table) {
+
+        var input, filter, found, table, tr, td, i, j;
+        input = document.getElementById(input);
+        filter = input.value.toUpperCase();
+        table = document.getElementById(table);
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td");
+            for (j = 0; j < td.length; j++) {
+                if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    found = true;
+                }
+            }
+            if (found) {
+                tr[i].style.display = "";
+                found = false;
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+    load_lpos();
+    load_pos();
+</script>
+<script>
+    function select_client() {
+        let s_date = document.getElementsByClassName('s_date')[1].value;
+        let e_date = document.getElementsByClassName('e_date')[1].value;
+        let date_type = document.getElementById("date_type").value;
+        let client = document.getElementById("clients_select").value;
+        //table info //
+        var found, table, tr, td, i, j;
+        table = document.getElementById('lpos_table');
+        tr = table.getElementsByTagName("tr");
+
+        //table info //
+        if (date_type === "any") {
+            if (client === "all") {
+
+                for (i = 0; i < tr.length; i++) {
+
+
+                    tr[i].style.display = "";
+
+                }
+            } else {
+                for (i = 0; i < tr.length; i++) {
+
+                    if (tr[i].getElementsByTagName('td')[2].innerHTML === client) {
+                        tr[i].style.display = "";
+
+                    } else {
+                        tr[i].style.display = "none";
+
+                    }
+
+                }
+            }
+        } else {
+            if (s_date === '' && e_date === '') {
+                alert("please select the dates")
+            } else {
+                if (client === "all") {
+                    for (i = 0; i < tr.length; i++) {
+                        let lpo_date = tr[i].getElementsByTagName('td')[3].innerHTML;
+                        found = date_check(lpo_date);
+                        if (found) {
+                            tr[i].style.display = "";
+
+                        } else {
+                            tr[i].style.display = "none";
+
+                        }
+                    }
+                } else {
+                    for (i = 0; i < tr.length; i++) {
+                        let lpo_date = tr[i].getElementsByTagName('td')[3].innerHTML;
+                        found = date_check(lpo_date);
+                        if (found && tr[i].getElementsByTagName('td')[2].innerHTML === client) {
+                            tr[i].style.display = "";
+
+                        } else {
+                            tr[i].style.display = "none";
+
+                        }
+                    }
+                }
+
+            }
+        }
+
+        console.log(s_date);
+        console.log(e_date);
+        console.log(date_type);
+
+
+        // alert("Ss")
+    }
+
+    function date_check(lpo_date) {
+        let date_type = document.getElementById('date_type').value
+        let s_date = new Date(document.getElementsByClassName('s_date')[1].value).getTime();
+        let e_date = new Date(document.getElementsByClassName('e_date')[1].value).getTime();
+        let c_date = new Date(lpo_date).getTime();
+        if ((date_type === "any") ||
+            (date_type === "start" && c_date >= s_date) ||
+            (date_type === "end" && c_date < e_date) ||
+            (date_type === "range" && c_date < e_date && c_date >= s_date)) {
+            return true;
+        } else {
+            return false;
+        }
+        //    let date_type = document.getElementById("date_type").value;
+        //    let s_d,s_m,s_y,l_d,l_m,l_y;
+        //    s_d = s_date.split("-")[2];
+        //    s_m = s_date.split("-")[1];
+        //    s_y = s_date.split("-")[0];
+        //    l_d = lpo_date.split("-")[2];
+        //    l_m = lpo_date.split("-")[1];
+        //    l_y = lpo_date.split("-")[0];
+        //    var date = new Date(s_date); 
+        //     c
+    }
+    let s_date = '2019-1-1';
+    var date = new Date(s_date).getTime();
+    console.log(date);
+
+    function print(e) {
+        let table = document.getElementById('js_table');
+        let tr = table.getElementsByTagName('tr');
+
+        let array = [];
+        for (let i = 0; i < tr.length; i++) {
+            if (tr[i].style.display !== 'none') {
+                array.push([
+                    tr[i].getElementsByTagName('td')[0].innerHTML,
+                    tr[i].getElementsByTagName('td')[1].innerHTML,
+                    tr[i].getElementsByTagName('td')[2].innerHTML,
+                    tr[i].getElementsByTagName('td')[3].innerHTML,
+                    tr[i].getElementsByTagName('td')[4].innerHTML,
+                    tr[i].getElementsByTagName('td')[5].innerHTML,
+                    tr[i].getElementsByTagName('td')[6].innerHTML,
+                    tr[i].getElementsByTagName('td')[7].innerHTML,
+                    tr[i].getElementsByTagName('td')[8].innerHTML,
+                    tr[i].getElementsByTagName('td')[9].innerHTML,
+                    tr[i].getElementsByTagName('td')[10].innerHTML,
+                    tr[i].getElementsByTagName('td')[11].innerHTML,
+                    tr[i].getElementsByTagName('td')[12].innerHTML,
+                    tr[i].getElementsByTagName('td')[13].innerHTML,
+                    tr[i].getElementsByTagName('td')[14].innerHTML,
+                    tr[i].getElementsByTagName('td')[15].innerHTML
+                ])
+            }
+
+        }
+        array = JSON.stringify(array);
+        console.log(array);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                alert("Production Report is Generated");
+
+                var link = document.createElement("a");
+                link.download = 'production report.xlsx';
+                link.href = '/production_report';
+                link.click();
+            }
+        };
+        xhttp.open("POST", "/production_report", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("array=" + array);
+
+
+    }
+</script>
+<script>
+    function cpo_set(e) {
+        let cpo_select = document.getElementById('s_lpo_select');
+        let txt = '<option value="all">All</option>';
+        lpos.forEach((lpo) => {
+            if (lpo.client === e.value) {
+                txt += `<option value="` + lpo.ref + `">` + lpo.ref + `</option>`
+            }
+        })
+        cpo_select.innerHTML = txt;
+        update();
+    }
+
+    function update() {
+        let client = document.getElementById('clients_select').value;
+        let cpo = document.getElementById('s_lpo_select').value;
+        console.log(cpo);
+        let table = document.getElementById('js_table');
+        let tr = table.getElementsByTagName('tr');
+        for (let i = 0; i < tr.length; i++) {
+            if (((tr[i].getElementsByTagName('td')[0].innerHTML === client) || client === "all") &&
+                (tr[i].getElementsByTagName('td')[1].innerHTML === cpo || cpo === "all")) {
+                console.log(tr[i].getElementsByTagName('td')[1].innerHTML, cpo)
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+</html>

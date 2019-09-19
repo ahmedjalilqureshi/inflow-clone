@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sales Invoice</title>
+
+    <!-- <link rel="stylesheet" href="../../../css/style.css"> -->
+    <link rel="stylesheet" href="../../../css/salesStyle.css">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
+
+        <style>
+                /* .pm-0 {
+                    padding: 0px !important;
+        
+                    margin: 0px !important;
+                } */
+        
+                .pm-0 {
+                    padding: 0px !important;
+        
+                    margin: 0px !important;
+                }
+        
+                tr td {
+                    padding: 2px !important;
+                    margin: 0 !important;
+                }
+        
+                tr th {
+                    padding: 2px !important;
+                    margin: 0 !important;
+                }
+        
+                body {
+                    /* overflow: hidden;
+                    sc */
+                    margin: 0;
+                    padding: 0;
+                    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif
+
+                }
+            </style>
+</head>
+
+<body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+                <img src="../../../assets/img/aa-logo.jpg" class=" float-right md-logo" alt="logo"
+                width="70px">
+            <a class="navbar-brand text-dark navbar-left ml-3" href="#">
+                    
+                ABBAS ALI & SONS UNIFORMS AND TEXTILES
+            </a>
+            <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div>
+                &nbsp;
+            </div>
+    
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto text-light">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sales
+                        </a>
+                        <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item text-info" href="/sale/sales_order">Sales Order</a>
+                            <a class="dropdown-item text-info" href="/sale/packing_list">Packing List</a>
+                            <a class="dropdown-item text-info" href="/sale/commercial_invoice">Commercial Invoice</a>
+                            <a class="dropdown-item text-info" href="/sale/reciept_voucher">Reciept Voucher</a>
+    
+                        </div>
+                    </li>
+    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Purchase
+                        </a>
+                        <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item text-info" href="/purchase/purchase_order">Purchase Order</a>
+                            <a class="dropdown-item text-info" href="/purchase/gr_note">Good Recieving Note / Invoice</a>
+                            <a class="dropdown-item text-info" href="/purchase/payment_voucher">Vendor Payment</a>
+                        </div>
+                    </li>
+    
+    
+    
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/production">Production</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Reports
+                        </a>
+                        <div class="dropdown-menu text-dark bg-dark" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item text-info" href="/reports/sales_report">Sales Report</a>
+                            <a class="dropdown-item text-info" href="/reports/purchase_report">Purchase Report</a>
+                            <a class="dropdown-item text-info" href="/reports/production_report">Production Report</a>
+                            <a class="dropdown-item text-info" href="/reports/accounts_report">Accounts Report</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/master" tabindex="-1" aria-disabled="true">Master Data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/master_view" tabindex="-1" aria-disabled="true">Master
+                            View</a>
+                    </li>
+                </ul>
+    
+            </div>
+        </nav>
+    <div id="main" class="wrapper container-fluid m-3">
+
+        <div id="content" class="container-fluid">
+
+            <div class="container sales-container" id="main_place">
+
+                <div class="row">
+                    <div class="col-12">
+                        <img src="../../../assets/img/aa-logo.jpg" class="rounded float-right md-logo" alt="logo" width="150px">
+                    </div>
+                </div>
+
+                <div class="packing-slip-header">
+
+                    <div class="row">
+
+                        
+                        <div class="col-6">
+                            <h3>Sales Invoice</h3>
+                            <br>
+                            <div class="row">
+                                <div class="col-4">
+                                    Invoice #
+                                </div>
+                                <div class="col-8">
+                                    <select  class="form-control" id="invoice_ref" onchange="set_invoice(this)">
+
+                                    </select>   
+                                </div>
+                            </div>
+                            <br>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="bill-info row">
+                    <div class="col-6">
+                        <h4>Shipping Info</h4>
+                    <div class="form-inline">
+                        <label class="form-control-label">Shipment Mode:</label>
+                        <input type="text" class="form-control" id="sm" />
+                    </div>
+                    <div class="form-inline">
+                            <label class="form-control-label">Freight Terms:</label>
+                            <input type="text" class="form-control" id="ft" />
+                    </div>
+                    <div class="form-inline">
+                            <label class="form-control-label">Origin:</label>
+                            <input type="text" class="form-control" id="o" />
+                    </div>
+                    <div class="form-inline">
+                            <label class="form-control-label">Port of loading:</label>
+                            <input type="text" class="form-control" id="pol" />
+                    </div>
+                    <div class="form-inline">
+                            <label class="form-control-label">Port of Discharge:</label>
+                            <input type="text" class="form-control" id="pod" />
+                    </div>
+                    <div class="form-inline">
+                            <label class="form-control-label">Place of delivery:</label>
+                            <input type="text" class="form-control" id="plod" />
+                    </div><br><Br><br>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="container">
+                            <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr class='d-flex'>
+                                                <th class='col-2'>Item</th>
+                                                <th class='col-1'>CTN/Bale #</th>
+                                                <th class='col-2'>PCS Per CTN/Bale</th>
+                                                <th class='col-1'>Size</th>
+                                                <th class='col-2'>Qty.</th>
+                                                <th class='col-2'>Unit Price</th>
+                                                <th class='col-2'>Total Price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id='items_table'>
+            
+                                        </tbody>
+                                    </table>
+                                </div>
+                    </div>
+                   
+                </div>
+                <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-8"> 
+                            <button class='btn btn-primary' disabled="true" id='btn' onClick="generate_sales_invoice(this)">Generate Sales Invoice</button>
+                        </div>
+                    </div> 
+               
+
+              
+            </div>
+
+           
+
+
+        </div>
+
+
+    </div>
+
+</body>
+<script>
+    var invoices,client, lpos;
+    function generate_sales_invoice(e){
+        let invoice_ref = document.getElementById('invoice_ref').value,
+            sm = document.getElementById('sm').value,
+            o = document.getElementById('o').value,
+            ft = document.getElementById('ft').value,
+            pod = document.getElementById('pod').value,
+            plod = document.getElementById('plod').value,
+            pol = document.getElementById('pol').value;
+        let tr = document.getElementById("items_table").getElementsByTagName('tr');
+            let arr = [];
+            for(let i = 0 ; i < tr.length ; i++)
+            {   
+                let item = tr[i].getElementsByTagName('th')[0].innerHTML;
+                let price = parseInt(tr[i].getElementsByTagName('th')[5].getElementsByTagName('input')[0].value);
+                if(isNaN(price) || price <= 0)
+                {
+                    alert("Please select valid prices!");
+                    return;
+                }
+                arr.push({item,price});
+            }
+            if(sm === "" || o==="" || ft==="" || pod==="" || plod==="" || pol==="")
+            {
+                alert("please fill all fields");
+            }
+            else{
+                e.disabled = true;
+                console.log("starting");
+                var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    alert("Sales Invoice is Generated");
+                    e.disabled = false;
+                   
+                    var link = document.createElement("a");
+                    link.download = 'sales_invoice.xlsx';
+                     link.href = '/sales_invoice_report';
+                     link.click();
+                     document.location.reload();
+                }
+            }
+            xhttp.open("POST", "/generate_sales_invoice", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("ref="+invoice_ref+"&sm="+sm+"&o="+o+
+            "&ft="+ft+"&pod="+pod+"&plod="+plod+"&pol="+pol+"&arr="+JSON.stringify(arr));
+
+            }
+
+    }
+    function set_total(e,qty){
+        let th = e.parentNode.parentNode.getElementsByTagName('th')[6];
+        th.getElementsByTagName('input')[0].value = e.value * qty;    
+    }
+    function set_invoice(e){
+        let str = ``;
+        invoices.forEach((i)=>{
+            if(i.ref === e.value )
+            {            
+                lpos.forEach((l)=>{
+                   if(l.ref === i.lpo_ref)
+                   {
+                       console.log("found2", l);
+                    items_array = JSON.parse(l.items_array);
+                    items_list = JSON.parse(i.items_list);
+                    items_list.forEach((p_item)=>{
+                    items_array.forEach((c)=>{
+                    if(p_item.item === c.item){
+                        p_item.price = c.price;
+                    }
+                })
+                i.items_list = JSON.stringify(items_list);
+            })                   }
+                })
+                console.log('i--',i)
+                JSON.parse(i.items_list).forEach((v)=>{
+                    str += `<tr class='d-flex'>
+                    <th class='col-2'>${v.item}</th>
+                    <th class='col-1'>${v.ctn}</th>
+                    <th class='col-2'>${v.pcs}</th>
+                    <th class='col-1'>${v.size}</th>
+                    <th class='col-2'>${v.qty}</th>
+                    <th class='col-2'><input value='${v.price}' onKeyUp='set_total(this,${v.qty})'></th>
+                    <th class='col-2'><input readonly value='${v.price * v.qty}'></th>
+                    </tr>`
+
+                })    
+            
+            }
+        })
+        document.getElementById('items_table').innerHTML = str;
+        if(e.value !== "")
+        {
+            document.getElementById('btn').disabled = false
+        }
+        else{
+            document.getElementById('btn').disabled = true
+        }
+    }
+    function fill() {
+
+
+        //// lpos get
+        var xhttp2 = new XMLHttpRequest();
+        xhttp2.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                lpos = JSON.parse(this.responseText).lpos;
+                
+                console.log("SS",lpos)
+         
+        var xhttp3 = new XMLHttpRequest();
+        xhttp3.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                invoices = JSON.parse(this.responseText).invoices;
+                str = '<option value="">Select Invoice</option>';
+                // alert(e.innerHTML.length)
+                invoices.reverse().forEach((invoice) => {
+                    str += `<option value="` + invoice.ref + `">` + invoice.ref + `</option>`;
+                });
+                document.getElementById('invoice_ref').innerHTML = str;
+                
+                console.log(invoices)
+            }
+        };
+        xhttp3.open("GET", "/get_invoices", true);
+        xhttp3.send();
+
+    }
+        };
+        xhttp2.open("GET", "/get_lpos", true);
+        xhttp2.send();
+
+
+
+    }
+    fill();
+    
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+<script src="../../../js/app.js"></script>
+
+<script>
+  //  let index = 1;
+
+
+
+</script>
+
+</html>

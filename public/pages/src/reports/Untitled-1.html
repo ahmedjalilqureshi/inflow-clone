@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<Script>
+let products = [];
+for(let i = 1 ; i <= 15 ; i++){
+            fetch('https://leotech.pk/wp-json/wc/v3/products?per_page=100&page='+i+'&consumer_key=ck_d3a0f273f280528c3a7b612818b650bd3bbcb7ff&consumer_secret=cs_5d1718fae6d5416a003c1395d55c5c1a2403cadc')
+            .then(res => res.json().then((resp) => {
+                if (resp.code && resp.message) {
+                     console.log(resp);
+                }
+                else {
+                    console.log("res",resp);
+                    // console.log("coom2",products);
+
+                    products.push(...resp);
+
+                    // console.log("pro.....", JSON.stringify(products));
+                    if(i===15){
+                        // this.props.updateProduct(products);
+                        console.log("coom",products);
+
+                    }
+
+                }
+            })
+                // .then(x => this.props.updateProduct(x))
+            ).catch((err) => {
+                //alert("Please Check your Internet Connectivity");
+                 console.log(err);
+            })
+
+
+        }
+       
+</Script>
+</html>
