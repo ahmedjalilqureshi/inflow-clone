@@ -167,12 +167,12 @@
             <div class="container-fluid">
               <h4>Sales Orders</h4>
               <div class="container">
-                <!-- <div class="input-group mb-3">
+                <div class="input-group mb-3">
                         <div class="input-group-prepend">
                                 <span class="input-group-text">Search</span>
-                              </div>
+                        </div>
                               <input type="text" class="form-control" placeholder="search query?" id='lpos_q'  onkeyup="search('lpos_q','lpos_table')">
-                            </div> -->
+                        </div>
                 <table class="table table-light table-striped">
                   <thead>
                     <tr>
@@ -204,7 +204,12 @@
           <div class="tab-pane fade" id="po">
             <div class="container-fluid">
               <h4>All ACTIVE PURCHASING ORDERS</h4>
-
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                        <span class="input-group-text">Search</span>
+                </div>
+                      <input type="text" class="form-control" placeholder="search query?" id='pos_q'  onkeyup="search('pos_q','pos_table')">
+                </div>
               <table class="table table-light table-striped">
                 <thead>
                   <tr>
@@ -231,12 +236,12 @@
             <div class="container-fluid">
               <h4>Job Slips</h4>
               <div class="container">
-                <!-- <div class="input-group mb-3">
+                <div class="input-group mb-3">
                         <div class="input-group-prepend">
                                 <span class="input-group-text">Search</span>
                               </div>
-                              <input type="text" class="form-control" placeholder="search query?" id='lpos_q'  onkeyup="search('lpos_q','lpos_table')">
-                            </div> -->
+                              <input type="text" class="form-control" placeholder="search query?" id='js_q'  onkeyup="search('js_q','job_slips_table')">
+                            </div>
                 <table class="table table-bordered table-striped">
                   <thead>
                     <tr>
@@ -552,12 +557,12 @@
             let str1 = `<table  style='font-size:12px;border:1px solid beige'><tbody>`;
             let items = JSON.parse(lpo.items_array);
             items.forEach((item) => {
-              str1 += `<tr><td>` + item.item + `</td><td>` + item.quantity + `</td><td>` + item.price +
-                `(${lpo.currency})</td></tr>`;
+              str1 += `<tr><th>` + item.item + `</th><th>` + item.quantity + `</th><th>` + item.price +
+                `(${lpo.currency})</th></tr>`;
             });
             str1 += `</tbody></table>`;
-            str += '<tr><td>' + lpo.lpo_number + '</td><td>' + lpo.ref + '</td><td>' + lpo.client + '</td><td>' +
-              str1 + '</td><td>' + lpo.discount + '</td><td>' + lpo.tax + '%</td><td>' + lpo.total + '(' + lpo
+            str += '<tr><td>' + lpo.lpo_number + '</td><td>' + lpo.ref + '</td><td>' + lpo.client + '</td><th>' +
+              str1 + '</th><td>' + lpo.discount + '</td><td>' + lpo.tax + '%</td><td>' + lpo.total + '(' + lpo
               .currency + ')</td><td>' + lpo.date + '</td><td>' + lpo.due_date + '</td><td><button onClick="delete_any(`/delete_lpo`,`' + lpo._id +
               '`)" class="btn btn-danger">Delete</button></td></tr>'
           });
@@ -579,12 +584,12 @@
             let str1 = `<table  style='font-size:12px;border:1px solid beige'><tbody>`;
             let items = JSON.parse(po.purchase_array);
             items.forEach((item) => {
-              str1 += `<tr><td>` + item.item + `</td><td>` + item.quantity + `</td><td>` + item.price +
-                `(${po.currency})</td></tr>`;
+              str1 += `<tr><th>` + item.item + `</th><th>` + item.quantity + `</th><th>` + item.price +
+                `(${po.currency})</th></tr>`;
             });
             str1 += `</tbody></table>`;
-            str += '<tr><td>' + po.po_num + '</td><td>' + po.ref + '</td><td>' + po.vendor + '</td><td>' + str1 +
-              '</td><td>' + po.total + '(' + po.currency + ')</td><td>' + po.date + '</td><td>' + po.p_date +
+            str += '<tr><td>' + po.po_num + '</td><td>' + po.ref + '</td><td>' + po.vendor + '</td><th>' + str1 +
+              '</th><td>' + po.total + '(' + po.currency + ')</td><td>' + po.date + '</td><td>' + po.p_date +
               '</td><td><button onClick="delete_any(`/delete_po`,`' + po._id +
               '`)" class="btn btn-danger">Delete</button></td></tr>'
           });
@@ -878,7 +883,13 @@
       table = document.getElementById(table);
       tr = table.getElementsByTagName("tr");
       for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td");
+        let st = tr[i];
+        let pr = tr[i].parentNode;
+        if(pr!==table){
+          tr[i].style.display = "";
+        }
+        else{
+          td = tr[i].getElementsByTagName("td");
         for (j = 0; j < td.length; j++) {
           if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
             found = true;
@@ -890,6 +901,8 @@
         } else {
           tr[i].style.display = "none";
         }
+        }
+       
       }
     }
 
