@@ -102,11 +102,11 @@ color: #fff;
     box-shadow: 0 4px 20px 0 rgba(0,0,0,0.14), 0 7px 12px -5px rgba(0,188,212,0.46);
 }
 
-.navbar.bg-primary{
+/* .navbar.bg-primary{
     color: #fff;
     background: #9c27b0!important;
     box-shadow: 0 4px 20px 0 rgba(0,0,0,0.14), 0 7px 12px -5px rgba(156,39,176,0.46);
-}
+} */
 
 .navbar.navbar-transparent{
     color: #fff;
@@ -121,9 +121,9 @@ color: #fff;
     color: white;
     position: relative;
     color: inherit;
-    padding: 15px;
-    font-weight: 400;
-    font-size: 12px;
+    padding: 12px;
+    font-weight: 500;
+    font-size: 14px;
     text-transform: uppercase;
     border-radius: 3px;
     line-height: 20px;
@@ -417,8 +417,6 @@ a[data-toggle="collapse"] {
 }
 
 .dropdown-toggle::after {
-    display: block;
-    position: absolute;
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
