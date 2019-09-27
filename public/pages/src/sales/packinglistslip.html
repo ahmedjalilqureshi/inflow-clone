@@ -26,7 +26,10 @@
     
                 margin: 0px !important;
             } */
-    
+            .null-space{
+                margin: 0px !important;
+                padding: 0px !important;
+            }
             .pm-0 {
                 padding: 0px !important;
     
@@ -136,31 +139,42 @@
             <div class="container-fluid payscript-container">
                 <h5 class="doc-head-text">Delivery Order/Packing List</h5>
                 <div class="row">
-                    <div class="col-md-5">
-                        <div class="col-md-4">
+                    <div class="col-md-4 null-space">
+                        <div class="col-md-4 null-space">
+                            Customers
+                        </div>
+                        <div class="col-md-8 null-space">
+                            <select class="form-control" id="lpo_cus" onchange="fill_cust(this)">
+                                <option value="">Select Customer</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 null-space">
+                        <div class="col-md-4 null-space">
                             L.P.O Ref
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-8 null-space">
                             <select class="form-control" id="lpo_ref" onchange="fill_items(this)">
                                 <option value="">Select Lpo</option>
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="col-md-4">
+                    <div class="col-md-2 null-space">
+                        <div class="col-md-4 null-space">
                             Invoice#
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-8 null-space">
                             <input class="form-control" id="invoice_ref" type="text" />
 
 
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="col-md-4">
+                    <div class="col-md-2 null-space">
+                        <div class="col-md-4 null-space">
                             Date
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-8 null-space">
                             <input class="form-control" id="date" type="date" />
 
 
@@ -251,6 +265,25 @@
         xhttp3.open("GET", "/get_lpos", true);
         xhttp3.send();
 
+        var xhttp6 = new XMLHttpRequest();
+        xhttp6.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                clients = JSON.parse(this.responseText).clients;
+                let c_text = '<option value="">Select Customer</option>';
+                // alert(e.innerHTML.length)
+                clients.forEach((client) => {
+                    c_text += `<option value='` + client.company_name + `'>` + client.company_name +
+                        `</option>`;
+                });
+                document.getElementById('lpo_cus').innerHTML = c_text;
+                console.log("clients:", clients);
+
+            }
+        };
+        xhttp6.open("GET", "/get_clients", true);
+        xhttp6.send();
+
+
         var xhttp4 = new XMLHttpRequest();
         xhttp4.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
@@ -266,12 +299,42 @@
 
     }
 
+    function fill_cust(e) {
+        let lpos_select = document.getElementById("lpo_ref");
+        let lpos_text = '<option value="">Select L.P.O#</option>'
+        // alert(e.value);
+        lpos.forEach((lpo) => {
+            if (lpo.client === e.value) {
+                lpos_text += `<option value="` + lpo.ref + `">` + lpo.ref + `</option>`
+            }
+        });
+        lpos_select.innerHTML = lpos_text;
+    }
+
     function fill_items(e) {
+
+        // let lpos_select = document.getElementById("lpos_select");
+        // let lpos_text = '<option value="">Select C.P.O#</option>'
+        // // alert(e.value);
+        // lpos.forEach((lpo) => {
+        //     if (lpo.client === e.value) {
+        //         lpos_text += `<option value="` + lpo.ref + `">` + lpo.ref + `</option>`
+        //     }
+        // });
+        // lpos_select.innerHTML = lpos_text;
+
         let value = e.value;
         set_client(value);
         set_list(value);
 
     }
+
+    // function fill_items(e) {
+    //     let value = e.value;
+    //     set_client(value);
+    //     set_list(value);
+
+    // }
 
     function set_client(val) {
         let value = val;
