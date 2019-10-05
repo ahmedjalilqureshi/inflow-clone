@@ -139,17 +139,56 @@
 
                 <div class="packing-slip-header">
 
+<div>
+    <h3>Sales InVoice</h3>
+</div>
+
                     <div class="row">
 
-                        
-                        <div class="col-6">
-                            <h3>Sales Invoice</h3>
+                        <div class="col-md-4">
                             <br>
                             <div class="row">
-                                <div class="col-4">
-                                    Invoice #
+                                <div class="col-3">
+                                    <label>Client #</label>
+                                    
                                 </div>
-                                <div class="col-8">
+                                <div class="col-9">
+                                    <select  class="form-control" id="client_ref" onchange="set_client(this)">
+
+                                    </select>   
+                                </div>
+                            </div>
+                            <br>
+                            
+                        </div>
+
+                        <div class="col-md-4">
+                            
+                            <br>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label>LPO</label>
+                                    
+                                </div>
+                                <div class="col-9">
+                                    <select  class="form-control" id="lpos_ref" onchange="set_lpos(this)">
+
+                                    </select>   
+                                </div>
+                            </div>
+                            <br>
+                            
+                        </div>
+
+                        <div class="col-md-4">
+                        
+                            <br>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label>Invoice #</label>
+                                    
+                                </div>
+                                <div class="col-9">
                                     <select  class="form-control" id="invoice_ref" onchange="set_invoice(this)">
 
                                     </select>   
@@ -163,30 +202,61 @@
                 <div class="bill-info row">
                     <div class="col-6">
                         <h4>Shipping Info</h4>
-                    <div class="form-inline">
-                        <label class="form-control-label">Shipment Mode:</label>
-                        <input type="text" class="form-control" id="sm" />
-                    </div>
-                    <div class="form-inline">
-                            <label class="form-control-label">Freight Terms:</label>
-                            <input type="text" class="form-control" id="ft" />
-                    </div>
-                    <div class="form-inline">
-                            <label class="form-control-label">Origin:</label>
-                            <input type="text" class="form-control" id="o" />
-                    </div>
-                    <div class="form-inline">
-                            <label class="form-control-label">Port of loading:</label>
-                            <input type="text" class="form-control" id="pol" />
-                    </div>
-                    <div class="form-inline">
-                            <label class="form-control-label">Port of Discharge:</label>
-                            <input type="text" class="form-control" id="pod" />
-                    </div>
-                    <div class="form-inline">
-                            <label class="form-control-label">Place of delivery:</label>
-                            <input type="text" class="form-control" id="plod" />
-                    </div><br><Br><br>
+                        
+                        <div class="row mb-2 mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label f-16">Shipment Mode:</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="sm" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-md-3">
+                                <label class="form-control-label f-16">Freight Terms:</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="ft" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-md-3">
+                                <label class="form-control-label f-16">Origin:</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="o" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-md-3">
+                                <label class="form-control-label f-16">Port of loading:</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="pol" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-md-3">
+                                <label class="form-control-label f-16">Port of Discharge:</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="pod" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-md-3">
+                                <label class="form-control-label f-16">Place of delivery:</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="plod" />
+                            </div>
+                        </div>
+                        <br><Br><br>
                 </div>
                 </div>
                 <div class="row">
@@ -334,6 +404,26 @@
     }
     function fill() {
 
+/// clients get
+var xhttp6 = new XMLHttpRequest();
+        xhttp6.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                clients = JSON.parse(this.responseText).clients;
+                let c_text = '<option value="">Select Customer</option>';
+                // alert(e.innerHTML.length)
+                clients.forEach((client) => {
+                    c_text += `<option value='` + client.company_name + `'>` + client.company_name +
+                        `</option>`;
+                });
+                document.getElementById('client_ref').innerHTML = c_text;
+                console.log("clients:", clients);
+
+            }
+        };
+        xhttp6.open("GET", "/get_clients", true);
+        xhttp6.send();
+
+        /// clients get
 
         //// lpos get
         var xhttp2 = new XMLHttpRequest();
@@ -341,7 +431,7 @@
             if (this.readyState == 4 && this.status == 200) {
                 lpos = JSON.parse(this.responseText).lpos;
                 
-                console.log("SS",lpos)
+                console.log("SS-lpos",lpos)
          
         var xhttp3 = new XMLHttpRequest();
         xhttp3.onreadystatechange = function () {
@@ -354,7 +444,7 @@
                 });
                 document.getElementById('invoice_ref').innerHTML = str;
                 
-                console.log(invoices)
+                console.log("invoices",invoices)
             }
         };
         xhttp3.open("GET", "/get_invoices", true);
@@ -369,6 +459,18 @@
 
     }
     fill();
+
+    function set_lpos(e) {
+        let lpos_select = document.getElementById("lpo_ref");
+        let lpos_text = '<option value="">Select L.P.O#</option>'
+        // alert(e.value);
+        lpos.forEach((lpo) => {
+            if (lpo.client === e.value) {
+                lpos_text += `<option value="` + lpo.ref + `">` + lpo.ref + `</option>`
+            }
+        });
+        lpos_select.innerHTML = lpos_text;
+    }
     
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
