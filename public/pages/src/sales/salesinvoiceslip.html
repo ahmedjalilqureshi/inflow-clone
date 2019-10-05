@@ -153,7 +153,7 @@
                                     
                                 </div>
                                 <div class="col-9">
-                                    <select  class="form-control" id="client_ref" onchange="set_client(this)">
+                                    <select  class="form-control" id="client_ref" onchange="set_lpos(this)">
 
                                     </select>   
                                 </div>
@@ -171,7 +171,7 @@
                                     
                                 </div>
                                 <div class="col-9">
-                                    <select  class="form-control" id="lpos_ref" onchange="set_lpos(this)">
+                                    <select  class="form-control" id="lpos_ref" onchange="set_invoices(this)">
 
                                     </select>   
                                 </div>
@@ -189,7 +189,7 @@
                                     
                                 </div>
                                 <div class="col-9">
-                                    <select  class="form-control" id="invoice_ref" onchange="set_invoice(this)">
+                                    <select  class="form-control" id="invoices_ref" onchange="set_invoice(this)">
 
                                     </select>   
                                 </div>
@@ -304,8 +304,30 @@
 </body>
 <script>
     var invoices,client, lpos;
+    function set_lpos(e) {
+        let lpos_select = document.getElementById("lpos_ref");
+        let lpos_text = '<option value="">Select L.P.O#</option>'
+        // alert(e.value);
+        lpos.forEach((lpo) => {
+            if (lpo.client === e.value) {
+                lpos_text += `<option value="` + lpo.ref + `">` + lpo.ref + `</option>`
+            }
+        });
+        lpos_select.innerHTML = lpos_text;
+    }
+    function set_invoices(e) {
+        let invoices_select = document.getElementById("invoices_ref");
+        let invoices_text = '<option value="">Select L.P.O#</option>'
+        // alert(e.value);
+        invoices.forEach((i) => {
+            if (i.lpo_ref === e.value) {
+                invoices_text += `<option value="` + i.ref + `">` + i.ref + `</option>`;
+            }
+        });
+        invoices_select.innerHTML = invoices_text;
+    }
     function generate_sales_invoice(e){
-        let invoice_ref = document.getElementById('invoice_ref').value,
+        let invoice_ref = document.getElementById('invoices_ref').value,
             sm = document.getElementById('sm').value,
             o = document.getElementById('o').value,
             ft = document.getElementById('ft').value,
@@ -442,7 +464,7 @@ var xhttp6 = new XMLHttpRequest();
                 invoices.reverse().forEach((invoice) => {
                     str += `<option value="` + invoice.ref + `">` + invoice.ref + `</option>`;
                 });
-                document.getElementById('invoice_ref').innerHTML = str;
+                document.getElementById('invoices_ref').innerHTML = str;
                 
                 console.log("invoices",invoices)
             }
@@ -461,7 +483,7 @@ var xhttp6 = new XMLHttpRequest();
     fill();
 
     function set_lpos(e) {
-        let lpos_select = document.getElementById("lpo_ref");
+        let lpos_select = document.getElementById("lpos_ref");
         let lpos_text = '<option value="">Select L.P.O#</option>'
         // alert(e.value);
         lpos.forEach((lpo) => {
