@@ -41,7 +41,8 @@ var firebase = require("firebase");
 
   
 //var url = "mongodb://rapshek:natsikap1@ds263590.mlab.com:63590/cinstagram";
-mongoose.connect("mongodb://rapshek:natsikap1@ds127604.mlab.com:27604/sap",{ useNewUrlParser: true  }, (err) => {
+//mongodb://rapshek:natsikap1@ds127604.mlab.com:27604/sap
+mongoose.connect("mongodb://rapshek:natsikap1@ds251507.mlab.com:51507/inflow",{ useNewUrlParser: true  }, (err) => {
     if (err) {
         console.log(err);
     }
@@ -71,8 +72,10 @@ app.use(sessions({
 
 app.get("/", (req, res) => {
     if(req.cookies.user)
-    {   let user = JSON.parse(req.cookies.user);
-        console.log(user);
+    {   
+        //let user = JSON.parse(req.cookies.user);
+        console.log(req.cookies.user);
+        // return;
         res.sendFile(path.join(__dirname,"/public/landing.html"));
 
     }
@@ -536,6 +539,7 @@ app.post("/login",(req,res,next)=>{
     let username = req.body.username.replace(" ","").replace("&","").replace("/","").toLowerCase();
     let password = req.body.password;
     User.findOne({username:username,password:password},(err,user)=>{
+        console.log("us",user);
         if(user === null){
             res.redirect("/login");
         }
@@ -1816,6 +1820,7 @@ app.post('/add_lpo',(req,res)=>{
     let discount = decodeURIComponent(req.body.discount);
     let items_array = decodeURIComponent(req.body.items_array);
    let parsed_items = JSON.parse(items_array);
+   let status = req.body.status;
    let str,total = 0 ;
     console.log("address",company.address);
     console.log("city",company.city);
@@ -1839,6 +1844,7 @@ generate_sales_order(parsed_items,discount,tax,currency,company,ship,lpo_num,dat
             Existed_Lpo.total = total;
             Existed_Lpo.currency = currency;
             Existed_Lpo.tax = tax;
+            Existed_Lpo.status = status
             Existed_Lpo.discount = discount;
             Existed_Lpo.items_array = items_array;
             Existed_Lpo.flag = 'order_phase';
@@ -1851,7 +1857,7 @@ generate_sales_order(parsed_items,discount,tax,currency,company,ship,lpo_num,dat
 
         }
         else{
-            new Lpos({client:company.name,lpo_number:lpo_num,date:date,due_date:due_date,ref:ref,items_array:items_array,flag:'order_phase',total:total,discount,tax,currency}).save((err,lpo)=>{
+            new Lpos({client:company.name,status:status,lpo_number:lpo_num,date:date,due_date:due_date,ref:ref,items_array:items_array,flag:'order_phase',total:total,discount,tax,currency}).save((err,lpo)=>{
                     res.json({success:true,lpo:lpo});
                    res.end();
                })  ;
@@ -2358,9 +2364,18 @@ app.post('/delete_raw_item',(req,res)=>{
     })
 });
 app.post('/delete_lpo',(req,res)=>{
-    Lpos.findByIdAndDelete(req.body.id,(err,resp)=>{
-        res.json({success:true,item:'LPO'});
-    })
+    if(req.body.ref){
+        console.log("ref",req.body.ref);
+        Lpos.findOneAndDelete({ref:req.body.ref},(err,resp)=>{
+            res.json({success:true,item:'LPO'});
+        })
+    }
+    else{
+        Lpos.findByIdAndDelete(req.body.id,(err,resp)=>{
+            res.json({success:true,item:'LPO'});
+        })
+    }
+    
 });
 app.post('/delete_po',(req,res)=>{
     Pos.findByIdAndDelete(req.body.id,(err,resp)=>{

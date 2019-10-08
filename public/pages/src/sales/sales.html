@@ -172,7 +172,9 @@
                        
                         <div class="container-fluid  text-dark">
                                 <h4 class="text-left">SALES ORDER</h4>
-                                <h6>Edit Old Sales Order</h6>
+                                <!-- <h6>Edit Old Sales Order</h6> -->
+                                    <h6>Search</h6>
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group m-1">
@@ -186,7 +188,32 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button class='float-right btn btn-primary mr-1' onClick='lpo_search()'>Search</button>
+                                    <div class="form-group m-1">
+                                        <input type="text" placeholder="Search by Customer" id='input_search_client'
+                                            class="form-control" list='client_data_list'>
+                                        <datalist id='client_data_list'>
+
+                                        </datalist>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group m-1">
+                                            <select id="input_search_order_state">
+                                                <option value="">All Orders</option>
+                                                <option value="active">Active Orders</option>
+                                                <option value="draft">Draft Orders</option>
+                                                <option value="completed">Completed Orders</option>
+                                            </select>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                        <button class='float-right btn btn-sm btn-primary mr-1' onClick='lpo_refresh()' >Refresh</button>
+                                    <!-- <button class='float-right btn btn-primary mr-1' onClick='lpo_search()'>Search</button> -->
                                 </div>
                             </div>
                         </div>
@@ -200,6 +227,15 @@
         
                 <div class="col-md-10 bg-light pm-0">
                     <div id="main" class="">
+                        <ul>
+                            <li onClick="new_order()">New</li>
+                            <li onClick="lpo_action('draft')">Save as draft</li>
+                            <li onClick="print_order()">Print</li>
+                            <li onClick="email_order()">Email</li>
+                            <li onClick="cancel_order()">Cancel Sales Order</li>
+                            <li onClick="delete_order()">Delete</li>
+
+                        </ul>
         
                         <div id="content" class=" container-fluid">
         
@@ -213,7 +249,7 @@
                                             <hr class="pm-0">
                                             <div class="row">
                                                 <div class="col-5">
-                                                    <p>Company Name:</p>
+                                                    <p>Customer:</p>
                                                 </div>
                                                 <div class="col-7">
                                                     <select name="vender-info" id="pur-company-name" class="form-control"
@@ -347,6 +383,14 @@
                                                     <input type="text" class="form-control" id="pur-po">
                                                 </div>
                                             </div>
+                                            <div class="row">
+                                                    <div class="col-5">
+                                                        <p>Order Status</p>
+                                                    </div>
+                                                    <div class="col-7">
+                                                        <input type="text" value="draft" class="form-control" id="pur-os" disabled>
+                                                    </div>
+                                                </div>
                                             <hr class="pm-0">
                                             <div class="row">
                                                 <table class='table table-bordered col-md-12 table-hover table-condensed'>
@@ -416,7 +460,7 @@
                                                                         onkeyup="calc(this)">
                                                                 </td>
                                                                 <td class="col-2 td-cells">
-                                                                    <input type="text" class="form-control" id="pro1unitprice"
+                                                                    <input  type="text" class="form-control" id="pro1unitprice"
                                                                         onKeyUp="grand_total()"
                                                                         onkeypress="sales_add_new(event)">
                                                                 </td>
@@ -456,7 +500,7 @@
                                     <p>
                                         <a class='btn btn-primary' data-toggle="modal" data-target="#myModal">Terms and
                                             Condition</a>
-                                        <button onclick="generate_lpo(this)" class="btn btn-primary " disabled
+                                        <button onclick="lpo_action('active')" class="btn btn-primary " disabled
                                             id='lpo_btn'>Generate</button>
         
                                         <!-- <button onclick="salesOrder('operation1')" class="btn btn-primary ">Generate</button> -->
@@ -521,6 +565,72 @@
 <script src="../../../js/app.js"></script>
 
 <script>
+        let clients, items, styles, lpos, USD, GBP, AED, EURO;
+
+     function fill() {
+        let select_client = document.getElementById('pur-company-name');
+        document.getElementById('pur-po').value = Math.floor(Math.random() * 100000);
+
+        let select_item = document.getElementById('pro1category');
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let str = '<option value="">Select Customer</option>';
+                clients = JSON.parse(this.responseText).clients;
+                clients.forEach(client => {
+                    str += `<option value='` + client.company_name + `'>` + client.company_name +
+                        `</option>`
+                });
+                select_client.innerHTML = str;
+                document.getElementById('client_data_list').innerHTML = str;
+
+                //  console.log(clients);
+            }
+        };
+        xhttp.open("GET", "/get_clients", true);
+        xhttp.send();
+        var xhttp2 = new XMLHttpRequest();
+        xhttp2.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let str = '<option value="">Select Product</option>';
+                items = JSON.parse(this.responseText).items;
+                items.forEach(item => {
+                    str += `<option value='` + item.name + `'>` + item.name + `</option>`
+                });
+                select_item.innerHTML = str;
+                // console.log(items);
+            }
+        };
+        xhttp2.open("GET", "/get_items", true);
+        xhttp2.send();
+
+        var xhttp3 = new XMLHttpRequest();
+        xhttp3.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("sales_terms").innerHTML = JSON.parse(this.responseText).info[0].sales_terms
+                USD = JSON.parse(this.responseText).info[0].USD;
+                GBP = JSON.parse(this.responseText).info[0].GBP;
+                EURO = JSON.parse(this.responseText).info[0].EURO;
+                AED = JSON.parse(this.responseText).info[0].AED;
+            }
+        };
+        xhttp3.open("GET", "/get_info", true);
+        xhttp3.send();
+        // LPOS
+        var xhttp4 = new XMLHttpRequest();
+        xhttp4.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                lpos = JSON.parse(this.responseText).lpos;
+                populate_lpos();
+                console.log("lpos", lpos);
+            }
+        };
+        xhttp4.open("GET", "/get_lpos", true);
+        xhttp4.send();
+
+
+    }
+   
     function grand_total(){
         let tr =  document.getElementById('items_table').getElementsByTagName('tr');
        let i , len = tr.length , total = 0;
@@ -566,69 +676,7 @@
         grand_total();
     }
 
-    let clients, items, styles, lpos, USD, GBP, AED, EURO;
 
-    function fill() {
-        let select_client = document.getElementById('pur-company-name');
-        document.getElementById('pur-po').value = Math.floor(Math.random() * 100000);
-
-        let select_item = document.getElementById('pro1category');
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                let str = '<option value="null">Select Company</option>';
-                clients = JSON.parse(this.responseText).clients;
-                clients.forEach(client => {
-                    str += `<option value='` + client.company_name + `'>` + client.company_name +
-                        `</option>`
-                });
-                select_client.innerHTML = str;
-                //  console.log(clients);
-            }
-        };
-        xhttp.open("GET", "/get_clients", true);
-        xhttp.send();
-        var xhttp2 = new XMLHttpRequest();
-        xhttp2.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                let str = '<option value="null">Select Product</option>';
-                items = JSON.parse(this.responseText).items;
-                items.forEach(item => {
-                    str += `<option value='` + item.name + `'>` + item.name + `</option>`
-                });
-                select_item.innerHTML = str;
-                // console.log(items);
-            }
-        };
-        xhttp2.open("GET", "/get_items", true);
-        xhttp2.send();
-
-        var xhttp3 = new XMLHttpRequest();
-        xhttp3.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("sales_terms").innerHTML = JSON.parse(this.responseText).info[0].sales_terms
-                USD = JSON.parse(this.responseText).info[0].USD;
-                GBP = JSON.parse(this.responseText).info[0].GBP;
-                EURO = JSON.parse(this.responseText).info[0].EURO;
-                AED = JSON.parse(this.responseText).info[0].AED;
-            }
-        };
-        xhttp3.open("GET", "/get_info", true);
-        xhttp3.send();
-        // LPOS
-        var xhttp4 = new XMLHttpRequest();
-        xhttp4.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                lpos = JSON.parse(this.responseText).lpos;
-                populate_lpos();
-                console.log("lpos", lpos);
-            }
-        };
-        xhttp4.open("GET", "/get_lpos", true);
-        xhttp4.send();
-
-
-    }
     function populate_lpos(){
         let str = `<ul class="list_cont p-1">`;
         let str2 = ``;
@@ -660,9 +708,10 @@
     }
 
     function load_items(e) {
-        let str = '<option value="null">Select Product</option>';
+        let str = '<option value="">Select Product</option>';
         console.log(items);
         if (e.innerHTML.length < 10) {
+            console.log("yees----------")
             items.forEach((item) => {
                 str += `<option>` + item.name + `</option>`;
             });
@@ -675,7 +724,7 @@
 
     function fill_client() {
         let name = document.getElementById('pur-company-name').value;
-        if (name === "null") {
+        if (name === "") {
             document.getElementById('pur-name').value = '';
             document.getElementById('pur-vender-address').value = '';
             document.getElementById('pur-vender-city').value = '';
@@ -707,38 +756,11 @@
         }
 
     }
-
-    function generate_lpo(e) {
-        e.disabled = true;
-        let pur_name = document.getElementById('pur-name').value;
-        let pur_vendor_address = document.getElementById('pur-vender-address').value;
-        let pur_vendor_city = document.getElementById('pur-vender-city').value;
-        let pur_vendor_phone = document.getElementById('pur-vender-phone').value;
-        let pur_company_name = document.getElementById('pur-company-name').value;
-        let pur_ship_name = document.getElementById('pur-ship-name').value;
-        let pur_ship_address = document.getElementById('pur-ship-address').value;
-        let pur_ship_city = document.getElementById('pur-ship-city').value;
-        let pur_ship_phone = document.getElementById('pur-ship-phone').value;
-        let pur_ship_company_name = document.getElementById('pur-ship-company-name').value;
-
-        let lpo_number = document.getElementById('pur-po').value;
-        let date = document.getElementById('pur-date').value;
-        let due_date = document.getElementById('pur-date-2').value;
-        let currency = document.getElementById('currency').value;
-        let ref = "lpo/" + pur_company_name + "/" + lpo_number;
-        if (pur_company_name.length < 2 || pur_ship_name.length < 2 || pur_ship_company_name.length < 2 || date.length <
-            2) {
-            alert('please fill all fields');
-
-        } else {
-            let items_array = [],
-                total = 0;
-            let table = document.getElementById('items_table');
-            console.log("table:" + table);
+    function get_table_items(){
+        let items_array = [],
+         table = document.getElementById('items_table');
             let tr = table.getElementsByTagName('tr');
             let item, description, quantity, price, obj;
-            let tax = document.getElementById("tax").value;
-            let discount = document.getElementById("discount").value;
             for (let i = 0; i < tr.length; i++) {
                 item = tr[i].getElementsByTagName('td')[0].getElementsByTagName('select')[0].value;
                 description = tr[i].getElementsByTagName('td')[1].getElementsByTagName('input')[0].value;
@@ -751,29 +773,107 @@
                     obj = {
                     item: item,
                     description: description,
-                    quantity: quantity,
-                    price: price
+                    quantity: parseInt(quantity),
+                    price: parseFloat(price).toFixed(2)
                 };
-                total += quantity * price;
                 items_array.push(obj);
                    }
               
 
             };
-            if(items_array.length<1)
+            return items_array;
+    }
+    function get_items_total(arr){
+        let total = 0 ;
+        arr.forEach((a)=>{
+            total +=  a.quantity * a.price;
+        })
+        return total;
+    }
+    function lpo_action(status) {
+            
+        let btn = document.getElementById('lpo_btn');
+        btn.disabled = true;
+        let pur_name = document.getElementById('pur-name').value;
+        let pur_vendor_address = document.getElementById('pur-vender-address').value;
+        let pur_vendor_city = document.getElementById('pur-vender-city').value;
+        let pur_vendor_phone = document.getElementById('pur-vender-phone').value;
+        let pur_company_name = document.getElementById('pur-company-name').value;
+        let pur_ship_name = document.getElementById('pur-ship-name').value;
+        let pur_ship_address = document.getElementById('pur-ship-address').value;
+        let pur_ship_city = document.getElementById('pur-ship-city').value;
+        let pur_ship_phone = document.getElementById('pur-ship-phone').value;
+        let pur_ship_company_name = document.getElementById('pur-ship-company-name').value;
+        let lpo_number = document.getElementById('pur-po').value;
+        let date = document.getElementById('pur-date').value;
+        let due_date = document.getElementById('pur-date-2').value;
+        let currency = document.getElementById('currency').value;
+        let ref = lpo_number;
+        let tax = document.getElementById("tax").value;
+        let discount = document.getElementById("discount").value;
+        let items_array = get_table_items();
+        let total = get_items_total(items_array);
+     
+        total = discount>0? total - discount : total;
+            total = tax>0 ? total + (total * (tax / 100)) : total;
+             
+        // let ref = "lpo/" + pur_company_name + "/" + lpo_number;
+        if(pur_company_name.length < 2){
+            alert("please select customer");
+            return;
+        }
+        if(status==='active'){
+            if (pur_ship_name.length < 2 || pur_ship_company_name.length < 2 || date.length <2){
+            alert('please fill all fields');
+            return;
+        }
+        if(items_array.length<1 )
             {
                 alert('please fill atleast one row');
                 return;
             }
-            total = total - discount;
-            total = total + (total * (tax / 100));
+        }    
+        
+           
+            // console.log("...items",items_array,total);
+            // return;
+            // let items_array = [],
+            //     total = 0;
+            // let table = document.getElementById('items_table');
+            // console.log("table:" + table);
+            // let tr = table.getElementsByTagName('tr');
+            // let item, description, quantity, price, obj;
+            // let tax = document.getElementById("tax").value;
+            // let discount = document.getElementById("discount").value;
+            // for (let i = 0; i < tr.length; i++) {
+            //     item = tr[i].getElementsByTagName('td')[0].getElementsByTagName('select')[0].value;
+            //     description = tr[i].getElementsByTagName('td')[1].getElementsByTagName('input')[0].value;
+            //     quantity = tr[i].getElementsByTagName('td')[2].getElementsByTagName('input')[0].value;
+            //     price = tr[i].getElementsByTagName('td')[3].getElementsByTagName('input')[0].value;
+                
+            //     if( item !== "" &&  
+            //        !isNaN(quantity) && quantity > 0 &&
+            //        !isNaN(price) && price > 0 ){
+            //         obj = {
+            //         item: item,
+            //         description: description,
+            //         quantity: quantity,
+            //         price: price
+            //     };
+            //     total += quantity * price;
+            //     items_array.push(obj);
+            //        }
+              
+
+            // };
+           
             
             items_array = JSON.stringify(items_array);
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     alert("Sales Order is Generated");
-                    e.disabled = false;
+                    btn.disabled = false;
 
                     var link = document.createElement("a");
                     link.download = 'sales order.xlsx';
@@ -795,15 +895,84 @@
                 + encodeURIComponent(pur_ship_address) + "&s_city=" +
                 encodeURIComponent(pur_ship_city) +
                 "&s_phone=" + encodeURIComponent(pur_ship_phone) + "&pur_ship_company_name=" + encodeURIComponent(pur_ship_company_name)
-                 + "&currency=" +
+                 + "&status="+status+"&currency=" +
                  encodeURIComponent(currency));
 
 
 
-        }
+        
 
     }
+    function lpo_refresh(){
+        let lpo_num = document.getElementById('input_search_lpo').value;      
+        let client = document.getElementById('input_search_client').value;
+        let state = document.getElementById('input_search_order_state').value;
+        let str = `<ul class="list_cont p-1">`;
+            console.log(lpo_num)
+        lpos.forEach((lpo)=>{
+            console.log(lpo.ref,"----",lpo_num)
+            if( (lpo_num ==="" || lpo.ref===lpo_num) && (state === "" || state === lpo.status) && (lpo.client === client || client==="") ){
+                        str += `<li class="card m-1 p-1 pointer" onClick="show('${lpo._id}')" style="font-size:12px">${lpo.ref}</li>`
 
+            }
+            // if(state!=="" && state===lpo.status)
+            // {             console.log("check")
+
+            //     if(client !== "" && client === lpo.client)
+            //     {
+            //         str += `<li class="card m-1 p-1 pointer" onClick="show('${lpo._id}')" style="font-size:12px">${lpo.ref}</li>`
+
+            //     }
+            //     else{
+            //         str += `<li class="card m-1 p-1 pointer" onClick="show('${lpo._id}')" style="font-size:12px">${lpo.ref}</li>`
+
+            //     }    
+            // }
+            // else if(client!=="" && client === lpo.client){
+            //     str += `<li class="card m-1 p-1 pointer" onClick="show('${lpo._id}')" style="font-size:12px">${lpo.ref}</li>`
+            // }
+            // else{
+            //     str += `<li class="card m-1 p-1 pointer" onClick="show('${lpo._id}')" style="font-size:12px">${lpo.ref}</li>`
+            // }
+        });
+        //  if(client!==""){
+        //         lpos.forEach((lpo)=>{
+        //             if(status!==""){
+        //     if(lpo.client===client){
+        //         str += `<li class="card m-1 p-1 pointer" onClick="show('${lpo._id}')" style="font-size:12px">${lpo.ref}</li>`
+        //     }
+        // }
+        // else{
+        //     if(lpo.client===client && lpo.status === status){
+        //         str += `<li class="card m-1 p-1 pointer" onClick="show('${lpo._id}')" style="font-size:12px">${lpo.ref}</li>`
+        //     }
+        // }
+        // });
+        //      }
+            
+             
+        // else if(lpo_num!==""){
+        //     lpos.forEach((lpo)=>{
+        //     if(lpo.ref===lpo_num){
+        //         str += `<li class="card m-1 p-1 pointer" onClick="show('${lpo._id}')" style="font-size:12px">${lpo.ref}</li>`
+        //     }
+        // }); 
+        // }
+        // else{
+        //     lpos.forEach((lpo)=>{
+        //     if(lpo.status===status ){
+        //         str += `<li class="card m-1 p-1 pointer" onClick="show('${lpo._id}')" style="font-size:12px">${lpo.ref}</li>`
+        //     }
+        // }); 
+        // }
+        
+        
+        
+        str += '</ul>'
+        document.getElementById('lpo_list').innerHTML = str;
+    
+
+    }
     function lpo_search() {
         let lpo_num = document.getElementById('input_search_lpo');
         let found = false;
@@ -829,15 +998,50 @@
         document.getElementById('pur-date').value = lpo.date;
         document.getElementById('pur-date-2').value = lpo.due_date;
         document.getElementById('pur-po').value = lpo.lpo_number;
+        document.getElementById('pur-po').setAttribute('disabled','disabled')
+        document.getElementById('pur-os').value = lpo.status;
         document.getElementById('pur-company-name').value = lpo.client;
+        document.getElementById('pur-company-name').setAttribute('disabled','disabled')
         fill_client();
         document.getElementById('tax').value = parseFloat(lpo.tax);
         document.getElementById('discount').value = parseFloat(lpo.discount);
         document.getElementById('currency').value = lpo.currency;
         let str = '',
             str3 = '';
-        let str2 = '<option value="null">Select Product</option>';
+        let str2 = '<option value="">Select Product</option>';
+        if(JSON.parse(lpo.items_array).length<1){
+            str = `<tr class="d-flex">
+                                                                <td class="col-3 td-cells">
+                                                                    <select class="form-control" id="pro1category" onclick="load_items(this)"
+                                                                        onchange="set_item(this)">
+                                                                        <option value="">Select Product</option>
+                                                                    </select>
+                                                                </td>
+                                                                <td class="col-5 td-cells">
+                                                                    <input type="text" class="form-control" id="pro1description">
+                                                                </td>
+                                                                <td class="col-2 td-cells">
+                                                                    <input type="text" class="form-control" id="pro1quantityorder"
+                                                                        onkeyup="calc(this)">
+                                                                </td>
+                                                                <td class="col-2 td-cells">
+                                                                    <input  type="text" class="form-control" id="pro1unitprice"
+                                                                        onKeyUp="grand_total()"
+                                                                        onkeypress="sales_add_new(event)">
+                                                                </td>
+                        
+                                            
+                                                            </tr>`;
+                                                            document.getElementById('items_table').innerHTML = str;
+                                                            items.forEach((item2) => {
+                
+                    str2 += `<option >` + item2.name + `</option>`;})
+                    document.getElementById('pro1category').innerHTML = str2;
+
+            return;
+        }
         JSON.parse(lpo.items_array).forEach((item, i) => {
+            str2 = '<option value="">Select Product</option>';
             str3 = `<td class="col-5 td-cells">
                                 <input type="text" class="form-control" id="pro${i+1}description">
                             </td>
@@ -865,6 +1069,7 @@
 
                     // set_item2(item2.name.toString());
                 } else {
+                    console.log("check")
                     str2 += `<option>` + item2.name + `</option>`;
 
                 }
@@ -942,6 +1147,45 @@
 
 
         };
+    }
+    //new functions
+    function new_order(){
+        if(        confirm("do you really want to reload? existing changes will be discarded!")){
+            window.location.reload();
+
+        }
+    }
+    function delete_order(){
+            if(confirm("do you really want to delete this sales order?")){
+            let ref = document.getElementById('pur-po').value;
+            fetch('/delete_lpo',{
+                method:'POST',
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                body:JSON.stringify({ref:ref}),
+
+            }).then(data=>data.json())
+            .then(res=>{
+                if(res.success){
+                    alert("Sales order is deleted");
+                    window.location.reload();
+                }
+                console.log(res)
+            })
+        }
+    }
+    function cancel_order(){
+            let ref = document.getElementById('pur-po').value;
+    }
+    function save_order(){
+        var link = document.createElement("a");
+                    link.download = 'sales order.xlsx';
+                    link.href = '/sales_order_report';
+                    link.click();
+                    return;
+        let btn= {};
+        generate_lpo(btn,'draft')
     }
 </script>
 

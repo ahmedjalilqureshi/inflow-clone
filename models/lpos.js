@@ -17,7 +17,8 @@ var mongoose = require('mongoose');
     total:String,
     tax:String,
     discount:String,
-    currency:String
+    currency:String,
+    status:{type:String,default:"draft"}
   });
 
   module.exports = mongoose.model('lpos',LpoSchema);
