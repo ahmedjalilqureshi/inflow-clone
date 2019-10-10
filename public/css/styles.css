@@ -1,0 +1,18 @@
+/* sales order */
+
+.sales-menu{
+    display: inline !important;
+}
+
+.sales-option{
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+}
+.new-order-box{
+    border: 1px solid black;
+}
+.customer-info{
+    margin-bottom: 20px;
+}
+/* sales order end */
