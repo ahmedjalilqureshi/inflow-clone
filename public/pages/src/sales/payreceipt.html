@@ -8,64 +8,25 @@
     <title>Receipt Voucher</title>
 
     <!-- <link rel="stylesheet" href="../../../css/style.css"> -->
-    <link rel="stylesheet" href="../../../css/salesStyle.css">
+    <link rel="stylesheet" href="../../../css/styles.css">
 
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!-- Font Awesome -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
-        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
-    </script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
-        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
-    </script>
 
-    <style>
-        /* .pm-0 {
-                    padding: 0px !important;
-        
-                    margin: 0px !important;
-                } */
-
-        .pm-0 {
-            padding: 0px !important;
-
-            margin: 0px !important;
-        }
-
-        tr td {
-            padding: 2px !important;
-            margin: 0 !important;
-        }
-
-        tr th {
-            padding: 2px !important;
-            margin: 0 !important;
-        }
-
-        body {
-            /* overflow: hidden;
-                    sc */
-            margin: 0;
-            padding: 0;
-            font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif
-
-        }
-    </style>
 </head>
 
 <body onload="fill()">
 
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
         <img src="../../../assets/img/aa-logo.jpg" class=" float-right md-logo" alt="logo" width="70px">
         <a class="navbar-brand text-dark navbar-left ml-3" href="#">
-
             ABBAS ALI & SONS UNIFORMS AND TEXTILES
         </a>
-        <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div>
@@ -128,83 +89,132 @@
 
         </div>
     </nav>
-    <hr class="pm-0">
+    <!-- <hr class="pm-0"> -->
 
+    <div class="container-fluid pc-main">
+        <div class="row">
+            <div class="col col-sm-2 col-md-3 col-lg-3 pay-receipt-lt">
+                <section class="pay-receipt-search mt-2 mb-4">
 
-    <div id="main" class="wrapper container-fluid m-3">
-
-        <div id="content" class="container-fluid">
-
-            <div class="container sales-container" id="main_place">
-
-                <div class="container payscript-container">
-                    <h1 class="doc-head-text">Receipt Voucher</h1>
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="col-md-4">
-                                Customers
-                            </div>
-                            <div class="col-md-8">
-                                <select class="form-control" id="clients_select" onchange="fill_lpos(this)">
-                                    <option value="">Select Customer</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="col-md-4">
-                                C.P.O Ref
-                            </div>
-                            <div class="col-12">
-                                <select class="form-control" id="lpos_select" onchange="fill_invoices(this)">
-                                    <option value="">Select C.P.O#</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="col-md-6">
-                                Invoice Ref
-                            </div>
-                            <div class="col-md-12">
-                                <select class="form-control" id="invoices_select" onchange="fill_items(this)">
-                                    <option value="">Select Invoice</option>
-                                </select>
-                            </div>
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <h3>Pay Receipt</h3>
+                            <p>Search</p>
                         </div>
                     </div>
 
-
-                    <!-- <div class="row">
-
-                        <div class="col-6 pay-receipt-info">
-                            <h3>ABBAS ALI & SONS</h3>
-                            <p>
-                                <address id="address"></address>
-                            </p>
-                            <p>
-                                <address id="city">karachi,pk</address>
-                            </p> \
-                            <p>Phone: <span id="phone-no">+923452462819,+923452965650</span></p>
-                            <p>Tel: <span id="fax-no">+92-31-3-4242673</span></p> 
-                            <p>Website: <span id="phone-no">www.abbasaliandsons.com</span></p>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" placeholder="Customer Name">
                         </div>
+                    </div>
 
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" placeholder="CPO Ref">
+                        </div>
+                    </div>
 
-                    </div> -->
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" placeholder="Invoice">
+                        </div>
+                    </div>
 
-                </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12 text-center mt-2">
+                            <button class="btn btn-primary mt-2">Refresh</button> <button
+                                class="btn btn-success mt-2">Submit</button>
+                        </div>
+                    </div>
 
+                </section>
 
+                <hr class="pc-line" />
 
+                <section class="pc-lt-list">
+                    <div class="table-responsive">
+                        <table class="table table-stripped">
+                            <tbody>
+                                <tr scope="row">
+                                    <td scope="col">Customer</td>
+                                    <td scope="col">Invoice</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
 
-           <div class="container">
-               <div class="container">
-                   <div class="container">
-                        <table class="table table-bordered">
+            </div>
+
+            <div class="col col-sm-10 col-md-9 col-lg-9">
+                <div class="pay-receipt-container">
+
+                    <div class="row mb-4">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <h1 class="text-center">Receipt Voucher</h1>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <section>
+
+                            <div class="row mt-2 mb-4">
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="row">
+                                        <div class="col-sm-4 col-md-4 col-lg-4">
+                                            <label for="">Customers</label>
+                                        </div>
+
+                                        <div class="col-sm-8 col-md-8 col-lg-8">
+                                            <select class="form-control" id="clients_select" onchange="fill_lpos(this)">
+                                                <option value="">Select Customer</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-3 col-lg-3">
+                                            <label for="">C.P.O Ref</label>
+                                        </div>
+
+                                        <div class="col-sm-9 col-md-9 col-lg-9">
+                                            <select class="form-control" id="lpos_select"
+                                                onchange="fill_invoices(this)">
+                                                <option value="">Select C.P.O#</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-3 col-lg-3">
+                                            <label for="">Invoice Ref</label>
+                                        </div>
+
+                                        <div class="col-sm-9 col-md-9 col-lg-9">
+                                            <select class="form-control" id="invoices_select"
+                                                onchange="fill_items(this)">
+                                                <option value="">Select Invoice</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="mt-10">
+                            <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <td class="row">
-                                            
-                                            <span class="col-md-6">Recieved:</span><span class="col-md-6">
+                                        <td class="row m-0">
+                                            <div class="col-md-4">
+                                                <label for="">Received</label>
+                                            </div>
+                                            <div class="col-md-8">
                                                 <select class='form-control' id='currency'>
                                                     <option value='PKR'>PKR</option>
                                                     <option value='USD'>USD</option>
@@ -212,9 +222,16 @@
                                                     <option value='GBP'>GBP</option>
                                                     <option value='AED'>AED</option>
                                                 </select>
-                                            </span></td>
-                                        <td>Total Amount Due:</td>
-                                        <td>Balance:</td>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            Total Amount Due:
+                                        </td>
+
+                                        <td>
+                                            Balance:
+                                        </td>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -230,32 +247,109 @@
                                     </tr>
                                 </tbody>
                             </table>
+
+                            <div class="pay-receipt-btn text-center mt-4">
+                                <button onclick="generate(this)" class="btn btn-primary btn-lg">Generate</button>
+                            </div>
+                        </section>
+
+                    </div>
+
+                    <!-- <div class="container sales-container" id="main_place">
+
+                    <div class="container payscript-container">
+                        <h1 class="doc-head-text">Receipt Voucher</h1>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="col-md-4">
+                                    Customers
+                                </div>
+                                <div class="col-md-8">
+                                    <select class="form-control" id="clients_select" onchange="fill_lpos(this)">
+                                        <option value="">Select Customer</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="col-md-4">
+                                    C.P.O Ref
+                                </div>
+                                <div class="col-12">
+                                    <select class="form-control" id="lpos_select" onchange="fill_invoices(this)">
+                                        <option value="">Select C.P.O#</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="col-md-6">
+                                    Invoice Ref
+                                </div>
+                                <div class="col-md-12">
+                                    <select class="form-control" id="invoices_select" onchange="fill_items(this)">
+                                        <option value="">Select Invoice</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+    
+                    </div>
+    
+               <div class="container">
+                   <div class="container">
+                       <div class="container">
+                            <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td class="row">
+                                                
+                                                <span class="col-md-6">Recieved:</span><span class="col-md-6">
+                                                    <select class='form-control' id='currency'>
+                                                        <option value='PKR'>PKR</option>
+                                                        <option value='USD'>USD</option>
+                                                        <option value='EURO'>EURO</option>
+                                                        <option value='GBP'>GBP</option>
+                                                        <option value='AED'>AED</option>
+                                                    </select>
+                                                </span></td>
+                                            <td>Total Amount Due:</td>
+                                            <td>Balance:</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="td-cells"><input type="text" class="form-control" id="paying"
+                                                    onkeyup="balance()"></td>
+                                            <td class="td-cells">
+                                                <p class="form-control" id="total_payment"></p>
+                                            </td>
+                                            <td class="td-cells">
+                                                <p class="form-control" id="balance"></p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                       </div>
                    </div>
                </div>
-           </div>
-
-                <script>
-                    function balance() {
-                        let paying = parseFloat(document.getElementById("paying").value),
-                            total = parseFloat(document.getElementById("total_payment").innerHTML),
-                            balance = document.getElementById("balance");
-                        console.log(paying);
-                        console.log(total);
-                        balance.innerHTML = (total - paying).toFixed(2);
-                        if (paying === null) {
-                            balance.innerHTML = (0).toFixed(2);
-
-                        }
-                    }
-                </script>
-
-                <section class="color-1 text-center">
-                    <p>
-                        <button onclick="generate(this)" class="btn btn-primary">Generate</button>
-                    </p>
-                </section>
-
+    
+                    <section class="color-1 text-center">
+                        <p>
+                            <button onclick="generate(this)" class="btn btn-primary">Generate</button>
+                        </p>
+                    </section>
+    
+                </div> -->
+                </div>
             </div>
+        </div>
+    </div>
+
+
+    <div id="main" class="wrapper container-fluid m-3">
+
+        <div id="content" class="container-fluid">
+
+
 
 
 
@@ -445,21 +539,39 @@
             "&paying=" + paying + "&total=" + total + "&balance=" + balance + "&currency=" + currency);
 
     }
+
+    function balance() {
+        let paying = parseFloat(document.getElementById("paying").value),
+            total = parseFloat(document.getElementById("total_payment").innerHTML),
+            balance = document.getElementById("balance");
+        console.log(paying);
+        console.log(total);
+        balance.innerHTML = (total - paying).toFixed(2);
+        if (paying === null) {
+            balance.innerHTML = (0).toFixed(2);
+
+        }
+    }
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-</script>
+    </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
     integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-</script>
+    </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-</script>
+    </script>
+<!-- Font Awesome -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+    integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
+    </script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+    integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
+    </script>
+
 
 <script src="../../../js/app.js"></script>
 
-<script>
-    //  let index = 1;
-</script>
 
 </html>
