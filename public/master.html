@@ -1,5 +1,6 @@
 <!Doctype html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,800 +10,573 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/salesStyle.css" />
 
     <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <style>
-                /* .pm-0 {
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <style>
+        /* .pm-0 {
                             padding: 0px !important;
                 
                             margin: 0px !important;
                         } */
-            
-                .pm-0 {
-                  padding: 0px !important;
-            
-                  margin: 0px !important;
-                }
-            
-                tr td {
-                  padding: 2px !important;
-                  margin: 0 !important;
-                }
-            
-                tr th {
-                  padding: 2px !important;
-                  margin: 0 !important;
-                }
-            
-                body {
-                  /* overflow: hidden;
+
+        .pm-0 {
+            padding: 0px !important;
+
+            margin: 0px !important;
+        }
+
+        tr td {
+            padding: 2px !important;
+            margin: 0 !important;
+        }
+
+        tr th {
+            padding: 2px !important;
+            margin: 0 !important;
+        }
+
+        body {
+            /* overflow: hidden;
                             sc */
-                  margin: 0;
-                  padding: 0;
-                  font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif
-
-                }
-              </style>
+            margin: 0;
+            padding: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif
+        }
+    </style>
 </head>
+
 <body>
-      
-   <!--- side nav-->
-   <nav class="navbar navbar-expand-lg navbar-dark bg-light">
-        <img src="../../../assets/img/aa-logo.jpg" class=" float-right md-logo" alt="logo"
-        width="70px">
-    <a class="navbar-brand text-dark navbar-left ml-3" href="#">
-            
-        ABBAS ALI & SONS UNIFORMS AND TEXTILES
-    </a>
-    <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div>
-        &nbsp;
-    </div>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto text-light">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Sales
-                </a>
-                <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item text-info" href="/sale/sales_order">Sales Order</a>
-                    <a class="dropdown-item text-info" href="/sale/packing_list">Packing List</a>
-                    <a class="dropdown-item text-info" href="/sale/commercial_invoice">Commercial Invoice</a>
-                    <a class="dropdown-item text-info" href="/sale/reciept_voucher">Reciept Voucher</a>
+    <!--- side nav-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+        <img src="../../../assets/img/aa-logo.jpg" class=" float-right md-logo" alt="logo" width="70px">
+        <a class="navbar-brand text-dark navbar-left ml-3" href="#">
 
-                </div>
-            </li>
+            ABBAS ALI & SONS UNIFORMS AND TEXTILES
+        </a>
+        <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div>
+            &nbsp;
+        </div>
 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Purchase
-                </a>
-                <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item text-info" href="/purchase/purchase_order">Purchase Order</a>
-                    <a class="dropdown-item text-info" href="/purchase/gr_note">Good Recieving Note / Invoice</a>
-                    <a class="dropdown-item text-info" href="/purchase/payment_voucher">Vendor Payment</a>
-                </div>
-            </li>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto text-light">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sales
+                    </a>
+                    <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item text-info" href="/sale/sales_order">Sales Order</a>
+                        <a class="dropdown-item text-info" href="/sale/packing_list">Packing List</a>
+                        <a class="dropdown-item text-info" href="/sale/commercial_invoice">Commercial Invoice</a>
+                        <a class="dropdown-item text-info" href="/sale/reciept_voucher">Reciept Voucher</a>
+
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Purchase
+                    </a>
+                    <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item text-info" href="/purchase/purchase_order">Purchase Order</a>
+                        <a class="dropdown-item text-info" href="/purchase/gr_note">Good Recieving Note / Invoice</a>
+                        <a class="dropdown-item text-info" href="/purchase/payment_voucher">Vendor Payment</a>
+                    </div>
+                </li>
 
 
 
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="/production">Production</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Reports
-                </a>
-                <div class="dropdown-menu text-dark bg-dark" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item text-info" href="/reports/sales_report">Sales Report</a>
-                    <a class="dropdown-item text-info" href="/reports/purchase_report">Purchase Report</a>
-                    <a class="dropdown-item text-info" href="/reports/production_report">Production Report</a>
-                    <a class="dropdown-item text-info" href="/reports/accounts_report">Accounts Report</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="/master" tabindex="-1" aria-disabled="true">Master Data</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="/master_view" tabindex="-1" aria-disabled="true">Master
-                    View</a>
-            </li>
-        </ul>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/production">Production</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Reports
+                    </a>
+                    <div class="dropdown-menu text-dark bg-dark" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item text-info" href="/reports/sales_report">Sales Report</a>
+                        <a class="dropdown-item text-info" href="/reports/purchase_report">Purchase Report</a>
+                        <a class="dropdown-item text-info" href="/reports/production_report">Production Report</a>
+                        <a class="dropdown-item text-info" href="/reports/accounts_report">Accounts Report</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/master" tabindex="-1" aria-disabled="true">Master Data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/master_view" tabindex="-1" aria-disabled="true">Master
+                        View</a>
+                </li>
+            </ul>
 
-    </div>
-</nav>
-   <!--- side nav-->
+        </div>
+    </nav>
+    <!--- side nav-->
     <div id="main">
-            <div class="container-fluid">
-                    <div class="container">
-            
-                    <div class="row">
-                            <div class="col-12 text-center">
-                                <img src="assets/img/logo.png" class="rounded mx-auto sub-logo-img" alt="logo" width="250px">
-                            </div>
-                        </div>
-                    <div class="container-fluid">
-                        <!-- Nav pills -->
-            <ul class="nav nav-pills">
-                    <li class="nav-item">
-                      <a class="nav-link active" data-toggle="pill" href="#add_product">Add Product</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" data-toggle="pill" href="#add_raw">Add Raw Item</a>
-                    </li>
-                    <li class="nav-item">
+        <div class="container-fluid">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <img src="assets/img/logo.png" class="rounded mx-auto sub-logo-img" alt="logo" width="250px">
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <!-- Nav pills -->
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="pill" href="#add_product">Add Product</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#add_raw">Add Raw Item</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" data-toggle="pill" href="#add_style">Add Style</a>
-                     </li>
-                     <li class="nav-item">
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" data-toggle="pill" href="#add_size">Add Sizes</a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" data-toggle="pill" href="#add_fabric">Add Fabric</a>
-                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" data-toggle="pill" href="#add_vendor">Add Vendor</a>
-                    </li>
-                    <li class="nav-item">
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#add_fabric">Add Fabric</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#add_vendor">Add Vendor</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" data-toggle="pill" href="#add_client">Add Client</a>
-                    </li>
-                    <li class="nav-item">
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" data-toggle="pill" href="#sales_terms">Sales Terms</a>
-                    </li>
-                    <li class="nav-item">
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" data-toggle="pill" href="#purchase_terms">Purchase Terms</a>
-                    </li>
-                    <li class="nav-item">
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" data-toggle="pill" href="#currency_div">Currency Rates</a>
-                    </li>
-                  </ul>
-                  <hr>
-                  
-                  <!-- Tab panes -->
-                  <div class="tab-content">
-                    <div class="tab-pane container active" id="add_product">   <!---- Add Item  -->
-                        <div class="container-fluid">
-                            <h4>Add Product</h4>
-                            <div class="container">
-                                <form  id='product_form'>
+                        </li>
+                    </ul>
+                    <hr>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane container active" id="add_product">
+                            <!---- Add Item  -->
+                            <div class="container-fluid">
+                                <h4>Add Product</h4>
+                                <div class="container">
+                                    <form id='product_form'>
                                         <div class="form-group">
-                                                <label class="form-control-label">Item Name:</label>
-                                                <input required type="text" name="name" class="form-control" id='p_name'/>
-                                            </div>
-                                            <div class="form-group">
-                                                    <label class="form-control-label">Item Description:</label>
-                                                    <input required type="text" name="detail" class="form-control" id='p_detail'/>
-                                            </div>
-                                            <div class="form-group">
-                                                        <label class="form-control-label">Unit Price:</label>
-                                                        <input required type="text" name="price" class="form-control" id='p_price' />
-                                             </div>  
-                                             <button class="btn btn-primary" id='p_btn'>Add</button> 
-                                </form>
-                                 
-            
+                                            <label class="form-control-label">Item Name:</label>
+                                            <input required type="text" name="name" class="form-control" id='p_name' />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Item Description:</label>
+                                            <input required type="text" name="detail" class="form-control"
+                                                id='p_detail' />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Unit Price:</label>
+                                            <input required type="text" name="price" class="form-control"
+                                                id='p_price' />
+                                        </div>
+                                        <button class="btn btn-primary" id='p_btn'>Add</button>
+                                    </form>
+
+
+                                </div>
                             </div>
+                            <hr>
+
+                            <!---- Add Item  -->
+
+
                         </div>
-                        <hr>
-            
-                         <!---- Add Item  -->
-                     
-            
-                       </div>
-                    <div class="tab-pane container fade" id="add_raw"> <!---- Add Raw Item  -->
-                        <div class="container-fluid">
+                        <div class="tab-pane container fade" id="add_raw">
+                            <!---- Add Raw Item  -->
+                            <div class="container-fluid">
                                 <h4>Add Raw Item</h4>
                                 <div class="container">
                                     <form action='/add_raw_item' id='raw_form'>
-                                            <div class="form-group">
-                                                    <label class="form-control-label">Item Name:</label>
-                                                    <input required type="text" name="name" class="form-control" id='r_name' />
-                                                </div>
-                                                <div class="form-group">
-                                                        <label class="form-control-label">Item Description:</label>
-                                                        <input required type="text" name="detail" class="form-control" id='r_detail'  />
-                                                </div>
-                                                <div class="form-group">
-                                                        <label class="form-control-label">Unit Type:</label>
-                                                        <input required type="text" name="unit" id='r_unit' class="form-control" placeholder="meters,gz,yards,kg?"/>
-                                                 </div>  
-                                                <div class="form-group">
-                                                            <label class="form-control-label">Unit Price:</label>
-                                                            <input required type="text" name="price" id='r_price' class="form-control" />
-                                                 </div>  
-                                                 <button class="btn btn-primary" id='r_btn'>Add</button> 
+                                        <div class="form-group">
+                                            <label class="form-control-label">Item Name:</label>
+                                            <input required type="text" name="name" class="form-control" id='r_name' />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Item Description:</label>
+                                            <input required type="text" name="detail" class="form-control"
+                                                id='r_detail' />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Unit Type:</label>
+                                            <input required type="text" name="unit" id='r_unit' class="form-control"
+                                                placeholder="meters,gz,yards,kg?" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Unit Price:</label>
+                                            <input required type="text" name="price" id='r_price'
+                                                class="form-control" />
+                                        </div>
+                                        <button class="btn btn-primary" id='r_btn'>Add</button>
                                     </form>
-                                     
-                
+
+
                                 </div>
                             </div>
                             <hr>
-                
-                             <!---- Add Raw Item  --></div>
-                     <div class="tab-pane container fade" id="add_style"> <!---- Add style  -->
-                                <div class="container-fluid">
-                                        <h4>Add Style</h4>
-                                        <div class="container">
-                                            <!-- <form action='/add_style' method="POST" enctype="multipart/form-data"> -->
-                                                <form id='style_form'>     
-                                                <div class="form-group">
-                                                            <label class="form-control-label">Title:</label>
-                                                            <input required type="text" name="title" class="form-control" />
-                                                        </div>
-                                                        <div class="form-group">
-                                                                <label class="form-control-label">Gender:</label>
-                                                                <select  name="gender" class="form-control" >
-                                                                    <option value="male" >Male</option>
-                                                                    <option value="female" >Female</option>
-                                                                </select>               
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="form-control-label">Client</label>
-                                                            <input name="client" class='form-control' list='client_list'>
-                                                            <datalist id='client_list'></datalist>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="form-control-label">Picture:</label>
-                                                            <input type="file" name="picture" class="form-control" accept="image/jpeg,image/jpg,image/png" >
-                                                    </div>
-                                                        <div class="container">
-                                                            <table class="table table-light">
-                                                                <thead ><tr><th>Product</th><th>Fabric Code</th><th>Details</th><th>Logo/Embroidry</th><th>&nbsp;</th></tr>
-                                                                
-                                                                    <tr><td><select id="product_select"  class="form-control" style="width:120px"  >
-                                                                        </select></td>
-                                                                        <td><select id="fabrics_select"  class="form-control" style="width:140px" >
-                                                                            </select></td>
-                                                                        <td><textarea  type="text" id="p_d"  class="form-control" rows="4"></textarea></td>
-                                                                        <td><textarea  type="text" id="p_l"  class="form-control" rows="4"></textarea></td>
-                                                                        <td><button  style="font-size: 24px;font-weight: 800" type="button" onclick="add(this)"> + </button></td></tr>
-                                                                </thead>
-                                                                <tbody id="pro_list">
 
-                                                                </tbody>
-                                                            </table>
-                                                            </div>
-                                                        <script>
-                                                            function add(e){
-                                                                       let item = document.getElementById("product_select").value,
-                                                                        fabric_code = document.getElementById("fabrics_select"),
-                                                                        details =  document.getElementById("p_d"), 
-                                                                        logo =  document.getElementById("p_l"), 
-                                                                        input = document.getElementById("product_list2");
-                                                                        if(item==="" || fabric_code.value === "" || details.value === "" || logo.value=== "")
-                                                                        {
-                                                                            swal("Please fill all fileds");
-                                                                            return;
-                                                                        }
-                                                                        if(input.value===""){
-                                                                            let arr_obj = [{product:item,fabric_code:fabric_code.value,
-                                                                                details:details.value,logo:logo.value}];
-
-                                                                            input.value = JSON.stringify(arr_obj);
-                                                                            show_products(arr_obj);
-                                                                        }
-                                                                         else{
-                                                                             let old_arr = JSON.parse(input.value);
-                                                                              old_arr.push({product:item,fabric_code:fabric_code.value,
-                                                                                details:details.value,logo:logo.value});
-                                                                             input.value = JSON.stringify(old_arr);
-                                                                             show_products(old_arr);
-                                                                         }
-                                                                         logo.value ='';
-                                                                         details.value = '';
-
-                                                            }
-                                                            function show_products(arr){
-                                                               let table = document.getElementById("pro_list");
-                                                               let str=''
-                                                               arr.forEach((item)=>{
-                                                                str += `<tr><td>`+item.product+`</td>
-                                                                    <td>`+item.fabric_code+`</td>
-                                                                    <td>`+item.details+`</td>
-                                                                    <td>`+item.logo+`</td>
-                                                                    <td> &nbsp;</td>
-                                                                    </tr>`
-                                                               })
-                                                               table.innerHTML = str;
-                            
-                                                            }
-                                                        </script>
-                                                        <div class="form-group">
-                                                            <input type="hidden"  id="product_list2" name="product" required>
-                                                
-                                                        </div>
-                                                        
-                                                                  
-                                                         <button class="btn btn-primary" id='s_btn'>Add</button> 
-                                            </form>
-                                             
-                        
+                            <!---- Add Raw Item  -->
+                        </div>
+                        <div class="tab-pane container fade" id="add_style">
+                            <!---- Add style  -->
+                            <div class="container-fluid">
+                                <h4>Add Style</h4>
+                                <div class="container">
+                                    <!-- <form action='/add_style' method="POST" enctype="multipart/form-data"> -->
+                                    <form id='style_form'>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Title:</label>
+                                            <input required type="text" name="title" class="form-control" />
                                         </div>
-                                    </div>
-                                    <hr>
-                        
-                          <!---- Add style   --></div>
-                          <div class="tab-pane container fade" id="add_size">   <!---- Add Item  -->
+                                        <div class="form-group">
+                                            <label class="form-control-label">Gender:</label>
+                                            <select name="gender" class="form-control">
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Client</label>
+                                            <input name="client" id="client_name" class='form-control'
+                                                list='client_list'>
+                                            <datalist id='client_list'></datalist>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Picture:</label>
+                                            <input type="file" name="picture" class="form-control"
+                                                accept="image/jpeg,image/jpg,image/png">
+                                        </div>
+                                        <div class="container">
+                                            <table class="table table-light">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Product</th>
+                                                        <th>Fabric Code</th>
+                                                        <th>Details</th>
+                                                        <th>Logo/Embroidry</th>
+                                                        <th>&nbsp;</th>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td><select id="product_select" class="form-control"
+                                                                style="width:120px">
+                                                            </select></td>
+                                                        <td><select id="fabrics_select" class="form-control"
+                                                                style="width:140px">
+                                                            </select></td>
+                                                        <td><textarea type="text" id="p_d" class="form-control"
+                                                                rows="4"></textarea></td>
+                                                        <td><textarea type="text" id="p_l" class="form-control"
+                                                                rows="4"></textarea></td>
+                                                        <td><button style="font-size: 24px;font-weight: 800"
+                                                                type="button" onclick="add(this)"> + </button></td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="pro_list">
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <!-- <input type="hidden" id="product_list2" name="product" required> -->
+
+                                        </div>
+
+
+                                        <button class="btn btn-primary" id='s_btn'>Add</button>
+                                    </form>
+
+
+                                </div>
+                            </div>
+                            <hr>
+
+                            <!---- Add style   -->
+                        </div>
+                        <div class="tab-pane container fade" id="add_size">
+                            <!---- Add Item  -->
                             <div class="container-fluid">
                                 <h4>Sizes</h4>
                                 <div class="container">
-                                    <form  id='size_form'>
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-md-2">
-                                                            <label class="form-control-label">Sizes List:</label>
-                                                            <br>
-                                                            <small class='text-muted'>please use semi color (;) to differentiate various sizes </small>
-                                                            <br>
-                                                            <small class='text-muted'>Example: small ; medium ; large ; 34'  </small>
+                                    <form id='size_form'>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <label class="form-control-label">Sizes List:</label>
+                                                    <br>
+                                                    <small class='text-muted'>please use semi color (;) to differentiate
+                                                        various sizes </small>
+                                                    <br>
+                                                    <small class='text-muted'>Example: small ; medium ; large ; 34'
+                                                    </small>
 
-                                                    </div>
-                                                    <div class="col-md-9">
-                                                            <textarea cols="40" rows="10" id='size_input'>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <textarea cols="40" rows="10" id='size_input'>
 
                                                             </textarea>
-                                                    </div>
                                                 </div>
-                                                    
-                                                </div>
-                                                
-                                                 <button class="btn btn-primary" id='size_btn'>Add</button> 
+                                            </div>
+
+                                        </div>
+
+                                        <button class="btn btn-primary" id='size_btn'>Add</button>
                                     </form>
-                                     
-                
+
+
                                 </div>
                             </div>
                             <hr>
-                
-                             <!---- Add Item  -->
-                         
-                
-                           </div>
-                
-                     <div class="tab-pane container fade" id="add_fabric"> <!---- Add fabric  -->
+
+                            <!---- Add Item  -->
+
+
+                        </div>
+
+                        <div class="tab-pane container fade" id="add_fabric">
+                            <!---- Add fabric  -->
                             <div class="container-fluid">
-                                    <h4>Add Fabric</h4>
-                                    <div class="container">
-                                        <form action='/add_fabric' method="POST">
-                                                <div class="form-group">
-                                                        <label class="form-control-label">Name:</label>
-                                                        <input required type="text" name="name" class="form-control" />
-                                                    </div>
-                                                    <div class="form-group">
-                                                            <label class="form-control-label">Fabric Code:</label>
-                                                            <input required type="text" name="fabric_code" class="form-control" />
-                                                    </div>
-                                                
-                                                    <div class="form-group">
-                                                            <label class="form-control-label">Description:</label>
-                                                            <textarea class="form-control" name='detail'></textarea>
-                                                     </div>
-                                                        <div class="form-group">
-                                                                <label class="form-control-label">Width:</label>
-                                                                <input required type='number' name="width" class="form-control" />
-                                                        </div>
-                                                        <div class="form-group">
-                                                                <label class="form-control-label">Color:</label>
-                                                                <input required type="text" name="color" class="form-control" />
-                                                     </div>
-                                                            
-                                                     <button class="btn btn-primary">Add</button> 
-                                        </form>
-                                         
-                    
-                                    </div>
+                                <h4>Add Fabric</h4>
+                                <div class="container">
+                                    <form action='/add_fabric' method="POST">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Name:</label>
+                                            <input required type="text" name="name" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Fabric Code:</label>
+                                            <input required type="text" name="fabric_code" class="form-control" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-control-label">Description:</label>
+                                            <textarea class="form-control" name='detail'></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Width:</label>
+                                            <input required type='number' name="width" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Color:</label>
+                                            <input required type="text" name="color" class="form-control" />
+                                        </div>
+
+                                        <button class="btn btn-primary">Add</button>
+                                    </form>
+
+
                                 </div>
-                                <hr>
-                    
-                      <!---- Add fabric   --></div>     
-                    <div class="tab-pane container fade" id="add_vendor">
-                         <!--- Add Vendor -->
-                         <div class="container-fluid">
+                            </div>
+                            <hr>
+
+                            <!---- Add fabric   -->
+                        </div>
+                        <div class="tab-pane container fade" id="add_vendor">
+                            <!--- Add Vendor -->
+                            <div class="container-fluid">
                                 <h4>Add Vendor</h4>
                                 <div class="container">
-                                    <script>
-                                        
-                                    function validate(e)
-                                    {
-                                        let val = e.value;
-                                        if(val[val.length-1]==="&")
-                                        {   swal("")
-                                        var newStr = val.substring(0, val.length-1);  
-                                                  e.value =newStr;
-                                            swal("Restricted characters are not allowed")
-                                        }
-                                    }    
-                                    </script>
+
                                     <form action='/add_vendor' method="POST">
-                                            <div class="form-group">
-                                                    <label class="form-control-label">Name:</label>
-                                                    <input required type="text" name="name" class="form-control" onKeyUp="validate(this)"/>
-                                                </div>
-                                                <div class="form-group">
-                                                        <label class="form-control-label">Company Name:</label>
-                                                        <input required type="text" name="company_name" class="form-control" onKeyUp="validate(this)" />
-                                                </div>
-                                                <div class="form-group">
-                                                            <label class="form-control-label">Street Address:</label>
-                                                            <input required type="text" name="street" class="form-control" />
-                                                 </div>
-                                                 <div class="form-group">
-                                                        <label class="form-control-label">City:</label>
-                                                        <input required type="text" name="city" class="form-control" />
-                                                 </div>
-                                                 <div class="form-group">
-                                                        <label class="form-control-label">Phone:</label>
-                                                        <input required type="text" name="phone" class="form-control" />
-                                                 </div> 
-                                                 <div class="form-group">
-                                                    <label class="form-control-label">Email:</label>
-                                                    <input required type="email" name="email" class="form-control" />
-                                                 </div>  
-                                                 <button class="btn btn-primary">Add</button> 
+                                        <div class="form-group">
+                                            <label class="form-control-label">Name:</label>
+                                            <input required type="text" name="name" class="form-control"
+                                                onKeyUp="validate(this)" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Company Name:</label>
+                                            <input required type="text" name="company_name" class="form-control"
+                                                onKeyUp="validate(this)" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Street Address:</label>
+                                            <input required type="text" name="street" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">City:</label>
+                                            <input required type="text" name="city" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Phone:</label>
+                                            <input required type="text" name="phone" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Email:</label>
+                                            <input required type="email" name="email" class="form-control" />
+                                        </div>
+                                        <button class="btn btn-primary">Add</button>
                                     </form>
-                                     
-                
+
+
                                 </div>
                             </div>
                             <hr>
-                        <!--- Add Vendor -->
-                    </div>
-                    <div class="tab-pane container fade" id="add_client">
-                        <!--- Add Client -->
-                        <div class="container-fluid">
+                            <!--- Add Vendor -->
+                        </div>
+                        <div class="tab-pane container fade" id="add_client">
+                            <!--- Add Client -->
+                            <div class="container-fluid">
                                 <h4>Add Client</h4>
                                 <div class="container">
                                     <form action='/add_client' method="POST">
                                         <div class="form-group">
-                                                <label class="form-control-label">Name:</label>
-                                                <input required type="text" name="name" class="form-control" onKeyUp="validate(this)" />
-                                            </div>
-                                            <div class="form-group">
-                                                    <label class="form-control-label">Company Name:</label>
-                                                    <input required type="text" name="company_name" class="form-control" onKeyUp="validate(this)" />
-                                            </div>
-                                            <div class="form-group">
-                                                        <label class="form-control-label">Street Address:</label>
-                                                        <input required type="text" name="street" class="form-control" />
-                                             </div>
-                                             <div class="form-group">
-                                                    <label class="form-control-label">City:</label>
-                                                    <input required type="text" name="city" class="form-control" />
-                                             </div>
-                                             <div class="form-group">
-                                                    <label class="form-control-label">Phone:</label>
-                                                    <input required type="text" name="phone" class="form-control" />
-                                             </div> 
-                                             <div class="form-group">
-                                                <label class="form-control-label">Email:</label>
-                                                <input required type="email" name="email" class="form-control" />
-                                         </div> 
-                                             <button class="btn btn-primary">Add</button> 
+                                            <label class="form-control-label">Name:</label>
+                                            <input required type="text" name="name" class="form-control"
+                                                onKeyUp="validate(this)" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Company Name:</label>
+                                            <input required type="text" name="company_name" class="form-control"
+                                                onKeyUp="validate(this)" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Street Address:</label>
+                                            <input required type="text" name="street" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">City:</label>
+                                            <input required type="text" name="city" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Phone:</label>
+                                            <input required type="text" name="phone" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Email:</label>
+                                            <input required type="email" name="email" class="form-control" />
+                                        </div>
+                                        <button class="btn btn-primary">Add</button>
                                     </form>
-                                     
-                
+
+
                                 </div>
                             </div>
                             <hr>
-                        <!--- Add Client -->
-            
-            
-                    </div>
-                    <div class="tab-pane container fade" id="sales_terms">
-                        <!--- sales terms -->
-                        <div class="container-fluid">
+                            <!--- Add Client -->
+
+
+                        </div>
+                        <div class="tab-pane container fade" id="sales_terms">
+                            <!--- sales terms -->
+                            <div class="container-fluid">
                                 <h4>Sales Terms</h4>
                                 <div class="container">
                                     <form action='/update_sales_terms' method="POST">
-                                        
-                                            <div class="form-group">
-                                                    <textarea required type="text" name="sales_terms" id="sales_terms_input" class="form-control" rows="20" cols="80" >
-                                                    </textarea>    
-                                            </div>
-                                            
-                                             <button class="btn btn-primary">Update</button> 
+
+                                        <div class="form-group">
+                                            <textarea required type="text" name="sales_terms" id="sales_terms_input"
+                                                class="form-control" rows="20" cols="80">
+                                                    </textarea>
+                                        </div>
+
+                                        <button class="btn btn-primary">Update</button>
                                     </form>
                                 </div>
                             </div>
                             <hr>
-                        <!--- Sales Terms -->
-             
-                    </div>
-                    <div class="tab-pane container fade" id="purchase_terms">
+                            <!--- Sales Terms -->
+
+                        </div>
+                        <div class="tab-pane container fade" id="purchase_terms">
                             <!--- purchase terms -->
                             <div class="container-fluid">
-                                    <h4>Purchase Terms</h4>
-                                    <div class="container">
-                                        <form action='/update_purchase_terms' method="POST">
-                                            
-                                                <div class="form-group">
-                                                        <textarea required type="text" name="purchase_terms" id="purchase_terms_input" class="form-control" rows="20" cols="80" >
-                                                        </textarea>    
-                                                </div>
-                                                
-                                                 <button class="btn btn-primary">Update</button> 
-                                        </form>
-                                    </div>
+                                <h4>Purchase Terms</h4>
+                                <div class="container">
+                                    <form action='/update_purchase_terms' method="POST">
+
+                                        <div class="form-group">
+                                            <textarea required type="text" name="purchase_terms"
+                                                id="purchase_terms_input" class="form-control" rows="20" cols="80">
+                                                        </textarea>
+                                        </div>
+
+                                        <button class="btn btn-primary">Update</button>
+                                    </form>
                                 </div>
-                                <hr>
+                            </div>
+                            <hr>
                             <!--- purchase Terms -->
-                 
+
                         </div>
-                        <div class="tab-pane container fade" id="currency_div"> <!---- Add Raw Item  -->
+                        <div class="tab-pane container fade" id="currency_div">
+                            <!---- Add Raw Item  -->
                             <div class="container-fluid">
-                                    <h4>Currency Rates</h4>
-                                    <div class="container">
-                                        <form  id='currency_form'>
-                                            <h4>Base Currency :PKR</h4>
-                                                <div class="form-group">
-                                                        <label class="form-control-label">USD->PKR:</label>
-                                                        <input required type="text" name="USD" class="form-control" id='USD' />
-                                                    </div>
-                                                    <div class="form-group">
-                                                            <label class="form-control-label">EURO->PKR:</label>
-                                                            <input required type="text" name="EURO" class="form-control" id='EURO'  />
-                                                    </div>
-                                                    <div class="form-group">
-                                                            <label class="form-control-label">GBP->PKR:</label>
-                                                            <input required type="text" name="GBP" id='GBP' class="form-control" />
-                                                     </div>  
-                                                    <div class="form-group">
-                                                                <label class="form-control-label">AED->PKR:</label>
-                                                                <input required type="text" name="AED" id='AED' class="form-control" />
-                                                     </div>  
-                                                     <button class="btn btn-primary" id='r_btn'>Update</button> 
-                                        </form>
-                                         
-                    
-                                    </div>
+                                <h4>Currency Rates</h4>
+                                <div class="container">
+                                    <form id='currency_form'>
+                                        <h4>Base Currency :PKR</h4>
+                                        <div class="form-group">
+                                            <label class="form-control-label">USD->PKR:</label>
+                                            <input required type="text" name="USD" class="form-control" id='USD' />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">EURO->PKR:</label>
+                                            <input required type="text" name="EURO" class="form-control" id='EURO' />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">GBP->PKR:</label>
+                                            <input required type="text" name="GBP" id='GBP' class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">AED->PKR:</label>
+                                            <input required type="text" name="AED" id='AED' class="form-control" />
+                                        </div>
+                                        <button class="btn btn-primary" id='r_btn'>Update</button>
+                                    </form>
+
+
                                 </div>
-                                <hr>
-                    
-                                 <!---- Add Raw Item  --></div>
-            
-                  </div>
-                          
-                        
-                        
-                    </div>    
+                            </div>
+                            <hr>
+
+                            <!---- Add Raw Item  -->
                         </div>
-            
-                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </div>
     </div>
-           
-
-     
-
-        
-<!-- <script type="text/javascript" src="jquery-3.3.1.min.js"></script> -->
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-crossorigin="anonymous"></script>
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-crossorigin="anonymous"></script>
-
-<script>
-
-    // ajax form submittion
-    $("#currency_form").submit(function (e) {
-                e.preventDefault();
-                document.getElementById('p_btn').disabled = true
-                console.log("parsing");
-            var formData = {
-                USD : $('#USD').val(),
-                GBP : $('#GBP').val(),
-                EURO : $('#EURO').val(),
-                AED : $('#AED').val(),
-            }
-                  $.ajax({
-                    url: '/currency_update',
-                    type: 'POST',
-                    data: formData,
-                    success: function (data) {
-                        load_terms();
-                        swal("Currency Updated...")
-                        
-                    },
-                });
-            });
-    $('#size_form').submit(function(e){
-        e.preventDefault();
-        document.getElementById('size_btn').disabled = true;
-        let sizes = document.getElementById('size_input').value;
-        let arr = [];
-        let size_arr = sizes.split(";");
-        size_arr.forEach((s)=>{
-            let a = $.trim(s);
-            if(a !== ""){
-                arr.push(a);
-
-            }
-        })
-        if(arr.length<1){
-            swal("please fill atleast one size");
-        }
-        else{
-            var formData = {
-                sizes : arr,
-            }
-                  $.ajax({
-                    url: '/update_sizes',
-                    type: 'POST',
-                    data: formData,
-                    success: function (data) {
-                        swal("Sizes Updated")
-                        document.getElementById('size_btn').disabled = false
-
-                        // load_sops();
-                        // clear_form();`
-                    },
-                });
-        }
-    })
-    $("#product_form").submit(function (e) {
-                e.preventDefault();
-                document.getElementById('p_btn').disabled = true
-                console.log("parsing");
-            var formData = {
-                name : $('#p_name').val().trim(),
-                detail : $('#p_detail').val().trim(),
-                price : $('#p_price').val().trim(),
-            }
-                  $.ajax({
-                    url: '/add_item',
-                    type: 'POST',
-                    data: formData,
-                    success: function (data) {
-                        swal("Product added, continue adding more...")
-                        document.getElementById('p_btn').disabled = false
-
-                        // load_sops();
-                        // clear_form();`
-                    },
-                });
-            });
-            $("#raw_form").submit(function (e) {
-                e.preventDefault();
-                document.getElementById('r_btn').disabled = true
-                console.log("parsing");
-            var formData = {
-                name : $('#r_name').val(),
-                detail : $('#r_detail').val(),
-                unit : $('#r_unit').val(),
-                price : $('#r_price').val(),
-            }
-                  $.ajax({
-                    url: '/add_raw_item',
-                    type: 'POST',
-                    data: formData,
-                    success: function (data) {
-                        swal("Raw Product added, continue adding more...")
-                        document.getElementById('r_btn').disabled = false;
-                    },
-                });
-            });
-          
-            $("#style_form").submit(function (e) {
-            input = document.getElementById("product_list2"); 
-             table = document.getElementById("pro_list");   
-            e.preventDefault();
-            console.log("parsing");
-            if($('#product_list2').val()===""){
-                swal("please select atleast one product");
-            }
-            else{
-                document.getElementById('s_btn').disabled = true;
-                var formData = new FormData(this);
-            
-            $.ajax({
-                url: '/add_style',
-                type: 'POST',
-                data: formData,
-                success: function (data) {
-                    swal("Style added, continue adding more...");
-                    document.getElementById('s_btn').disabled = true;
-                    input.value = "";
-                    table.innerHTML = ""
-                    // load_sops();
-                  //  clear_form();
-                },
-                cache: false,
-                contentType: false,
-                processData: false
-            });
-       
-    }
-});
-            
-          
-    
-    </script>
-
-<script>
 
 
-function load_fabrics(){
-   
-   var xhttp = new XMLHttpRequest();
- xhttp.onreadystatechange = function() {
-   if (this.readyState == 4 && this.status == 200) {
-     
-       let fabrics = JSON.parse(this.responseText).fabrics;
-       console.log("fabrics",fabrics);
-
-     let table=document.getElementById('fabrics_select');
-     let str='';
-     fabrics.forEach((fabric)=>{
-      str += '<option value="'+fabric.fabric_code+"/"+fabric.name+'"> '+fabric.fabric_code +"/"+fabric.name+' </option>'
-     });
-     table.innerHTML = str;
-   }
- };
- xhttp.open("GET", "/get_fabrics", true);
- xhttp.send(); 
-  }
-  function load_terms(){
-    var xhttp = new XMLHttpRequest();
- xhttp.onreadystatechange = function() {
-   if (this.readyState == 4 && this.status == 200) {
-     
-       let info = JSON.parse(this.responseText).info[0];
-       let sizes = info.sizes.join(";");
-       document.getElementById("size_input").value = sizes;
-        document.getElementById("sales_terms_input").value = info.sales_terms;
-        document.getElementById("purchase_terms_input").value = info.purchase_terms;
-        document.getElementById("USD").value = info.USD;
-        document.getElementById("GBP").value = info.GBP;
-        document.getElementById("AED").value = info.AED;
-        document.getElementById("EURO").value = info.EURO;
 
 
-   }
- };
- xhttp.open("GET", "/get_info", true);
- xhttp.send();    
-  }
-  load_terms();
-  function load_products(){
-    var xhttp = new XMLHttpRequest();
- xhttp.onreadystatechange = function() {
-   if (this.readyState == 4 && this.status == 200) {
-     
-       let products = JSON.parse(this.responseText).items;
-       console.log("products",products);
 
-     let select=document.getElementById('product_select');
-     let str='';
-     products.forEach((product)=>{
-      str += '<option value="'+product.name+'"> '+product.name+' </option>'
-     });
-     select.innerHTML = str;
-   }
- };
- xhttp.open("GET", "/get_items", true);
- xhttp.send();
-  };
-  load_products();
-  load_fabrics();
-  $.get('/get_clients',function(data){
-      let str = ``;
-      data.clients.forEach((v)=>{
-          console.log(v)
-          str  += `<option value='${v.company_name}'>${v.company_name}</option>`
-      });
-      document.getElementById('client_list').innerHTML = str;
-  })
+    <!-- <script type="text/javascript" src="jquery-3.3.1.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
-</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+    <script src="/js/master.js"></script>
 
 </body>
 
