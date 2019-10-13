@@ -709,6 +709,14 @@ app.post("/add_raw_item",(req,res)=>{
         res.redirect('/master.html');
     })
 });
+app.post('/update_job_slip',(req,res)=>{
+    let {id,measurements,size,person} = req.body;
+    
+    Job_Slip.findByIdAndUpdate(id,{$set:{measurements:measurements,size:size,person:person}},(err,resp)=>{
+        if(err){throw err}
+        res.json({success:true});
+    })
+})
 app.post('/update_sizes',(req,res)=>{
     let {sizes} = req.body;
     // console.log(sizes , typeof sizes);
@@ -1606,6 +1614,7 @@ app.post('/create_job_slip',(req,res)=>{
       measurements = req.body.m,
       date = req.body.d,
       product = req.body.p ;
+      lpo_id = req.body.lpo_id;
      
       Info.findOne({},(err,info)=>{
         let starting_number = parseInt(info.last_number)+1;
@@ -1614,7 +1623,7 @@ app.post('/create_job_slip',(req,res)=>{
         let last_number = parseInt(starting_number)+parseInt(quantity)-1;
         console.log(last_number);
         
-     new Job_Slip({ref:lpo_ref,number:unique,product,style,style_id,quantity,
+     new Job_Slip({ref:lpo_ref,lpo_id,number:unique,product,style,style_id,quantity,
                    starting_number,cutting:0,stitching:0,packing:0,delivered:0,
                    qc:0,qc_on:'',qc_by:'',ready_to_deliver:false,in_packing_list:false, cutting_by:'',
                    stitching_by:'',packing_by:'',delivery_by:'',cutting_on:'',stitching_on:'',packing_on:'',
@@ -1811,6 +1820,7 @@ app.post('/add_lpo',(req,res)=>{
     let company = {name:decodeURIComponent(req.body.client),person:decodeURIComponent(req.body.pur_name),
         address:decodeURIComponent(req.body.v_address),city:decodeURIComponent(req.body.v_city),phone:decodeURIComponent(req.body.v_phone)};
     let ship = {person:decodeURIComponent(req.body.s_name),address:decodeURIComponent(req.body.s_address),city:decodeURIComponent(req.body.s_city),phone:decodeURIComponent(req.body.s_phone)};
+    let client_id = req.body.client_id;
     let lpo_num = decodeURIComponent(req.body.lpo_num);
     let date = decodeURIComponent(req.body.date);
     let due_date = decodeURIComponent(req.body.due_date);
@@ -1837,6 +1847,7 @@ generate_sales_order(parsed_items,discount,tax,currency,company,ship,lpo_num,dat
     console.log("file is generated");
     Lpos.findOne({lpo_number:lpo_num},(err,Existed_Lpo)=>{
         if(Existed_Lpo !== null ){
+            Existed_Lpo.client_id = client_id;
             Existed_Lpo.client = company.name;
             Existed_Lpo.date = date;
             Existed_Lpo.due_date = due_date;
@@ -1857,7 +1868,7 @@ generate_sales_order(parsed_items,discount,tax,currency,company,ship,lpo_num,dat
 
         }
         else{
-            new Lpos({client:company.name,status:status,lpo_number:lpo_num,date:date,due_date:due_date,ref:ref,items_array:items_array,flag:'order_phase',total:total,discount,tax,currency}).save((err,lpo)=>{
+            new Lpos({client:company.name,client_id,status:status,lpo_number:lpo_num,date:date,due_date:due_date,ref:ref,items_array:items_array,flag:'order_phase',total:total,discount,tax,currency}).save((err,lpo)=>{
                     res.json({success:true,lpo:lpo});
                    res.end();
                })  ;
@@ -2362,6 +2373,20 @@ app.post('/delete_raw_item',(req,res)=>{
     Raw_Items.findByIdAndDelete(req.body.id,(err,resp)=>{
         res.json({success:true,item:'Raw_item'});
     })
+});
+app.post('/cancel_lpo',(req,res)=>{
+    if(req.body.ref){
+        console.log("ref",req.body.ref);
+        Lpos.findOneAndUpdate({ref:req.body.ref},{status:"cancelled"},(err,resp)=>{
+            res.json({success:true,item:'LPO'});
+        })
+    }
+    else{
+        Lpos.findByIdAndUpdate(req.body.id,{status:"cancelled"},(err,resp)=>{
+            res.json({success:true,item:'LPO'});
+        })
+    }
+    
 });
 app.post('/delete_lpo',(req,res)=>{
     if(req.body.ref){

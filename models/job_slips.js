@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
   var Schema = mongoose.Schema;
 
   var JobSchema = new Schema({
+    lpo_id: String,
     ref:  String,
     date: String,
     number: String,

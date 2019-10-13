@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
   var StyleSchema = new Schema({
     title:  String,
     client:String,
+    client_id: String,
     fabric_code: String,
     product:   String,
     details: String,
