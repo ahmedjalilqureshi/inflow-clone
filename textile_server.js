@@ -842,8 +842,8 @@ app.post("/job_slip/cutting",async (req,res)=>{
     let range_out = false;
     let duplicate = false;
     let js = null;
-     let js_array = await Job_Slip.find({ref:lpo_ref,starting_number:{$lt:(barcode_array[0]+1)}});
-     console.log("id of js", js_array[0]._id)
+     let js_array = await Job_Slip.find({lpo_id:lpo_ref,starting_number:{$lt:(barcode_array[0]+1)}});
+    //  console.log("id of js", js_array[0]._id)
      js_array.forEach((j)=>{
          if(j.starting_number <= barcode_array[0] && j.starting_number+j.quantity-1 >= barcode_array[0]){
             js = j ;
@@ -881,6 +881,7 @@ app.post("/job_slip/cutting",async (req,res)=>{
      // cutting_by:by,cutting_on:date
      await js.save();
      res.json({
+         not_found:false,
          range_out,
          duplicate
      })
@@ -1021,7 +1022,7 @@ app.post("/job_slip/stitching",async (req,res)=>{
    let duplicate = false;
    let violation = false; // it means that cutting is not done of specific sequence
    let js = null;
-   let js_array = await Job_Slip.find({ref:lpo_ref,starting_number:{$lt:(barcode_array[0]+1)}});
+   let js_array = await Job_Slip.find({lpo_id:lpo_ref,starting_number:{$lt:(barcode_array[0]+1)}});
    js_array.forEach((j)=>{
     if(j.starting_number <= barcode_array[0] && j.starting_number+j.quantity-1 >= barcode_array[0]){
        js = j ;
@@ -1063,6 +1064,7 @@ app.post("/job_slip/stitching",async (req,res)=>{
         js.stitching = old_arr_stitching.length;
         await js.save();
      res.json({
+         not_found:false,
          range_out,
          duplicate,
          violation
@@ -1169,7 +1171,7 @@ app.post("/job_slip/qc",async (req,res)=>{
    let duplicate = false;
    let violation = false; // it means that cutting is not done of specific sequence
    let js = null;
-   let js_array = await Job_Slip.find({ref:lpo_ref,starting_number:{$lt:(barcode_array[0]+1)}});
+   let js_array = await Job_Slip.find({lpo_id:lpo_ref,starting_number:{$lt:(barcode_array[0]+1)}});
    js_array.forEach((j)=>{
     if(j.starting_number <= barcode_array[0] && j.starting_number+j.quantity-1 >= barcode_array[0]){
        js = j ;
@@ -1211,6 +1213,7 @@ app.post("/job_slip/qc",async (req,res)=>{
         js.qc = old_arr_qc.length;
         await js.save();
      res.json({
+         not_found:false,
          range_out,
          duplicate,
          violation
@@ -1324,7 +1327,7 @@ app.post("/job_slip/packing",async (req,res)=>{
    let duplicate = false;
    let violation = false; // it means that cutting is not done of specific sequence
    let js = null;
-   let js_array = await Job_Slip.find({ref:lpo_ref,starting_number:{$lt:(barcode_array[0]+1)}});
+   let js_array = await Job_Slip.find({lpo_id:lpo_ref,starting_number:{$lt:(barcode_array[0]+1)}});
    js_array.forEach((j)=>{
     if(j.starting_number <= barcode_array[0] && j.starting_number+j.quantity - 1 >= barcode_array[0]){
        js = j ;
@@ -1366,6 +1369,7 @@ app.post("/job_slip/packing",async (req,res)=>{
         js.packing = old_arr_packing.length;
         await js.save();
      res.json({
+         not_found:false,
          range_out,
          duplicate,
          violation

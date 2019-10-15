@@ -258,7 +258,7 @@
                 
                                 </div>
                                 <div class="col-md-4">
-                                    <select id='clients_select' name='number' onChange="lpo_set(this)" class='form-control' ></select>
+                                    <select id='clients_select' name='number' onChange="lpo_set(this,'s_lpo_select')" class='form-control' ></select>
                                 </div>          
                                 <div class="col-md-2">
                                         <label class='form-control-label'>LPO ref#</label>
@@ -548,19 +548,21 @@
                             <div class="row">
                                     <div class='col-md-5'>
                                             <div class='row'>
-                                                   
-                                                    <div class="col-md-2">
-                                                            <label class='form-control-label'>LPO REF#</label>
-                                    
-                                                    </div>
+                                                  
                                                     <div class="col-md-4">
+                                                            <label class='form-control-label'>Client</label>
+                                                        <select id='clients_select3' name='number' onChange="lpo_set(this,'unique_lpos')" class='form-control' ></select>
+                                                    </div>  
+                                                   
+                                                    <div class="col-md-4">
+                                                            <label class='form-control-label'>LPO REF#</label>
+
                                                         <select id='unique_lpos'  class='form-control' required onchange="js_set(this)"></select>
                                                     </div>
-                                                    <div class="col-md-2">
-                                                            <label class='form-control-label'>Person,Product,Size</label>
-                                    
-                                                    </div>
+                                                    
                                                     <div class="col-md-4">
+                                                            <label class='form-control-label'>Variations</label>
+
                                                         <select id='js_select_1'  class='form-control' required onchange="jsp_set(this)"></select>
                                                     </div>
                                                 </div>
