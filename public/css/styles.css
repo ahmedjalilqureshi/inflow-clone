@@ -12,12 +12,13 @@
 
 /* Global Class End */
 
-/* sales module */
+                /* sales module */
 
 /* sales order */
 
-.sales-menu{
-    display: inline !important;
+.sales-menu > li{
+    margin-left:10px ;
+    cursor: pointer;
 }
 
 .sales-option{
