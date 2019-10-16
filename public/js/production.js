@@ -6,45 +6,81 @@ function cutting_done(e) {
         d = new Date(),
         time = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear() + "--" + d.getHours() + ":" + d.getMinutes();
 
-
-    console.log("quantity:" + q);
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-
-            let not_found = JSON.parse(this.responseText).not_found;
-            if (not_found) {
-                alert("selected sequence does not exist in current job slip");
-                return;
+    if(lpo_ref==="")
+    {
+        swal("Please select lpo first");
+        return;
+    }
+    console.log("quantity:" + q+"lpo"+lpo_ref);
+    fetch("/job_slip/cutting",
+    {method:"POST",
+     body:"lpo_ref=" + lpo_ref + "&q=" + q + "&date=" + time + "&by=" + by,
+     headers:{
+         'Content-Type':"application/x-www-form-urlencoded"
+     }}).then(res=> res.json()).then((data)=>{
+        let {not_found,range_out,duplicate} = data;
+        if (not_found) {
+            swal("selected sequence does not exist in current job slip");
+            return;
+        }
+        // let range_out = JSON.parse(this.responseText).range_out;
+        // let duplicate = JSON.parse(this.responseText).duplicate;
+        if (range_out || duplicate) {
+            if (range_out) {
+                swal("selected sequence is out of range of current job slip");
             }
-            let range_out = JSON.parse(this.responseText).range_out;
-            let duplicate = JSON.parse(this.responseText).duplicate;
-            if (range_out || duplicate) {
-                if (range_out) {
-                    alert("selected sequence is out of range of current job slip");
-                }
-                else if (range_out && duplicate) {
-                    alert("selected sequence is out of range of current job slip , and some are duplications");
-
-                }
-                else {
-                    alert("There are some duplications");
-
-                }
+            else if (range_out && duplicate) {
+                swal("selected sequence is out of range of current job slip , and some are duplications");
 
             }
             else {
-                alert("success");
+                swal("There are some duplications");
+
             }
-            //    alert(msg);
 
         }
-    };
-    xhttp.open("POST", "/job_slip/cutting", true);
-    xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    xhttp.send("lpo_ref=" + lpo_ref + "&q=" + q + "&date=" + time + "&by=" + by);
-    // location.reload();
+        else {
+            swal("success");
+        }
+      
+     })
+    //  return;
+    // var xhttp = new XMLHttpRequest();
+    // xhttp.onreadystatechange = function () {
+    //     if (this.readyState == 4 && this.status == 200) {
+
+    //         let not_found = JSON.parse(this.responseText).not_found;
+    //         if (not_found) {
+    //             swal("selected sequence does not exist in current job slip");
+    //             return;
+    //         }
+    //         let range_out = JSON.parse(this.responseText).range_out;
+    //         let duplicate = JSON.parse(this.responseText).duplicate;
+    //         if (range_out || duplicate) {
+    //             if (range_out) {
+    //                 swal("selected sequence is out of range of current job slip");
+    //             }
+    //             else if (range_out && duplicate) {
+    //                 swal("selected sequence is out of range of current job slip , and some are duplications");
+
+    //             }
+    //             else {
+    //                 swal("There are some duplications");
+
+    //             }
+
+    //         }
+    //         else {
+    //             swal("success");
+    //         }
+    //         //    swal(msg);
+
+    //     }
+    // };
+    // xhttp.open("POST", "/job_slip/cutting", true);
+    // xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    // xhttp.send("lpo_ref=" + lpo_ref + "&q=" + q + "&date=" + time + "&by=" + by);
+    // // location.reload();
 
 
 }
@@ -59,46 +95,54 @@ function stitching_done(e) {
 
 
 
-    console.log("quantity:" + q);
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            let not_found = JSON.parse(this.responseText).not_found;
+    // console.log("quantity:" + q);
+    // var xhttp = new XMLHttpRequest();
+    // xhttp.onreadystatechange = function () {
+    //     if (this.readyState == 4 && this.status == 200) {
+           fetch("/job_slip/stitching",
+            {method:"POST",
+             body:"lpo_ref=" + lpo_ref + "&q=" + q + "&date=" + time + "&by=" + by,
+             headers:{
+                 'Content-Type':"application/x-www-form-urlencoded"
+             }}).then(res=> res.json()).then((data)=>{
+                let {not_found,range_out,duplicate,violation} = data;
+            // let not_found = JSON.parse(this.responseText).not_found;
             if (not_found) {
-                alert("selected sequence does not exist in current job slip");
+                swal("selected sequence does not exist in current job slip");
                 return;
             }
 
-            let range_out = JSON.parse(this.responseText).range_out;
-            let duplicate = JSON.parse(this.responseText).duplicate;
-            let violation = JSON.parse(this.responseText).violation;
+            // let range_out = JSON.parse(this.responseText).range_out;
+            // let duplicate = JSON.parse(this.responseText).duplicate;
+            // let violation = JSON.parse(this.responseText).violation;
 
             if (range_out || duplicate || violation) {
                 if (range_out) {
-                    alert("selected sequence is out of range of current job slip");
+                    swal("selected sequence is out of range of current job slip");
                 }
                 else if (range_out && duplicate) {
-                    alert("selected sequence is out of range of current job slip , and some are duplications");
+                    swal("selected sequence is out of range of current job slip , and some are duplications");
 
                 }
                 else if (violation) {
-                    alert("cutting should be done first!!!");
+                    swal("cutting should be done first!!!");
                 }
                 else {
-                    alert("There are some duplications");
+                    swal("There are some duplications");
 
                 }
 
             }
             else {
-                alert("success");
+                swal("success");
             }
+        })
 
-        }
-    };
-    xhttp.open("POST", "/job_slip/stitching", true);
-    xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    xhttp.send("lpo_ref=" + lpo_ref + "&q=" + q + "&date=" + time + "&by=" + by);
+    //     }
+    // };
+    // xhttp.open("POST", "/job_slip/stitching", true);
+    // xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    // xhttp.send("lpo_ref=" + lpo_ref + "&q=" + q + "&date=" + time + "&by=" + by);
     // location.reload();
 
 }
@@ -114,47 +158,54 @@ function qc_done(e) {
 
 
 
-    console.log("quantity:" + q);
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            let not_found = JSON.parse(this.responseText).not_found;
+    // console.log("quantity:" + q);
+    // var xhttp = new XMLHttpRequest();
+    // xhttp.onreadystatechange = function () {
+    //     if (this.readyState == 4 && this.status == 200) {
+    //         let not_found = JSON.parse(this.responseText).not_found;
+    fetch("/job_slip/qc",
+    {method:"POST",
+     body:"lpo_ref=" + lpo_ref + "&q=" + q + "&date=" + time + "&by=" + by,
+     headers:{
+         'Content-Type':"application/x-www-form-urlencoded"
+     }}).then(res=> res.json()).then((data)=>{
+        let {not_found,range_out,duplicate,violation} = data;
             if (not_found) {
-                alert("selected sequence does not exist in current job slip");
+                swal("selected sequence does not exist in current job slip");
                 return;
             }
 
-            let range_out = JSON.parse(this.responseText).range_out;
-            let duplicate = JSON.parse(this.responseText).duplicate;
-            let violation = JSON.parse(this.responseText).violation;
+            // let range_out = JSON.parse(this.responseText).range_out;
+            // let duplicate = JSON.parse(this.responseText).duplicate;
+            // let violation = JSON.parse(this.responseText).violation;
 
             if (range_out || duplicate || violation) {
                 if (range_out) {
-                    alert("selected sequence is out of range of current job slip");
+                    swal("selected sequence is out of range of current job slip");
                 }
                 else if (range_out && duplicate) {
-                    alert("selected sequence is out of range of current job slip , and some are duplications");
+                    swal("selected sequence is out of range of current job slip , and some are duplications");
 
                 }
                 else if (violation) {
-                    alert("previous steps should be done first!!!");
+                    swal("previous steps should be done first!!!");
                 }
                 else {
-                    alert("There are some duplications");
+                    swal("There are some duplications");
 
                 }
 
             }
             else {
-                alert("success");
+                swal("success");
             }
 
-
-        }
-    };
-    xhttp.open("POST", "/job_slip/qc", true);
-    xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    xhttp.send("lpo_ref=" + lpo_ref + "&q=" + q + "&date=" + time + "&by=" + by);
+        })
+    //     }
+    // };
+    // xhttp.open("POST", "/job_slip/qc", true);
+    // xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    // xhttp.send("lpo_ref=" + lpo_ref + "&q=" + q + "&date=" + time + "&by=" + by);
     // location.reload();
 
 }
@@ -166,46 +217,53 @@ function packing_done(e) {
         d = new Date(),
         time = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear() + "--" + d.getHours() + ":" + d.getMinutes();
 
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            let not_found = JSON.parse(this.responseText).not_found;
+    // var xhttp = new XMLHttpRequest();
+    // xhttp.onreadystatechange = function () {
+    //     if (this.readyState == 4 && this.status == 200) {
+    //         let not_found = JSON.parse(this.responseText).not_found;
+    fetch("/job_slip/packing",
+    {method:"POST",
+     body:"lpo_ref=" + lpo_ref + "&q=" + q + "&date=" + time + "&by=" + by,
+     headers:{
+         'Content-Type':"application/x-www-form-urlencoded"
+     }}).then(res=> res.json()).then((data)=>{
+        let {not_found,range_out,duplicate,violation} = data;
             if (not_found) {
-                alert("selected sequence does not exist in current job slip");
+                swal("selected sequence does not exist in current job slip");
                 return;
             }
 
-            let range_out = JSON.parse(this.responseText).range_out;
-            let duplicate = JSON.parse(this.responseText).duplicate;
-            let violation = JSON.parse(this.responseText).violation;
+            // let range_out = JSON.parse(this.responseText).range_out;
+            // let duplicate = JSON.parse(this.responseText).duplicate;
+            // let violation = JSON.parse(this.responseText).violation;
 
             if (range_out || duplicate || violation) {
                 if (range_out) {
-                    alert("selected sequence is out of range of current job slip");
+                    swal("selected sequence is out of range of current job slip");
                 }
                 else if (range_out && duplicate) {
-                    alert("selected sequence is out of range of current job slip , and some are duplications");
+                    swal("selected sequence is out of range of current job slip , and some are duplications");
 
                 }
                 else if (violation) {
-                    alert("previous steps should be done first!!!");
+                    swal("previous steps should be done first!!!");
                 }
                 else {
-                    alert("There are some duplications");
+                    swal("There are some duplications");
 
                 }
 
             }
             else {
-                alert("success");
+                swal("success");
             }
 
-
-        }
-    };
-    xhttp.open("POST", "/job_slip/packing", true);
-    xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    xhttp.send("lpo_ref=" + lpo_ref + "&q=" + q + "&date=" + time + "&by=" + by);
+        })
+    //     }
+    // };
+    // xhttp.open("POST", "/job_slip/packing", true);
+    // xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    // xhttp.send("lpo_ref=" + lpo_ref + "&q=" + q + "&date=" + time + "&by=" + by);
     //  location.reload();
 
 }
@@ -260,13 +318,20 @@ function create_job_slip(e) {
         pe = e.parentNode.parentNode.getElementsByTagName("td")[6].getElementsByTagName("input")[0].value,
         m = e.parentNode.parentNode.getElementsByTagName("td")[3].getElementsByTagName("textarea")[0].value,
         d = new Date().getTime();
+    
+    if (si === "") {
+            swal("please select Style");
+            e.disabled = false;
+            return
+    
+    }
     if (lpo_ref === "") {
-        alert("please select LPO ref");
+        swal("please select LPO ref");
         e.disabled = false;
 
     }
     else if (p === "" || q === "" || s === "" || pe === "" || m === "") {
-        alert("please fill measurements,quantity,size and person!!");
+        swal("please fill measurements,quantity,size and person!!");
         e.disabled = false;
 
     }
@@ -287,7 +352,7 @@ function create_job_slip(e) {
                 e.parentNode.parentNode.getElementsByTagName("td")[3].getElementsByTagName("textarea")[0].value = '';
                 swal(`Job Slip is created of ${product} , series starting from ${starting_number} ,total quantity = ${quantity} , for ${person} `);
 
-                //  alert("job slip is created for lpo ref#"+lpo_ref+" for "+q+" "+p );
+                //  swal("job slip is created for lpo ref#"+lpo_ref+" for "+q+" "+p );
                 load_job_slips();
             }
         };
@@ -306,7 +371,7 @@ function load_lpos_styles() {
         if (this.readyState == 4 && this.status == 200) {
             lpos = JSON.parse(this.responseText).lpos;
             str = '<option value="">Select L.P.O</option>';
-            // alert(e.innerHTML.length)
+            // swal(e.innerHTML.length)
             lpos.forEach((lpo) => {
                 str += `<option value="` + lpo._id + `">` + lpo.ref + `</option>`;
             });
@@ -357,14 +422,13 @@ function load_lpos_styles() {
         if (this.readyState == 4 && this.status == 200) {
             clients = JSON.parse(this.responseText).clients;
             let c_text = '<option value="">Select Client</option>';
-            // alert(e.innerHTML.length)
+            // swal(e.innerHTML.length)
             clients.forEach((client) => {
                 c_text += `<option value='` + client._id + `'>` + client.company_name + `</option>`;
             });
             document.getElementById('clients_select').innerHTML = c_text;
             document.getElementById('clients_select2').innerHTML = c_text;
-
-
+            document.getElementById('clients_select3').innerHTML = c_text;
         }
     };
     xhttp6.open("GET", "/get_clients", true);
@@ -446,8 +510,8 @@ function set_style(e) {
     let client = '',ref='';
     lpos.forEach((l) => { if (l._id === e.value) { client =l.client,ref=l.ref } }) //e.value.split("/")[1];
     console.log("cl->>>", client)
-    str = '<option >Select Style</option>';
-    // alert(e.innerHTML.length)
+    str = '<option value="">Select Style</option>';
+    // swal(e.innerHTML.length)
     console.log("sssss",styles);
     styles.forEach((style) => {
         if (client === style.client) {
@@ -497,7 +561,7 @@ function lpo_set(e,t) {
     // let select = document.getElementById("s_lpo_select");
     let lpos_txt = '<option value="">Select L.P.O</option>';
     let company_name = e.value;
-    console.log("lpos", lpos);
+    console.log("lpos", lpos,e.value);
     lpos.forEach((lpo) => {
         if (lpo.client_id === company_name) {
             lpos_txt += `<option value="` + lpo._id + `">` + lpo.ref + `</option>`
@@ -510,7 +574,7 @@ function js_set(e) {
     let js = document.getElementById("js_select_1");
     let js_html = '<option value="">Select Job Slip</option>';
     job_slips.forEach((js) => {
-        if (js.ref === e.value) {
+        if (js.lpo_id === e.value) {
             js_html += `<option value="` + js.number + `">` + js.person + `-` + js.product + `-` + js.size + `</option>`
         }
     })
@@ -526,7 +590,7 @@ function js_set2(e) {
         }
     })
     js.innerHTML = js_html;
-    //alert(e.value);
+    //swal(e.value);
 }
 // function load_products() {
 //     let product_select = document.getElementById('product_select');
@@ -541,7 +605,7 @@ function js_set2(e) {
 //             })
 //             product_select.innerHTML = str;
 //             company_name.value = lpo.client
-//             // alert(products);
+//             // swal(products);
 //         }
 //     })
 // }
@@ -593,7 +657,16 @@ function set_js() {
     })
 }
 load_lpos_styles();
-
+function get_from_lpo(id,key){
+    value = "";
+    lpos.forEach((l)=>{
+        if(parseInt(l._id)===parseInt(id))
+        {
+            value = l[key];
+        }
+    });
+    return value
+}
 function generate_slip() {
     let number = document.getElementById('js_select_1').value;
     let start = document.getElementById('printing_start_number').value;
@@ -611,7 +684,7 @@ function generate_slip() {
                     person = job_slip.person,
                     measurements = job_slip.measurements,
                     size = job_slip.size,
-                    company = job_slip.ref.split("/")[1],
+                    company = get_from_lpo(job_slip.lpo_id,'client'), //job_slip.ref.split("/")[1],
                     style = job_slip.style,
                     style_details;
                 styles.forEach((style_) => {
@@ -714,11 +787,11 @@ function generate_slip() {
 
                 document.getElementById("printing_area").innerHTML = str;
                 document.getElementById("print_btn").disabled = false;
-                // alert(JSON.stringify(job_slip));
+                // swal(JSON.stringify(job_slip));
 
             }
             else {
-                alert(`quantity must be equal or less than ${job_slip.quantity} and starting sequence should be equal or greater than ${job_slip.starting_number}`);
+                swal(`quantity must be equal or less than ${job_slip.quantity} and starting sequence should be equal or greater than ${job_slip.starting_number}`);
             }
         }
     })
@@ -796,7 +869,7 @@ function generate_slips() {
 
             }
             else {
-                alert(`quantity must be equal or less than ${job_slip.quantity} and starting sequence should be equal or greater than ${job_slip.starting_number}`);
+                swal(`quantity must be equal or less than ${job_slip.quantity} and starting sequence should be equal or greater than ${job_slip.starting_number}`);
             }
 
         }
@@ -824,7 +897,7 @@ function jsp_set(e) {
     starting.innerHTML = "";
 
 
-    //    alert(e.value);
+    //    swal(e.value);
     job_slips.forEach((job_slip) => {
         if (job_slip.number === e.value) {
             lpo.innerHTML = job_slip.ref;
@@ -881,7 +954,7 @@ function bc_info(e) {
 
                 document.getElementById('bc_info').innerHTML = `<div>${msg}</div>`;
 
-                //  alert(msg)
+                //  swal(msg)
             }
         }
     };
