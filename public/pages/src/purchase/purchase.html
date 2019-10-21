@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Purchase Order</title>
 
-    <!-- <link rel="stylesheet" href="../../../css/style.css"> -->
-    <link rel="stylesheet" href="../../../css/salesStyle.css">
+    <link rel="stylesheet" href="../../../css/styles.css">
 
     <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../css/bootstrap-yeti.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -24,21 +24,25 @@
         
                     margin: 0px !important;
                 } */
-                .cont {
+        .cont {
             overflow: scroll;
-            
+
         }
+
         .list_cont {
-           list-style: none;
-           margin: 0;
-           padding: 0
+            list-style: none;
+            margin: 0;
+            padding: 0
         }
+
         .pointer {
             cursor: pointer;
         }
+
         .pointer:hover {
-           background: rgb(255, 241, 223)
+            background: rgb(255, 241, 223)
         }
+
         .pm-0 {
             padding: 0px !important;
 
@@ -61,16 +65,18 @@
             margin: 0;
             padding: 0;
             font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif
-
         }
-        input{
+
+        input {
             font-size: 12px !important;
             padding: 5px !important;
             max-height: 30px !important;
         }
-        .col-4  p{
+
+        .col-4 p {
             font-size: 12px !important
         }
+
         select {
             font-size: 12px !important;
             padding: 5px !important;
@@ -82,9 +88,9 @@
 
 <body onload="fill()">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <img src="../../../assets/img/aa-logo.jpg" class=" float-right md-logo" alt="logo" width="70px">
-        <a class="navbar-brand text-dark navbar-left ml-3" href="#">
+        <a class="navbar-brand text-light navbar-left ml-3" href="#">
 
             ABBAS ALI & SONS UNIFORMS AND TEXTILES
         </a>
@@ -100,7 +106,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto text-light">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Sales
                     </a>
@@ -114,7 +120,7 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Purchase
                     </a>
@@ -128,14 +134,14 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="/production">Production</a>
+                    <a class="nav-link text-light" href="/production">Production</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Reports
                     </a>
-                    <div class="dropdown-menu text-dark bg-dark" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item text-info" href="/reports/sales_report">Sales Report</a>
                         <a class="dropdown-item text-info" href="/reports/purchase_report">Purchase Report</a>
                         <a class="dropdown-item text-info" href="/reports/production_report">Production Report</a>
@@ -143,10 +149,10 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="/master" tabindex="-1" aria-disabled="true">Master Data</a>
+                    <a class="nav-link text-light" href="/master" tabindex="-1" aria-disabled="true">Master Data</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="/master_view" tabindex="-1" aria-disabled="true">Master
+                    <a class="nav-link text-light" href="/master_view" tabindex="-1" aria-disabled="true">Master
                         View</a>
                 </li>
             </ul>
@@ -154,248 +160,241 @@
         </div>
     </nav>
     <hr class="pm-0">
-    <div class="mt-1">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2 alert-dark cont" style="height: 100%">
+            <div class="col-sm-2 col-md-3 col-lg-3 bg-s-green">
 
-                    <div class="row">
+                <div class="row">
+                    <div class="col-md-12">
+                        <H5>Edit Old Purchase Order</H5>
+                        <div class="form-group row m-1">
                             <div class="col-md-12">
-                                <H5>Edit Old Purchase Order</H5>
-                                <div class="form-group row m-1">
-                                    <div class="col-md-12">
-                                            <input type="text" placeholder="Search by VPO#" id='input_search_po'
-                                            class="form-control" list='po_data_list'>
-                                            <datalist id='po_data_list'>
+                                <input type="text" placeholder="Search by VPO#" id='input_search_po'
+                                    class="form-control" list='po_data_list'>
+                                <datalist id='po_data_list'>
 
-                                            </datalist>
-                                    </div>
-                                    </div>
-                                <div class="row pr-1">
-                                    <div class="col-md-12">
-                                            <button class='btn btn-primary float-right mr-3' onClick='po_search()'>Search</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr class="m-1">
-                            <div class="list_cont" id='cpo_list'>
-    
-                            </div>
-            
-                        </div>
-
-            </div>
-            <div class="col-md-10">
-                <div id="main" class="container-fluid">
-
-                    <div class="container sales-container" id="main_place">
-                        <div class="packing-slip-header">
-                            <div class="row">
-                                <div class="col-4">
-                                    <h3>PURCHASE ORDER</h3>
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>Date:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input type="date" class="form-control" id="pur-date">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>Payment Due Date:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input type="date" class="form-control" id="payment_date">
-                                        </div>
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="col-4">
-                                           <p> V.P.O # </p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input class="form-control" id="pur-po" readonly/>
-                            
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-4">
-                                           <p> C.P.O Ref </p>
-                                        </div>
-                                        <div class="col-8">
-                                            <select class="form-control" id="lpo_ref">
-                                                <option>Select C.P.O</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-4">
-                                        <h3 class="main-subject">VENDOR:</h3>
-    
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <p>Company Name:</p>
-                                            </div>
-                                            <div class="col-8">
-                                                <select name="vender-info" id="pur-company-name" class="form-control"
-                                                    onchange="fill_vendor()">
-                                                </select>
-                                            </div>
-                                        </div>
-    
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <p>Name:</p>
-                                            </div>
-                                            <div class="col-8">
-                                                <input type="text" name="vender-info" id="pur-name" class="form-control">
-                                            </div>
-                                        </div>
-    
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <p>Street Address</p>
-                                            </div>
-                                            <div class="col-8">
-                                                <input type="text" name="vender-info" id="pur-vender-address"
-                                                    class="form-control">
-                                            </div>
-                                        </div>
-    
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <p>City or ZIP:</p>
-                                            </div>
-                                            <div class="col-8">
-                                                <input type="text" name="vender-info" id="pur-vender-city"
-                                                    class="form-control">
-                                            </div>
-                                        </div>
-    
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <p>Phone:</p>
-                                            </div>
-                                            <div class="col-8">
-                                                <input type="text" name="vender-info" id="pur-vender-phone"
-                                                    class="form-control">
-                                            </div>
-                                        </div>
-    
-                                    </div>
-
-                                    
-                                <div class="col-4">
-                                        <h3 class="main-subject">Ship To:</h3>
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <p>Name:</p>
-                                            </div>
-                                            <div class="col-8">
-                                                <input type="text" id="pur-ship-name" class="form-control">
-                                            </div>
-                                        </div>
-    
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <p>Street Address</p>
-                                            </div>
-                                            <div class="col-8">
-                                                <input type="text" id="pur-ship-address" class="form-control">
-                                            </div>
-                                        </div>
-    
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <p>City or ZIP:</p>
-                                            </div>
-                                            <div class="col-8">
-                                                <input type="text" name="ship-info" id="pur-ship-city" class="form-control">
-                                            </div>
-                                        </div>
-    
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <p>Phone:</p>
-                                            </div>
-                                            <div class="col-8">
-                                                <input type="text" name="ship-info" id="pur-ship-phone"
-                                                    class="form-control">
-                                            </div>
-                                        </div>
-    
-                                    </div>
+                                </datalist>
                             </div>
                         </div>
-
-                        <!-- packing address section -->
-             
-
-
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr class="d-flex">
-                                    <td class="col-2">Item #</td>
-                                    <td class="col-6">Description</td>
-                                    <td class="col-2">Quantity</td>
-                                    <td class="col-2">
-                                        <div class="row">
-                                                <span class="col-md-6" style="font-size: 16px">Unit Price</span>
-                                                <span class="col-md-6">
-                                                    <select class='form-control' id='currency' style="font-size: 12px" onchange="currency_effect(this)"
-                                                        onClick='apply_currency(this)'>
-                                                        <option value='PKR'>PKR</option>
-                                                        <option value='USD'>USD</option>
-                                                        <option value='EURO'>EURO</option>
-                                                        <option value='GBP'>GBP</option>
-                                                        <option value='AED'>AED</option>
-                                                    </select>
-                                                </span>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </thead>
-                            <tbody id='items_table'>
-                                <tr class="d-flex">
-                                    <td class="col-2 td-cells">
-                                        <select class="form-control" id="pro1category" onclick="load_items(this)"
-                                            onchange="set_item(this)">
-                                        </select>
-                                    </td>
-                                    <td class="col-6 td-cells">
-                                        <input type="text" class="form-control" id="pro1description">
-                                    </td>
-                                    <td class="col-2 td-cells">
-                                        <input type="text" class="form-control" id="pro1quantityavailable"
-                                        style="width: 75%;float: left;"
-                                            >
-                                        <span></span>
-                                    </td>
-                                    <td class="col-2 td-cells">
-                                        <input type="text" class="form-control" id="pro1unitprice"
-                                            onkeypress="add_new(event)">
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <section class="color-1 text-center">
-                            <p> <a class='btn btn-primary' data-toggle="modal" data-target="#myModal">Terms and
-                                    Condition</a>
-                                <button onclick="generate_purchase_order(this)" class="btn btn-primary" id='proceed_btn'
-                                    disabled>Generate</button>
-                            </p>
-                        </section>
+                        <div class="row pr-1">
+                            <div class="col-md-12">
+                                <button class='btn btn-primary float-right mr-3' onClick='po_search()'>Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="m-1">
+                    <div class="list_cont" id='cpo_list'>
 
                     </div>
 
+                </div>
 
+            </div>
+            <div class="col-sm-10 col-md-9 col-lg-9">
+
+                <div class="container sales-container" id="main_place">
+                    <div class="packing-slip-header">
+                        <div class="row">
+                            <div class="col-4">
+                                <h3>PURCHASE ORDER</h3>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>Date:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="date" class="form-control" id="pur-date">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>Payment Due Date:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="date" class="form-control" id="payment_date">
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p> V.P.O # </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input class="form-control" id="pur-po" readonly />
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p> C.P.O Ref </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <select class="form-control" id="lpo_ref">
+                                            <option>Select C.P.O</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-4">
+                                <h3 class="main-subject">VENDOR:</h3>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>Company Name:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <select name="vender-info" id="pur-company-name" class="form-control"
+                                            onchange="fill_vendor()">
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>Name:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" name="vender-info" id="pur-name" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>Street Address</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" name="vender-info" id="pur-vender-address"
+                                            class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>City or ZIP:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" name="vender-info" id="pur-vender-city" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>Phone:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" name="vender-info" id="pur-vender-phone"
+                                            class="form-control">
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-4">
+                                <h3 class="main-subject">Ship To:</h3>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>Name:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" id="pur-ship-name" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>Street Address</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" id="pur-ship-address" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>City or ZIP:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" name="ship-info" id="pur-ship-city" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>Phone:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" name="ship-info" id="pur-ship-phone" class="form-control">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- packing address section -->
+
+
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="d-flex">
+                                <td class="col-2">Item #</td>
+                                <td class="col-6">Description</td>
+                                <td class="col-2">Quantity</td>
+                                <td class="col-2">
+                                    <div class="row">
+                                        <span class="col-md-6" style="font-size: 16px">Unit Price</span>
+                                        <span class="col-md-6">
+                                            <select class='form-control' id='currency' style="font-size: 12px"
+                                                onchange="currency_effect(this)" onClick='apply_currency(this)'>
+                                                <option value='PKR'>PKR</option>
+                                                <option value='USD'>USD</option>
+                                                <option value='EURO'>EURO</option>
+                                                <option value='GBP'>GBP</option>
+                                                <option value='AED'>AED</option>
+                                            </select>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody id='items_table'>
+                            <tr class="d-flex">
+                                <td class="col-2 td-cells">
+                                    <select class="form-control" id="pro1category" onclick="load_items(this)"
+                                        onchange="set_item(this)">
+                                    </select>
+                                </td>
+                                <td class="col-6 td-cells">
+                                    <input type="text" class="form-control" id="pro1description">
+                                </td>
+                                <td class="col-2 td-cells">
+                                    <input type="text" class="form-control" id="pro1quantityavailable"
+                                        style="width: 75%;float: left;">
+                                    <span></span>
+                                </td>
+                                <td class="col-2 td-cells">
+                                    <input type="text" class="form-control" id="pro1unitprice"
+                                        onkeypress="add_new(event)">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <section class="color-1 text-center">
+                        <p> <a class='btn btn-primary' data-toggle="modal" data-target="#myModal">Terms and
+                                Condition</a>
+                            <button onclick="generate_purchase_order(this)" class="btn btn-primary" id='proceed_btn'
+                                disabled>Generate</button>
+                        </p>
+                    </section>
 
                 </div>
+
             </div>
         </div>
     </div>
@@ -439,13 +438,13 @@
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-</script>
+    </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
     integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-</script>
+    </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-</script>
+    </script>
 
 <script src="../../../js/app.js"></script>
 
@@ -610,11 +609,11 @@
 
 
     }
-    
-    function populate_cpos(){
+
+    function populate_cpos() {
         let str = `<ul class="list_cont p-3">`;
         let str2 = ``;
-        pos.forEach((po)=>{
+        pos.forEach((po) => {
             str += `<li  class="card m-1 p-1 pointer" onClick="show('${po._id}')" style='font-size:12px'>${po.po_num}</li>`
             str2 += `<option value='${po.po_num}'>${po.po_num}</option>`
 
@@ -647,34 +646,33 @@
             description = encodeURIComponent(tr[i].getElementsByTagName('td')[1].getElementsByTagName('input')[0].value);
             quantity = encodeURIComponent(parseFloat(tr[i].getElementsByTagName('td')[2].getElementsByTagName('input')[0].value));
             price = encodeURIComponent(tr[i].getElementsByTagName('td')[3].getElementsByTagName('input')[0].value);
-            if(tr[i].getElementsByTagName('td')[0].getElementsByTagName('select')[0].value !== "" &&
-            tr[i].getElementsByTagName('td')[2].getElementsByTagName('input')[0].value > 0 &&
-            tr[i].getElementsByTagName('td')[3].getElementsByTagName('input')[0].value > 0){
+            if (tr[i].getElementsByTagName('td')[0].getElementsByTagName('select')[0].value !== "" &&
+                tr[i].getElementsByTagName('td')[2].getElementsByTagName('input')[0].value > 0 &&
+                tr[i].getElementsByTagName('td')[3].getElementsByTagName('input')[0].value > 0) {
                 obj = {
-                item: item,
-                description: description,
-                quantity: quantity,
-                price: price
-            };
-            items_array.push(obj);
+                    item: item,
+                    description: description,
+                    quantity: quantity,
+                    price: price
+                };
+                items_array.push(obj);
 
             }
-           
+
 
         };
-        if(items_array.length<1){
+        if (items_array.length < 1) {
             alert("Please fill atleast one item row");
-               return;
+            return;
         }
-        if(ref === "" ||
-           po_num === "" || 
-           vendor === "" ||
-           date === "" ||
-           p_date === "" )
-           {
-               alert("Please fill all fields!");
-               return;
-           }
+        if (ref === "" ||
+            po_num === "" ||
+            vendor === "" ||
+            date === "" ||
+            p_date === "") {
+            alert("Please fill all fields!");
+            return;
+        }
         items_array = JSON.stringify(items_array);
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -775,24 +773,24 @@
     };
 
     function show(id) {
-        pos.forEach((po)=>{
-            if(po._id === id){
+        pos.forEach((po) => {
+            if (po._id === id) {
                 console.log("selected", po);
-        document.getElementById('pur-date').value = po.date;
-        document.getElementById('payment_date').value = po.p_date;
-        document.getElementById('pur-po').value = po.po_num.split("/")[2] + "/" + po.po_num.split("/")[3];
-        document.getElementById('lpo_ref').value = po.ref;
-        document.getElementById('pur-company-name').value = po.vendor;
+                document.getElementById('pur-date').value = po.date;
+                document.getElementById('payment_date').value = po.p_date;
+                document.getElementById('pur-po').value = po.po_num.split("/")[2] + "/" + po.po_num.split("/")[3];
+                document.getElementById('lpo_ref').value = po.ref;
+                document.getElementById('pur-company-name').value = po.vendor;
 
-        fill_vendor();
-        // document.getElementById('tax').value = lpo.tax;
-        // document.getElementById('discount').value = lpo.discount;
-        // document.getElementById('currency').value = lpo.currency;
-        let str = '',
-            str3 = '';
-        let str2 = '<option value="null">Select Product</option>';
-        JSON.parse(po.purchase_array).forEach((item, i) => {
-            str3 = ` <td class="col-6 td-cells">
+                fill_vendor();
+                // document.getElementById('tax').value = lpo.tax;
+                // document.getElementById('discount').value = lpo.discount;
+                // document.getElementById('currency').value = lpo.currency;
+                let str = '',
+                    str3 = '';
+                let str2 = '<option value="null">Select Product</option>';
+                JSON.parse(po.purchase_array).forEach((item, i) => {
+                    str3 = ` <td class="col-6 td-cells">
                             <input type="text" class="form-control" id="pro1description">
                         </td>
                         <td class="col-2 td-cells">
@@ -803,44 +801,44 @@
                             <input type="text" class="form-control" id="pro1unitprice" onkeypress="add_new(event)">
                         </td>
                            `;
-            raw_items.forEach((item2) => {
-                // console.log("item p",item,"item o",item2)
+                    raw_items.forEach((item2) => {
+                        // console.log("item p",item,"item o",item2)
 
-                if (item2.name.toString() === item.item.toString()) {
-                    console.log("matched")
-                    str2 += `<option selected="selected">` + item2.name + `</option>`;
-                    str3 = `<td class="col-6 td-cells">
-                                <input type="text" class="form-control" id="pro${i+1}description" value="${item.description}">
+                        if (item2.name.toString() === item.item.toString()) {
+                            console.log("matched")
+                            str2 += `<option selected="selected">` + item2.name + `</option>`;
+                            str3 = `<td class="col-6 td-cells">
+                                <input type="text" class="form-control" id="pro${i + 1}description" value="${item.description}">
                             </td>
                             <td class="col-2 td-cells">
-                                <input type="text" class="form-control" id="pro${i+1}quantityorder" value="${item.quantity}">
+                                <input type="text" class="form-control" id="pro${i + 1}quantityorder" value="${item.quantity}">
                             </td>
                             <td class="col-2 td-cells">
-                                <input type="text" value="${item.price}" class="form-control" id="pro${i+1}unitprice" onkeypress="sales_add_new(event)">
+                                <input type="text" value="${item.price}" class="form-control" id="pro${i + 1}unitprice" onkeypress="sales_add_new(event)">
                             </td>`;
 
-                    // set_item2(item2.name.toString());
-                } else {
-                    str2 += `<option>` + item2.name + `</option>`;
+                            // set_item2(item2.name.toString());
+                        } else {
+                            str2 += `<option>` + item2.name + `</option>`;
 
-                }
-            })
+                        }
+                    })
 
-            str += ` <tr class="d-flex">
+                    str += ` <tr class="d-flex">
                             <td class="col-2 td-cells">
-                                <select class="form-control" id="pro${i+1}category" onclick="load_items(this)" onchange="set_item(this)">
+                                <select class="form-control" id="pro${i + 1}category" onclick="load_items(this)" onchange="set_item(this)">
                                 ${str2}
                                     </select>
                             </td>
                             ${str3}
                         </tr>`;
-        });
-        document.getElementById('items_table').innerHTML = str;
+                });
+                document.getElementById('items_table').innerHTML = str;
 
 
             }
         })
-            }
+    }
 </script>
 
 

@@ -1,10 +1,16 @@
 /* Global class */
-
+html, body {
+    width: auto!important; 
+    overflow-x: hidden!important
+}
 .bg-s-green{
     background-color: #dbe5e0;
 }
 .m-0{
     margin: 0;
+}
+.f-17{
+    font-size: 17px;
 }
 .font-size-md{
     font-size: 19px !important;
