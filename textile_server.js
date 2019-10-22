@@ -1676,20 +1676,52 @@ async function generate_packing_list(items_list,company,lpo_ref,invoice_ref,date
     
     workbook.xlsx.writeFile(path.join(__dirname,"/assets/reports/packing_list_g.xlsx")).then(cb);
 }
+app.post('/update_packing_list',(req,res)=>{
+    // console.log(req.body);
+    let invoice_num = req.body.invoice_num;
+    let date = req.body.date;
+    let new_pl = JSON.parse(req.body.packing_list);
+    Invoices.findOne({ref:invoice_num},(err,pl)=>{
+        if(err){
+            throw err;
+        }
+        if(pl !== null){
+            var old_pl = JSON.parse(pl.items_list);
+            old_pl.forEach(async (p)=>{
+               await Job_Slip.findOneAndUpdate({number:p.js_num},{$inc:{delivered:-parseInt(p.qty)}},()=>{ });
+            })
+            new_pl.forEach(async (p)=>{
+                await Job_Slip.findOneAndUpdate({number:p.js_num},{$inc:{delivered:parseInt(p.qty)}},()=>{ });
+             })
+            console.log(new_pl,old_pl);
+            pl.items_list = JSON.stringify(new_pl);
+            pl.date = date;
+            pl.save(()=>{
+                res.json({success:true});
+                res.end(); 
+            });
+        }else{
+            res.json({success:false,message:"Packing List does not exist"});
+            res.end();   
+        }
+    })
+})
 app.post('/generate_packing_list',(req,res)=>{
     console.log(JSON.stringify(req.body));
     let invoice_num = req.body.invoice_num;
-    let lpo_ref = decodeURIComponent(req.body.lpo_ref);
-    let company = lpo_ref.split("/")[1];
-    let invoice_ref = "iv/"+company+ "/" + invoice_num
+    let lpo_ref = req.body.lpo_ref;
+    let lpo_id = req.body.lpo_id
+    let company = req.body.company ;
+    let company_id = req.body.company_id
+    let invoice_ref = invoice_num
     let date = req.body.date;
-    let packing_list = JSON.parse(decodeURIComponent(req.body.packing_list));
+    let packing_list = JSON.parse(req.body.packing_list);
     let g_total = 0;
     packing_list.forEach((item)=>{
         g_total += parseFloat(item)
     })
     let html ='',str='';
-     let obj = {lpo_ref:lpo_ref,number:invoice_num,ref:invoice_ref,date:date,company:company,items_list:req.body.packing_list};
+     let obj = {lpo_ref:lpo_ref,lpo_id,company_id,number:invoice_num,ref:invoice_ref,date:date,company:company,items_list:req.body.packing_list};
       generate_packing_list(packing_list,company,lpo_ref,invoice_ref,date,()=>{
         new Invoices(obj).save();
         Info.findOneAndUpdate({},{$inc:{invoice_num:1}},()=>{});

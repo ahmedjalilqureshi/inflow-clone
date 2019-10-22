@@ -133,102 +133,154 @@
 
     <div id="main" class="wrapper container-fluid m-3">
 
-
-        <div class="container sales-container" id="main_place">
-
-            <div class="container-fluid payscript-container">
-                <h5 class="doc-head-text">Delivery Order/Packing List</h5>
-                <div class="row">
-                    <div class="col-md-4 null-space">
-                        <div class="col-md-4 null-space">
-                            Customers
-                        </div>
-                        <div class="col-md-8 null-space">
-                            <select class="form-control" id="lpo_cus" onchange="fill_cust(this)">
-                                <option value="">Select Customer</option>
-                            </select>
+        <div class="row">
+                <div class="col-md-3">
+                        <div class="alert-dark  cont" style="height: 100%">
+        
+                            <div class="container-fluid  text-dark">
+                                <h4 class="text-left">Packing List</h4>
+                                <!-- <h6>Edit Old Sales Order</h6> -->
+                                <h6>Search</h6>
+        
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group m-1">
+                                            <input type="text" placeholder="Search by LPO#" id='input_search_lpo'
+                                                class="form-control" list='lpo_data_list'>
+                                            <datalist id='lpo_data_list'>
+        
+                                            </datalist>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group m-1">
+                                            <input type="text" placeholder="Search by Customer" id='input_search_client'
+                                                class="form-control" list='client_data_list'>
+                                            <datalist id='client_data_list'>
+        
+                                            </datalist>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button class='float-right btn btn-sm btn-primary mr-1'
+                                            onClick='pl_refresh()'>Refresh</button>
+                                        <!-- <button class='float-right btn btn-primary mr-1' onClick='lpo_search()'>Search</button> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="m-1">
+                            <div class="list_cont" id='pl_list'>
+        
+                            </div>
+        
                         </div>
                     </div>
-                    
-                    <div class="col-md-4 null-space">
-                        <div class="col-md-4 null-space">
-                            L.P.O Ref
+            <div class="col-md-9">
+                    <div class=" sales-container" id="main_place">
+
+                            <div class="container-fluid payscript-container">
+                                <h5 class="doc-head-text">Delivery Order/Packing List</h5>
+                                <div class="row">
+                                    <div class="col-md-4 null-space">
+                                        <div class="col-md-4 null-space">
+                                            Customers
+                                        </div>
+                                        <div class="col-md-8 null-space">
+                                            <select class="form-control" id="lpo_cus" onchange="fill_cust(this)">
+                                                <option value="">Select Customer</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-4 null-space">
+                                        <div class="col-md-4 null-space">
+                                            L.P.O Ref
+                                        </div>
+                                        <div class="col-md-8 null-space">
+                                            <select class="form-control" id="lpo_ref" onchange="fill_items(this)">
+                                                <option value="">Select Lpo</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 null-space">
+                                        <div class="col-md-4 null-space">
+                                            Invoice#
+                                        </div>
+                                        <div class="col-md-8 null-space">
+                                            <input class="form-control" id="invoice_ref" type="text" />
+                
+                
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 null-space">
+                                        <div class="col-md-4 null-space">
+                                            Date
+                                        </div>
+                                        <div class="col-md-8 null-space">
+                                            <input class="form-control" id="date" type="date" />
+                
+                
+                                        </div>
+                                    </div>
+                                </div>
+                
+                
+                
+                
+                            </div>
+                
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <td>Organization Name:</td>
+                                        <td>Address:</td>
+                                        <td>Contact:</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="td-cells"><span id="buyer-organization-name"></span></td>
+                                        <td class="td-cells"><span id="buyer-address"></span></td>
+                                        <td class="td-cells"><span id="buyer-number"></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr class="d-flex">
+                                        <td class="col-2">Person</td>
+                                        <td class="col-2">Item</td>
+                                        <td class="col-1">Size</td>
+                                        <td class="col-1">Available Qty</td>
+                                        <td class="col-1">Qty to deliver</td>
+                                        <td class="col-2">Ctn/bale no</td>
+                                        <td class="col-2">pcs per ctn/bale</td>
+                                        <td class="col-1">Add in List</td>
+                                    </tr>
+                                </thead>
+                                <tbody id="container">
+                
+                                </tbody>
+                            </table>
+                
+                            <section class="color-1 text-center">
+                                <p>
+                                        <button onclick="update_packing_list(this)" class="btn btn-primary" style="display: none;" id='plu_btn'>Update
+                                                Packing List</button>
+                                 <button onclick="generate_packing_list(this)" class="btn btn-primary" disabled id='pl_btn'>Generate
+                                        Packing List</button>
+                                </p>
+                            </section>
+                
                         </div>
-                        <div class="col-md-8 null-space">
-                            <select class="form-control" id="lpo_ref" onchange="fill_items(this)">
-                                <option value="">Select Lpo</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-2 null-space">
-                        <div class="col-md-4 null-space">
-                            Invoice#
-                        </div>
-                        <div class="col-md-8 null-space">
-                            <input class="form-control" id="invoice_ref" type="text" />
-
-
-                        </div>
-                    </div>
-                    <div class="col-md-2 null-space">
-                        <div class="col-md-4 null-space">
-                            Date
-                        </div>
-                        <div class="col-md-8 null-space">
-                            <input class="form-control" id="date" type="date" />
-
-
-                        </div>
-                    </div>
-                </div>
-
-
-
-
             </div>
-
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <td>Organization Name:</td>
-                        <td>Address:</td>
-                        <td>Contact:</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="td-cells"><span id="buyer-organization-name"></span></td>
-                        <td class="td-cells"><span id="buyer-address"></span></td>
-                        <td class="td-cells"><span id="buyer-number"></span></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <table class="table table-bordered">
-                <thead>
-                    <tr class="d-flex">
-                        <td class="col-2">Person</td>
-                        <td class="col-2">Item</td>
-                        <td class="col-2">Size</td>
-                        <td class="col-1">Qty</td>
-                        <td class="col-2">Ctn/bale no</td>
-                        <td class="col-2">pcs per ctn/bale</td>
-                        <td class="col-1">Add in List</td>
-                    </tr>
-                </thead>
-                <tbody id="container">
-
-                </tbody>
-            </table>
-
-            <section class="color-1 text-center">
-                <p>
-                    <button onclick="generate_packing_list(this)" class="btn btn-primary" disabled id='pl_btn'>Generate
-                        Packing List</button>
-                </p>
-            </section>
-
         </div>
+        
 
 
 
@@ -242,249 +294,7 @@
 <input type="button" id="create_pdf" value="Generate PDF">  -->
 
 </body>
-<script>
-    let client, lpos;
 
-    function fill() {
-
-        //// lpos get 
-        var xhttp3 = new XMLHttpRequest();
-        xhttp3.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                lpos = JSON.parse(this.responseText).lpos;
-                str = '<option value="">Select L.P.O</option>';
-                // alert(e.innerHTML.length)
-                lpos.forEach((lpo) => {
-                    str += `<option value="` + lpo.ref + `">` + lpo.ref + `</option>`;
-                });
-                document.getElementById('lpo_ref').innerHTML = str;
-
-                console.log(lpos)
-            }
-        };
-        xhttp3.open("GET", "/get_lpos", true);
-        xhttp3.send();
-
-        var xhttp6 = new XMLHttpRequest();
-        xhttp6.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                clients = JSON.parse(this.responseText).clients;
-                let c_text = '<option value="">Select Customer</option>';
-                // alert(e.innerHTML.length)
-                clients.forEach((client) => {
-                    c_text += `<option value='` + client.company_name + `'>` + client.company_name +
-                        `</option>`;
-                });
-                document.getElementById('lpo_cus').innerHTML = c_text;
-                console.log("clients:", clients);
-
-            }
-        };
-        xhttp6.open("GET", "/get_clients", true);
-        xhttp6.send();
-
-
-        var xhttp4 = new XMLHttpRequest();
-        xhttp4.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                let d = new Date();
-                document.getElementById("invoice_ref").value = d.getFullYear() + "/" + JSON.parse(this.responseText)
-                    .info[0].invoice_num;
-
-                console.log(this.responseText)
-            }
-        };
-        xhttp4.open("GET", "/get_info", true);
-        xhttp4.send();
-
-    }
-
-    function fill_cust(e) {
-        let lpos_select = document.getElementById("lpo_ref");
-        let lpos_text = '<option value="">Select L.P.O#</option>'
-        // alert(e.value);
-        lpos.forEach((lpo) => {
-            if (lpo.client === e.value) {
-                lpos_text += `<option value="` + lpo.ref + `">` + lpo.ref + `</option>`
-            }
-        });
-        lpos_select.innerHTML = lpos_text;
-    }
-
-    function fill_items(e) {
-
-        // let lpos_select = document.getElementById("lpos_select");
-        // let lpos_text = '<option value="">Select C.P.O#</option>'
-        // // alert(e.value);
-        // lpos.forEach((lpo) => {
-        //     if (lpo.client === e.value) {
-        //         lpos_text += `<option value="` + lpo.ref + `">` + lpo.ref + `</option>`
-        //     }
-        // });
-        // lpos_select.innerHTML = lpos_text;
-
-        let value = e.value;
-        set_client(value);
-        set_list(value);
-
-    }
-
-    // function fill_items(e) {
-    //     let value = e.value;
-    //     set_client(value);
-    //     set_list(value);
-
-    // }
-
-    function set_client(val) {
-        let value = val;
-        if (value.length > 0) {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    console.log(this.responseText);
-                    client = JSON.parse(this.responseText).client;
-                    document.getElementById('buyer-organization-name').innerHTML = client.company_name;
-                    document.getElementById('buyer-address').innerHTML = client.street + "," + client.city;
-                    document.getElementById('buyer-number').innerHTML = client.phone
-                }
-            };
-            xhttp.open("GET", "/get_client?lpo=" + encodeURIComponent(val), true);
-            xhttp.send();
-        } else {
-            alert("null")
-            document.getElementById('buyer-organization-name').value = '';
-            document.getElementById('buyer-address').value = '';
-            document.getElementById('buyer-number').value = '';
-        }
-
-
-    }
-
-    function check_for_max(e) {
-        if (e.value > e.max) {
-            e.value = e.max;
-        }
-    }
-
-    function set_list(val) {
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                console.log(this.responseText);
-                document.getElementById("pl_btn").disabled = false;
-                let str = '';
-                let job_lists = JSON.parse(this.responseText).job_slips;
-                job_lists.forEach((js) => {
-                    if ((parseInt(js.packing) - parseInt(js.delivered)) > 0) {
-                        str += `
-                        <tr class="d-flex" id="` + js.number + `">
-                                <th class="col-2">` + js.person + `</th>
-                            <th class="col-2">` + js.product + `</th>
-                            <th class="col-2">` + js.size + `</th>
-                            <th class="col-1 ">
-                                <input type='text' class='form-control' value='` + (parseInt(js.packing) - parseInt(js
-                            .delivered)) + `' onChange='check_for_max(this)' max='` + (parseInt(js
-                            .packing) - parseInt(js.delivered)) + `' ></th>
-                            <td class="col-2 td-cells">
-                                <input type='text' class='form-control' >
-                            </td>
-                            <td class="col-2 td-cells">
-                                <input type='text' class='form-control' >
-                            </td>
-                            <td class="col-1"><input type='hidden' value="" />
-                            <button onClick="add_in_list(this)">Add in List</button></td>
-                        </tr>`;
-                    }
-
-                })
-                // alert(str);
-                document.getElementById("container").innerHTML = str;
-                // client = JSON.parse(this.responseText).client;
-                // document.getElementById('buyer-organization-name').innerHTML = client.company_name;
-                // document.getElementById('buyer-address').innerHTML = client.street + "," + client.city;
-                // document.getElementById('buyer-number').innerHTML = client.phone
-            }
-        };
-        xhttp.open("GET", "/get_job_slips?lpo=" + encodeURIComponent(val), true);
-        xhttp.send();
-
-    }
-
-    function generate_packing_list(e) {
-        e.disabled = true;
-        let company = document.getElementById('buyer-organization-name').innerHTML;
-        let lpo_ref = document.getElementById('lpo_ref').value;
-        let invoice_num = document.getElementById('invoice_ref').value;
-        let date = document.getElementById('date').value;
-
-
-        let items_array = [],
-            total = 0;
-        let table = document.getElementById('container');
-        console.log("table:" + table);
-        let tr = table.getElementsByTagName('tr');
-        let item, size, qty, ctn, pcs;
-        for (let i = 0; i < tr.length; i++) {
-            if (tr[i].getElementsByTagName('td')[2].getElementsByTagName('input')[0].value == "added") {
-                js_num = tr[i].id;
-                item = tr[i].getElementsByTagName('th')[1].innerHTML;
-                size = tr[i].getElementsByTagName('th')[2].innerHTML;
-                qty = tr[i].getElementsByTagName('th')[3].getElementsByTagName('input')[0].value;
-                ctn = tr[i].getElementsByTagName('td')[0].getElementsByTagName('input')[0].value;
-                pcs = tr[i].getElementsByTagName('td')[1].getElementsByTagName('input')[0].value;
-                obj = {
-                    js_num: js_num,
-                    item: item,
-                    size: size,
-                    qty: qty,
-                    ctn: ctn,
-                    pcs: pcs
-                };
-                items_array.push(obj);
-            }
-
-        };
-        console.log(items_array);
-        items_array = JSON.stringify(items_array);
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                alert("Packing List is generated");
-                e.disabled = false;
-
-                var link = document.createElement("a");
-                link.download = 'packing_list.xlsx';
-                link.href = '/packing_list_report';
-                link.click();
-                document.location.reload();
-            }
-        };
-        xhttp.open("POST", "/generate_packing_list", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("lpo_ref=" + encodeURIComponent(lpo_ref) + "&invoice_num=" + invoice_num + "&date=" + date + "&packing_list=" +
-        encodeURIComponent(items_array));
-
-
-
-
-
-    }
-
-    function add_in_list(e) {
-        let added = e.parentNode.getElementsByTagName("input")[0].value;
-        if (added === "") {
-            e.style.border = "1px solid blue";
-            e.style.backgroundColor = "cyan";
-            e.parentNode.getElementsByTagName("input")[0].value = "added"
-        } else {
-            e.style.border = "";
-            e.style.backgroundColor = "";
-            e.parentNode.getElementsByTagName("input")[0].value = ""
-        }
-    }
-</script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
 </script>
@@ -496,6 +306,9 @@
 </script>
 
 <script src="../../../js/app.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script src="/js/packingList.js"></script>
 
 <script>
     //  let index = 1;
