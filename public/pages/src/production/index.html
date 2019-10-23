@@ -7,11 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Production Line</title>
 
-    <!-- <link rel="stylesheet" href="../../../css/style.css"> -->
-    <link rel="stylesheet" href="../../../css/salesStyle.css">
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <!-- <link rel="stylesheet" href="../../../css/salesStyle.css"> -->
     <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href=".././../../css/bootstrap-yeti.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous"> -->
 
     <meta name="description" content="Creative Button Styles  - Modern and subtle styles &amp; effects for buttons" />
     <meta name="keywords" content="button styles, css3, modern, flat button, subtle, effects, hover, web design" />
@@ -19,14 +20,17 @@
     <link rel="shortcut icon" href="../favicon.ico">
     <!-- <link rel="stylesheet" type="text/css" href="css/default.css" />
     <link rel="stylesheet" type="text/css" href="css/component.css" /> -->
-    <script src='https://cdn.jsdelivr.net/npm/jsbarcode@3.8.0/dist/JsBarcode.all.min.js' ></script>
+    <script src='https://cdn.jsdelivr.net/npm/jsbarcode@3.8.0/dist/JsBarcode.all.min.js'></script>
     <!-- Font Awesome -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 
-<style>
-@page { size: auto;  margin: 0mm; }
-</style>
-  <style>
+    <style>
+        @page {
+            size: auto;
+            margin: 0mm;
+        }
+    </style>
+    <style>
         /* .pm-0 {
             padding: 0px !important;
 
@@ -55,7 +59,6 @@
             margin: 0;
             padding: 0;
             font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif
-
         }
     </style>
 </head>
@@ -63,462 +66,529 @@
 <body>
 
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-light">
-                <img src="../../../assets/img/aa-logo.jpg" class=" float-right md-logo" alt="logo" width="70px">
-                <a class="navbar-brand text-dark navbar-left ml-3" href="#">
-        
-                    ABBAS ALI & SONS UNIFORMS AND TEXTILES
-                </a>
-                <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div>
-                    &nbsp;
-                </div>
-        
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto text-light">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Sales
-                            </a>
-                            <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item text-info" href="/sale/sales_order">Sales Order</a>
-                                <a class="dropdown-item text-info" href="/sale/packing_list">Packing List</a>
-                                <a class="dropdown-item text-info" href="/sale/commercial_invoice">Commercial Invoice</a>
-                                <a class="dropdown-item text-info" href="/sale/reciept_voucher">Reciept Voucher</a>
-        
-                            </div>
-                        </li>
-        
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Purchase
-                            </a>
-                            <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item text-info" href="/purchase/purchase_order">Purchase Order</a>
-                                <a class="dropdown-item text-info" href="/purchase/gr_note">Good Recieving Note / Invoice</a>
-                                <a class="dropdown-item text-info" href="/purchase/payment_voucher">Vendor Payment</a>
-                            </div>
-                        </li>
-        
-        
-        
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/production">Production</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Reports
-                            </a>
-                            <div class="dropdown-menu text-dark bg-dark" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item text-info" href="/reports/sales_report">Sales Report</a>
-                                <a class="dropdown-item text-info" href="/reports/purchase_report">Purchase Report</a>
-                                <a class="dropdown-item text-info" href="/reports/production_report">Production Report</a>
-                                <a class="dropdown-item text-info" href="/reports/accounts_report">Accounts Report</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/master" tabindex="-1" aria-disabled="true">Master Data</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/master_view" tabindex="-1" aria-disabled="true">Master
-                                View</a>
-                        </li>
-                    </ul>
-        
-                </div>
-        </nav>
-            <hr class="pm-0">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <img src="../../../assets/img/aa-logo.jpg" class=" float-right md-logo" alt="logo" width="70px">
+        <a class="navbar-brand text-light navbar-left ml-3" href="/">
+            ABBAS ALI & SONS UNIFORMS AND TEXTILES
+        </a>
+        <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div>
+            &nbsp;
+        </div>
+
+        <div class="collapse navbar-collapse f-17" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto text-light">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sales
+                    </a>
+                    <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item text-info" href="/sale/sales_order">Sales Order</a>
+                        <a class="dropdown-item text-info" href="/sale/packing_list">Packing List</a>
+                        <a class="dropdown-item text-info" href="/sale/commercial_invoice">Commercial Invoice</a>
+                        <a class="dropdown-item text-info" href="/sale/reciept_voucher">Receipt Voucher</a>
+
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Purchase
+                    </a>
+                    <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item text-info" href="/purchase/purchase_order">Purchase Order</a>
+                        <a class="dropdown-item text-info" href="/purchase/gr_note">Good Recieving Note / Invoice</a>
+                        <a class="dropdown-item text-info" href="/purchase/payment_voucher">Vendor Payment</a>
+                    </div>
+                </li>
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/production">Production</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Reports
+                    </a>
+                    <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item text-info" href="/reports/sales_report">Sales Report</a>
+                        <a class="dropdown-item text-info" href="/reports/purchase_report">Purchase Report</a>
+                        <a class="dropdown-item text-info" href="/reports/production_report">Production Report</a>
+                        <a class="dropdown-item text-info" href="/reports/accounts_report">Accounts Report</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/master" tabindex="-1" aria-disabled="true">Master Data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/master_view" tabindex="-1" aria-disabled="true">Master
+                        View</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <hr class="pm-0">
     <div id="main" class="container-fluid">
         <div class="container production-container">
-                <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                          <a class="nav-link active" data-toggle="tab" href="#jsc">JOB SLIP CREATION</a>
-                        </li>
-                        <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#printing">JOB SLIPS PRINTING</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" data-toggle="tab" href="#operation">OPERATIONS</a>
-                        </li>
-                        
-                        
-                      </ul>
-                      
-                      <!-- Tab panes -->
-                      <div class="tab-content">
-                        <div class="tab-pane container active" id="jsc"> 
-                            <div class="row" >
-                                <div class='container'>
-                                    <br>
-                                    <div class='col-md-12'>
-                                            <div class='row' style="display:none">
-                                                    <div class='col-md-4'><label class='form-control-label' style='margin-right:16px'>Starting Number#</label>
-                        
-                                                    </div>
-                                                    <div class='col-md-6'>
-                                                        <p class='form-control' id='starting_number_2'></p>
-                                                        <input class='form-control' id='starting_number' name='starting_number' required >
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                        <div class="col-md-1">
-                                                                <label class='form-control-label'>Client</label>
-                                        
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <select id='clients_select2' name='number' onChange="lpo_set(this,'lpo_select')" class='form-control' ></select>
-                                                        </div>  
-                                                        <div class='col-md-1'><label class='form-control-label' style='margin-right:16px'>L.P.O
-                                                                Ref:</label>
-                            
-                                                        </div>
-                                                        <div class='col-md-3'> <select class='form-control' required id='lpo_select' name='lpo_ref' onchange='set_style(this)'>
-                                                            </select>
-                                                        </div>
-                                                        <div class='col-md-1'> <label class='form-control-label' style='margin-right:16px'>Style:</label>
-                                                        </div>
-                                                        <div class='col-md-3'> <select required class='form-control' name='style' id="style_select" onChange="set_product_list(this)" >
-                                                            </select>
-                                                        </div>
-                                                </div>
-                                                        
-                                            <br>
-                                             <h6>Create New Job Slips Against LPO#:<span id="lpo_ref_ph"></span></h6>
-                                           <div class="row">
-                                               <table class="table table-striped table-light">
-                                                    <thead>
-                                                            <tr>
-                                                            <th>Product</th><th>Fabric Code</th>
-                                                             <th>Details</th><th>Measurements</th>
-                                                             <th>Quantity</th><th>Size</th>
-                                                             <th style='width:180px;min-width:180px'>Person</th><th>&nbsp;</th></tr>
-                                                        </thead>   
-                                               
-                                               <tbody id="product_list">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#jsc">JOB SLIP CREATION</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#printing">JOB SLIPS PRINTING</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#operation">OPERATIONS</a>
+                </li>
 
-                                               </tbody>
-                                            </table>
-                                           </div>
-                                           <br>
-                                           <h6>Existing Job Slips Against LPO#: <span id="lpo_ref_ph2"></span></h6>
-                                           <div class="row">
-                                                <table class="table table-striped table-light">
-                                                        <thead>
-                                                                <tr>
-                                                                 <th>Style</th>
-                                                                 <th>Product</th><th>Measurements</th>
-                                                                 <th>Quantity</th><th>Size</th>
-                                                                 <th style='width:180px;min-width:180px'>Person</th><th>&nbsp;</th></tr>
-                                                            </thead>
-                                                    <tbody id="existing_js">
-     
-                                                    </tbody>
-                                                 </table>
-                                           </div> 
-                                            
-                                           
-                                        </div>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="jsc">
+                    <div class="row">
+                        <div class='container'>
+                            <br>
+                            <div class='col-md-12'>
+                                <div class='row' style="display:none">
+                                    <div class='col-md-4'><label class='form-control-label'
+                                            style='margin-right:16px'>Starting Number#</label>
+
                                     </div>
-                                
-                
-                                </div></div>
-                        <div class="tab-pane container fade" id="operation"><div class="row" >
-                              <!----         left card section    -->
-<div class='col-md-6'>
-        <div class="card">
-            <div class="card-header"><h5>Information About Job Slip</h5></div>
-            <div class='card-body'>
-                <div class='container-fluid'>
-                        <!-- <div class='row'>
-                                <div class="col-md-2">
-                                        <label class='form-control-label'>LPO REF#</label>
-                
+                                    <div class='col-md-6'>
+                                        <p class='form-control' id='starting_number_2'></p>
+                                        <input class='form-control' id='starting_number' name='starting_number'
+                                            required>
+                                    </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <select id='unique_lpos2' name='number' onChange="js_set2(this)" class='form-control' required></select>
-                                </div>          
-                                <div class="col-md-2">
-                                        <label class='form-control-label'>JOB SLIP#</label>
-                
-                                </div>
-                                <div class="col-md-4">
-                                    <select id='js_select' name='number' onChange='set_js()' class='form-control' required></select>
-                                </div>
-                            </div> -->
-                            <!--- ammendment -->
-                            <div class='row'>
-                                <div class="col-md-2">
+                                <div class="row">
+                                    <div class="col-md-1">
                                         <label class='form-control-label'>Client</label>
-                
+
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select id='clients_select2' name='number' onChange="lpo_set(this,'lpo_select')"
+                                            class='form-control'></select>
+                                    </div>
+                                    <div class='col-md-1'><label class='form-control-label'
+                                            style='margin-right:16px'>L.P.O
+                                            Ref:</label>
+
+                                    </div>
+                                    <div class='col-md-3'> <select class='form-control' required id='lpo_select'
+                                            name='lpo_ref' onchange='set_style(this)'>
+                                        </select>
+                                    </div>
+                                    <div class='col-md-1'> <label class='form-control-label'
+                                            style='margin-right:16px'>Style:</label>
+                                    </div>
+                                    <div class='col-md-3'> <select required class='form-control' name='style'
+                                            id="style_select" onChange="set_product_list(this)">
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <select id='clients_select' name='number' onChange="lpo_set(this,'s_lpo_select')" class='form-control' ></select>
-                                </div>          
-                                <div class="col-md-2">
-                                        <label class='form-control-label'>LPO ref#</label>
-                
+
+                                <br>
+                                <h6>Create New Job Slips Against LPO#:<span id="lpo_ref_ph"></span></h6>
+                                <div class="row">
+                                    <table class="table table-striped table-light">
+                                        <thead>
+                                            <tr>
+                                                <th>Product</th>
+                                                <th>Fabric Code</th>
+                                                <th>Details</th>
+                                                <th>Measurements</th>
+                                                <th>Quantity</th>
+                                                <th>Size</th>
+                                                <th style='width:180px;min-width:180px'>Person</th>
+                                                <th>&nbsp;</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody id="product_list">
+
+                                        </tbody>
+                                    </table>
                                 </div>
-                                <div class="col-md-4">
-                                    <select id='s_lpo_select' class='form-control' ></select>
+                                <br>
+                                <h6>Existing Job Slips Against LPO#: <span id="lpo_ref_ph2"></span></h6>
+                                <div class="row">
+                                    <table class="table table-striped table-light">
+                                        <thead>
+                                            <tr>
+                                                <th>Style</th>
+                                                <th>Product</th>
+                                                <th>Measurements</th>
+                                                <th>Quantity</th>
+                                                <th>Size</th>
+                                                <th style='width:180px;min-width:180px'>Person</th>
+                                                <th>&nbsp;</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="existing_js">
+
+                                        </tbody>
+                                    </table>
                                 </div>
+
+
                             </div>
-                            <!------  ammendment  -->
-                            <hr/>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="tab-pane container fade" id="operation">
+                    <div class="row">
+                        <!----         left card section    -->
+                        <div class='col-md-6'>
                             <div class="card">
                                 <div class="card-header">
-                                    <div class="form-inline">
-                                        <label for="" class="form-control-label">BARCODE NUMBER:</label>
-                                        <input type="search" class="form-control" style='margin-left:0.25em' onsearch="bc_info(this)">
+                                    <h5>Information About Job Slip</h5>
+                                </div>
+                                <div class='card-body'>
+                                    <div class='container-fluid'>
+
+                                        <div class='row'>
+                                            <div class="col-md-2">
+                                                <label class='form-control-label'>Client</label>
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <select id='clients_select' name='number'
+                                                    onChange="lpo_set(this,'s_lpo_select')"
+                                                    class='form-control'></select>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class='form-control-label'>LPO ref#</label>
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <select id='s_lpo_select' class='form-control'></select>
+                                            </div>
+                                        </div>
+                                        <!------  ammendment  -->
+                                        <hr />
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <div class="form-inline">
+                                                    <label for="" class="form-control-label">BARCODE NUMBER:</label>
+                                                    <input type="search" class="form-control" style='margin-left:0.25em'
+                                                        onsearch="bc_info(this)">
+                                                </div>
+
+                                            </div>
+                                            <div class="card-body">
+                                                <div id="bc_info"></div>
+                                            </div>
+                                        </div>
+
+                                        <table class='table table-dark table-striped' style="display: none">
+                                            <tr>
+                                                <td colspan="1">L.P.O ref</td>
+                                                <th id='ref' colspan="2"></th>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="1">Product</td>
+                                                <th id='product' colspan="2"></th>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="1">Style</td>
+                                                <th id='style' colspan="2"></th>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="1">Total Quantity</td>
+                                                <th id='quantity' colspan="2"></th>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="1">Starting Barcode Number</td>
+                                                <th colspan="2" id='starting_number_1'></th>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="1">Quantity Delivered</td>
+                                                <td colspan="2" id="delivering_number"></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="1">Quantity Cut</td>
+                                                <td colspan="2" id='cutting_number'>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cutting By:<span id="cutting_by"></span></td>
+                                                <td>Time:<span id="cutting_on"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="1">Quantity Stitch</td>
+                                                <td colspan="2" id='stitching_number'>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Stitching By:<span id='stitching_by'></span></td>
+                                                <td>Time:<span id="stitching_on"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="1">Quantity Finalized</td>
+                                                <td colspan="2" id='qc_number'>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Finalised By:<span id="qc_by"></span></td>
+                                                <td>Time:<span id='qc_on'></span></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td colspan="1">Quantity Packed</td>
+                                                <td colspan="2" id='packing_number'>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Packing By:<span id="packing_by"></span></td>
+                                                <td>Time:<span id="packing_on"></span></td>
+                                            </tr>
+                                        </table>
+
                                     </div>
 
                                 </div>
-                                <div class="card-body">
-                                    <div id="bc_info"></div>
-                                </div>
                             </div>
-                            
-                    <table class='table table-dark table-striped' style="display: none">
-                        <tr><td colspan="1">L.P.O ref</td><th id='ref' colspan="2"></th></tr>
-                        <tr><td colspan="1">Product</td><th id='product' colspan="2"></th></tr>
-                        <tr><td colspan="1">Style</td><th id='style' colspan="2"></th></tr>
-                        <tr><td colspan="1">Total Quantity</td><th id='quantity' colspan="2"></th></tr>
-                        <tr><td colspan="1">Starting Barcode Number</td><th colspan="2" id='starting_number_1'></th></tr>
-                        <tr><td colspan="1">Quantity Delivered</td><td colspan="2" id="delivering_number"></td></tr>
-                        <tr><td colspan="1">Quantity Cut</td><td colspan="2" id='cutting_number' >
-                        </td></tr>
-                        <tr><td>Cutting By:<span id="cutting_by"></span></td><td>Time:<span id="cutting_on"></span></td></tr>
-                        <tr><td colspan="1">Quantity Stitch</td><td colspan="2" id='stitching_number'>
-            
-                            </td></tr>  
-                        <tr><td>Stitching By:<span id='stitching_by'></span></td><td>Time:<span id="stitching_on"></span></td></tr>                        
-                        <tr><td colspan="1">Quantity Finalized</td><td colspan="2" id='qc_number'>
-                        </td></tr>
-                        <tr><td>Finalised By:<span id="qc_by"></span></td><td>Time:<span id='qc_on'></span></td></tr>       
-            
-                        <tr><td colspan="1">Quantity Packed</td><td colspan="2" id='packing_number'>
-                            </td></tr> 
-                        <tr><td>Packing By:<span id="packing_by"></span></td><td>Time:<span id="packing_on"></span></td></tr>                          
-                          </table>
-
-                </div>
-
-            </div>
-        </div>
-        </div> 
-<!----         left card section    -->  
-                             <div class='col-md-6'>
-                                    <br>
-                                    <ul class="nav nav-tabs">
-                                            <li class="nav-item">
-                                              <a class="nav-link active" data-toggle="tab" href="#cut">Cutting</a>
-                                            </li>
-                                            <li class="nav-item">
-                                              <a class="nav-link" data-toggle="tab" href="#stitch">Stitching</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#qc">Quality Checking</a>
-                                              </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#pack">Packing</a>
-                                              </li>
-                                            <!-- <li class="nav-item">
+                        </div>
+                        <!----         left card section    -->
+                        <div class='col-md-6'>
+                            <br>
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#cut">Cutting</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#stitch">Stitching</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#qc">Quality Checking</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#pack">Packing</a>
+                                </li>
+                                <!-- <li class="nav-item">
                                                 <a class="nav-link" data-toggle="tab" href="#deliver">Delivering</a>
                                              </li> -->
-                                            
-                                          </ul>
-                                          <div class="tab-content">
 
-                                           <!--- cutting phase -->
+                            </ul>
+                            <div class="tab-content">
+
+                                <!--- cutting phase -->
                                 <div class="tab-pane container active" id='cut'>
-                                        <div class="row">
-                                               <div class='col-md-12'>
-                                                      <br>
-                                                      <h5>CUTTING DONE</h5>
-                                                       
-                                                           <br>
-                                                           <div class='container-fluid'>
-                                                                   <div class='row'>
-                                                                       <div class="col-md-4">
-                                                                               <label class='form-control-label'>Job Slip# / Job Slip Range</label>
-       
-                                                                       </div>
-                                                                       <div class="col-md-6">
-                                                                            <input required type='hidden' name='number' id='hidden_1' />
+                                    <div class="row">
+                                        <div class='col-md-12'>
+                                            <br>
+                                            <h5>CUTTING DONE</h5>
 
-                                                                           <input required id='q_cut_input' type='text'  class='form-control'/>
-                                                                       </div>
-                                                                   </div>
-                                                                   <br>
-                                                                   <div class='row'>
-                                                                        <div class="col-md-4">
-                                                                                <label class='form-control-label'>Cut By(Person Incharge)</label>
-        
-                                                                        </div>
-                                                                        <div class="col-md-6">
- 
-                                                                            <input required id='cutting_by_input' type='text'  class='form-control' />
-                                                                        </div>
-                                                                    </div>
-                                                                   
-                                                               </div>
-                                                               <br>
-                                                           <div class="container-fluid">
-                                                               <div class="row">
-                                                                   <div class="col-md-4">
-                                                                       <button class="btn btn-primary" onclick="cutting_done(this)">Add</button>
-                                                                   </div>
-                                                               </div>
-                                                           </div>    
-                                                     </div>
-                                                     
-                                       
-                                       </div>
-                                       </div>
-                                    <!--- cutting phase -->
-                                     <!--- stitching phase -->
+                                            <br>
+                                            <div class='container-fluid'>
+                                                <div class='row'>
+                                                    <div class="col-md-4">
+                                                        <label class='form-control-label'>Job Slip# / Job Slip
+                                                            Range</label>
+
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input required type='hidden' name='number' id='hidden_1' />
+
+                                                        <input required id='q_cut_input' type='text'
+                                                            class='form-control' />
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class='row'>
+                                                    <div class="col-md-4">
+                                                        <label class='form-control-label'>Cut By(Person
+                                                            Incharge)</label>
+
+                                                    </div>
+                                                    <div class="col-md-6">
+
+                                                        <input required id='cutting_by_input' type='text'
+                                                            class='form-control' />
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <br>
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <button class="btn btn-primary"
+                                                            onclick="cutting_done(this)">Add</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <!--- cutting phase -->
+                                <!--- stitching phase -->
                                 <div class="tab-pane container fade" id='stitch'>
-                                        <div class="row">
-                                               <div class='col-md-12'>
-                                                      <br>
-                                                      <h5>STITCHING DONE</h5>
-                                                       
-                                                           <br>
-                                                           <div class='container-fluid'>
-                                                                   <div class='row'>
-                                                                       <div class="col-md-4">
-                                                                               <label class='form-control-label'>Job Slip# / Job Slip Range</label>
-       
-                                                                       </div>
-                                                                       <div class="col-md-6">
-                                                                           <input required type='hidden' name='number' id='hidden_2' />
-                                                                           <input id='q_stitched_input' name='quantity' type='text'  class='form-control' required/>
-                                                                       </div>
-                                                                   </div>
-                                                                   <br>
-                                                                   <div class='row'>
-                                                                        <div class="col-md-4">
-                                                                                <label class='form-control-label'>Stitched By(Person Incharge)</label>
-        
-                                                                        </div>
-                                                                        <div class="col-md-6">
- 
-                                                                            <input id='stitching_by_input' type='text'  class='form-control' />
-                                                                        </div>
-                                                                    </div>
-                                                                   
-                                                               </div>
-                                                               <br>
-                                                           <div class="container-fluid">
-                                                               <div class="row">
-                                                                   <div class="col-md-4">
-                                                                       <button class="btn btn-primary" onClick="stitching_done(this)">Add</button>
-                                                                   </div>
-                                                               </div>
-                                                           </div>    
-                                                     </div>
-                                                     
-                                       </div>
-                                       </div>
-                                    <!--- stitching phase -->
-                                     <!--- qc phase -->
+                                    <div class="row">
+                                        <div class='col-md-12'>
+                                            <br>
+                                            <h5>STITCHING DONE</h5>
+
+                                            <br>
+                                            <div class='container-fluid'>
+                                                <div class='row'>
+                                                    <div class="col-md-4">
+                                                        <label class='form-control-label'>Job Slip# / Job Slip
+                                                            Range</label>
+
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input required type='hidden' name='number' id='hidden_2' />
+                                                        <input id='q_stitched_input' name='quantity' type='text'
+                                                            class='form-control' required />
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class='row'>
+                                                    <div class="col-md-4">
+                                                        <label class='form-control-label'>Stitched By(Person
+                                                            Incharge)</label>
+
+                                                    </div>
+                                                    <div class="col-md-6">
+
+                                                        <input id='stitching_by_input' type='text'
+                                                            class='form-control' />
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <br>
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <button class="btn btn-primary"
+                                                            onClick="stitching_done(this)">Add</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!--- stitching phase -->
+                                <!--- qc phase -->
                                 <div class="tab-pane container fade" id='qc'>
                                     <div class="row">
-                                           <div class='col-md-12'>
-                                                  <br>
-                                                  <h5>Quality Checked/Finalized</h5>
-                                                   
-                                                       <br>
-                                                       <div class='container-fluid'>
-                                                               <div class='row'>
-                                                                   <div class="col-md-4">
-                                                                           <label class='form-control-label'>Job Slip# / Job Slip Range</label>
-   
-                                                                   </div>
-                                                                   <div class="col-md-6">
-                                                                       <input required type='hidden' name='number' id='hidden_5' />
-                                                                       <input id='q_qc_input'  type='text' min='0' class='form-control' />
-                                                                   </div>
-                                                               </div>
-                                                               <br>
-                                                               <div class='row'>
-                                                                    <div class="col-md-4">
-                                                                            <label class='form-control-label'>QC By(Person Incharge)</label>
-    
-                                                                    </div>
-                                                                    <div class="col-md-6">
+                                        <div class='col-md-12'>
+                                            <br>
+                                            <h5>Quality Checked/Finalized</h5>
 
-                                                                        <input required id='qc_by_input' type='text'  class='form-control' />
-                                                                    </div>
-                                                                </div>
-                                                               
-                                                           </div>
-                                                           <br>
-                                                       <div class="container-fluid">
-                                                           <div class="row">
-                                                               <div class="col-md-4">
-                                                                   <button class="btn btn-primary" onClick="qc_done(this)">Add</button>
-                                                               </div>
-                                                           </div>
-                                                       </div>    
-                                                 </div>
-                                                 
-                                   </div>
-                                   </div>
+                                            <br>
+                                            <div class='container-fluid'>
+                                                <div class='row'>
+                                                    <div class="col-md-4">
+                                                        <label class='form-control-label'>Job Slip# / Job Slip
+                                                            Range</label>
+
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input required type='hidden' name='number' id='hidden_5' />
+                                                        <input id='q_qc_input' type='text' min='0'
+                                                            class='form-control' />
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class='row'>
+                                                    <div class="col-md-4">
+                                                        <label class='form-control-label'>QC By(Person Incharge)</label>
+
+                                                    </div>
+                                                    <div class="col-md-6">
+
+                                                        <input required id='qc_by_input' type='text'
+                                                            class='form-control' />
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <br>
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <button class="btn btn-primary"
+                                                            onClick="qc_done(this)">Add</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
                                 <!--- qc phase -->
-                                     <!--- packed phase -->
+                                <!--- packed phase -->
                                 <div class="tab-pane container fade" id='pack'>
-                                        <div class="row">
-                                               <div class='col-md-12'>
-                                                      <br>
-                                                      <h5>PACKING DONE</h5>
-                                                       
-                                                           <br>
-                                                           <div class='container-fluid'>
-                                                                   <div class='row'>
-                                                                       <div class="col-md-4">
-                                                                               <label class='form-control-label'>Job Slip# / Job Slip Range</label>
-       
-                                                                       </div>
-                                                                       <div class="col-md-6">
-                                                                            <input required type='hidden' name='number' id='hidden_3' />
+                                    <div class="row">
+                                        <div class='col-md-12'>
+                                            <br>
+                                            <h5>PACKING DONE</h5>
 
-                                                                           <input id='q_packed_input' name='quantity' type='text'  class='form-control' />
-                                                                       </div>
-                                                                   </div>
-                                                                   <br>
-                                                                   <div class='row'>
-                                                                        <div class="col-md-4">
-                                                                                <label class='form-control-label'>Packed By(Person Incharge)</label>
-        
-                                                                        </div>
-                                                                        <div class="col-md-6">
- 
-                                                                            <input required id='packing_by_input' type='text'  class='form-control' />
-                                                                        </div>
-                                                                    </div>
-                                                                   
-                                                               </div>
-                                                               <br>
-                                                           <div class="container-fluid">
-                                                               <div class="row">
-                                                                   <div class="col-md-4">
-                                                                       <button class="btn btn-primary" onclick="packing_done(this)">Add</button>
-                                                                   </div>
-                                                               </div>
-                                                           </div>    
-                                                       </form>
-                                                     </div>
-                                       
-                                                   </div>
-                                       </div>
-                                    <!--- packed phase -->
-                                     <!-- - delivered phase -->
+                                            <br>
+                                            <div class='container-fluid'>
+                                                <div class='row'>
+                                                    <div class="col-md-4">
+                                                        <label class='form-control-label'>Job Slip# / Job Slip
+                                                            Range</label>
+
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input required type='hidden' name='number' id='hidden_3' />
+
+                                                        <input id='q_packed_input' name='quantity' type='text'
+                                                            class='form-control' />
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class='row'>
+                                                    <div class="col-md-4">
+                                                        <label class='form-control-label'>Packed By(Person
+                                                            Incharge)</label>
+
+                                                    </div>
+                                                    <div class="col-md-6">
+
+                                                        <input required id='packing_by_input' type='text'
+                                                            class='form-control' />
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <br>
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <button class="btn btn-primary"
+                                                            onclick="packing_done(this)">Add</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!--- packed phase -->
+                                <!-- - delivered phase -->
                                 <!-- <div class="tab-pane container fade" id='deliver'>
                                         <div class="row">
                                                <div class='col-md-12'>
@@ -532,154 +602,163 @@
                                        
                                        </div>
                                        </div> -->
-                                    <!--- delivered phase -->
-                                    </div>
-                                                                                                     
-   
-                             </div>
-                               
-                
-                                </div></div>
-                            <!--- printing -->
-                        <div class="tab-pane container fade" id='printing'>
-                            <br>
-                            <h5>Printing</h5>
-                            <br>
-                            <div class="row">
-                                    <div class='col-md-5'>
-                                            <div class='row'>
-                                                  
-                                                    <div class="col-md-4">
-                                                            <label class='form-control-label'>Client</label>
-                                                        <select id='clients_select3' name='number' onChange="lpo_set(this,'unique_lpos')" class='form-control' ></select>
-                                                    </div>  
-                                                   
-                                                    <div class="col-md-4">
-                                                            <label class='form-control-label'>LPO REF#</label>
-
-                                                        <select id='unique_lpos'  class='form-control' required onchange="js_set(this)"></select>
-                                                    </div>
-                                                    
-                                                    <div class="col-md-4">
-                                                            <label class='form-control-label'>Variations</label>
-
-                                                        <select id='js_select_1'  class='form-control' required onchange="jsp_set(this)"></select>
-                                                    </div>
-                                                </div>
-                                             <br>
-                                             <div class='row'>
-                                                   
-                                                    <div class="col-md-4">
-                                                            <label class='form-control-label'>LPO REF#</label>
-                                    
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <span id='jsp_l'   ></span>
-                                                    </div>
-                                                </div>
-                                                <div class='row'>
-                                                   
-                                                        <div class="col-md-4">
-                                                                <label class='form-control-label'>Product</label>
-                                        
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <span id='jsp_p'   ></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class='row'>
-                                                   
-                                                            <div class="col-md-4">
-                                                                    <label class='form-control-label'>Starting#</label>
-                                            
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <span id='jsp_s' ></span>
-                                                            </div>
-                                                        </div>  
-                                                    <div class='row'>
-                                                   
-                                                            <div class="col-md-4">
-                                                                    <label class='form-control-label'>Quantity</label>
-                                            
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <span id='jsp_q' ></span>
-                                                            </div>
-                                                        </div>  
-                                                        
-                                               
-                                                        <br>
-                                                        <div class='row'>
-                                                   
-                                                                <div class="col-md-4">
-                                                                        <label class='form-control-label'>Slips# Starting from</label>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <input id='printing_start_number' name='number' class='form-control' required min='1'></select>
-                                                                </div>
-                                                            </div>  
-                                                            <br>
-                                                            
-                                             <div class='row'>
-                                                   
-                                                    <div class="col-md-4">
-                                                            <label class='form-control-label'>Total Slips Quantity#</label>
-                                    
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <input id='printing_quantity' name='number' class='form-control' required min='1'></select>
-                                                    </div>
-                                                </div>  
-                                                <br>
-                                                
-                                                <div class='row'>
-                                                        <div class="col-md-4">
-                                                                <button class='btn btn-primary' onClick='generate_slip()'>Print Job Slip</button>
-
-                                                        </div>
-                                                        <div class="col-md-4" style="margin-left:30px;">
-                                                                <button class='btn btn-primary' onClick='generate_slips()'>Print Barcode Stickers</button>
-
-                                                        </div>
-                                                        
-                                                    </div>
-                                                       
-                                    </div>
-                                    <!----  printable area    -->
-                                    <div class="col-md-7">
-                                        <div class='container-fluid'>
-                                            <div class="row" style='min-height: 400px;overflow: scroll;max-height: 800px'>
-                                                <div class="col-md-12" id='printing_area' style="padding:0px">
-        
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12"><button class='btn btn-primary' id='print_btn' onclick="printDiv('printing_area')" disabled="true">Print</button></div>
-                                            </div>
-                                        </div>
-        
-                                    </div>
-                                    <!----  printable area    -->
+                                <!--- delivered phase -->
                             </div>
-                            
 
-                        </div>     
-                        <!---- printing  -->   
-                        
 
-                      </div>
-           
-         </div>
-    </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <!--- printing -->
+                <div class="tab-pane container fade" id='printing'>
+                    <br>
+                    <h5>Printing</h5>
+                    <br>
+                    <div class="row">
+                        <div class='col-md-5'>
+                            <div class='row'>
+
+                                <div class="col-md-4">
+                                    <label class='form-control-label'>Client</label>
+                                    <select id='clients_select3' name='number' onChange="lpo_set(this,'unique_lpos')"
+                                        class='form-control'></select>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class='form-control-label'>LPO REF#</label>
+
+                                    <select id='unique_lpos' class='form-control' required
+                                        onchange="js_set(this)"></select>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class='form-control-label'>Variations</label>
+
+                                    <select id='js_select_1' class='form-control' required
+                                        onchange="jsp_set(this)"></select>
+                                </div>
+                            </div>
+                            <br>
+                            <div class='row'>
+
+                                <div class="col-md-4">
+                                    <label class='form-control-label'>LPO REF#</label>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <span id='jsp_l'></span>
+                                </div>
+                            </div>
+                            <div class='row'>
+
+                                <div class="col-md-4">
+                                    <label class='form-control-label'>Product</label>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <span id='jsp_p'></span>
+                                </div>
+                            </div>
+                            <div class='row'>
+
+                                <div class="col-md-4">
+                                    <label class='form-control-label'>Starting#</label>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <span id='jsp_s'></span>
+                                </div>
+                            </div>
+                            <div class='row'>
+
+                                <div class="col-md-4">
+                                    <label class='form-control-label'>Quantity</label>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <span id='jsp_q'></span>
+                                </div>
+                            </div>
+
+
+                            <br>
+                            <div class='row'>
+
+                                <div class="col-md-4">
+                                    <label class='form-control-label'>Slips# Starting from</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input id='printing_start_number' name='number' class='form-control' required
+                                        min='1'></select>
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class='row'>
+
+                                <div class="col-md-4">
+                                    <label class='form-control-label'>Total Slips Quantity#</label>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <input id='printing_quantity' name='number' class='form-control' required
+                                        min='1'></select>
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class='row'>
+                                <div class="col-md-4">
+                                    <button class='btn btn-primary' onClick='generate_slip()'>Print Job Slip</button>
+
+                                </div>
+                                <div class="col-md-4" style="margin-left:30px;">
+                                    <button class='btn btn-primary' onClick='generate_slips()'>Print Barcode
+                                        Stickers</button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!----  printable area    -->
+                        <div class="col-md-7">
+                            <div class='container-fluid'>
+                                <div class="row" style='min-height: 400px;overflow: scroll;max-height: 800px'>
+                                    <div class="col-md-12" id='printing_area' style="padding:0px">
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12"><button class='btn btn-primary' id='print_btn'
+                                            onclick="printDiv('printing_area')" disabled="true">Print</button></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!----  printable area    -->
+                    </div>
+
+
+                </div>
+                <!---- printing  -->
+
+
+            </div>
+
+        </div>
     </div>
 </body>
 
 <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
     crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
@@ -695,6 +774,6 @@
 <!-- <script src="js/modernizr.custom.js"></script> -->
 <script src="/js/production.js"></script>
 
-        
+
 
 </html>

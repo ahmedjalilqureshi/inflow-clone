@@ -9,21 +9,15 @@
 
     <link rel="stylesheet" href="../../../css/styles.css">
     <link rel="stylesheet" href="../../../css/all.min.css">
-    <!-- <link rel="stylesheet" href="css/component.css"> -->
+    <link rel="stylesheet" href="../../../css/bootstrap-yeti.min.css">
 
     <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <style>
-        /* .pm-0 {
-            padding: 0px !important;
-
-            margin: 0px !important;
-        } */
-
         .pm-0 {
             padding: 0px !important;
 
@@ -92,9 +86,9 @@
 
 <body onload="fill()">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-md navbar-light bg-primary">
         <img src="../../../assets/img/aa-logo.jpg" class=" float-right md-logo" alt="logo" width="70px">
-        <a class="navbar-brand text-dark navbar-left ml-3" href="/">
+        <a class="navbar-brand text-light navbar-left ml-3" href="/">
 
             ABBAS ALI & SONS UNIFORMS AND TEXTILES
         </a>
@@ -108,9 +102,9 @@
         </div>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto text-light">
+            <ul class="navbar-nav ml-auto text-light f-17">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Sales
                     </a>
@@ -124,7 +118,7 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Purchase
                     </a>
@@ -138,14 +132,14 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="/production">Production</a>
+                    <a class="nav-link text-light" href="/production">Production</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Reports
                     </a>
-                    <div class="dropdown-menu text-dark bg-dark" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item text-info" href="/reports/sales_report">Sales Report</a>
                         <a class="dropdown-item text-info" href="/reports/purchase_report">Purchase Report</a>
                         <a class="dropdown-item text-info" href="/reports/production_report">Production Report</a>
@@ -153,23 +147,23 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="/master" tabindex="-1" aria-disabled="true">Master Data</a>
+                    <a class="nav-link text-light" href="/master" tabindex="-1" aria-disabled="true">Master Data</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="/master_view" tabindex="-1" aria-disabled="true">Master
+                    <a class="nav-link text-light" href="/master_view" tabindex="-1" aria-disabled="true">Master
                         View</a>
                 </li>
             </ul>
 
         </div>
     </nav>
-    <hr class="pm-0">
+    <!-- <hr class="pm-0"> -->
 
 
     <div class="mt-1">
         <div class="row">
             <div class="col-md-3">
-                <div class="alert-dark  cont" style="height: 100%">
+                <div class="cont bg-s-green" style="height: 100%">
 
                     <div class="container-fluid  text-dark">
                         <h4 class="text-left">SALES ORDER</h4>
@@ -231,19 +225,21 @@
 
             <div class="col-md-9 pm-0">
 
-                <div class="container-fluid">
+                <div class="container-fluid mt-2">
                     <ul class="list-inline sales-menu">
-                        <li class="list-inline-item" onClick="new_order()"><span><i class="far fa-file"></i></span> New
+                        <li class="list-inline-item" onClick="new_order()"><button> <span><i
+                                        class="far fa-file"></i></span> New</button>
                         </li>
-                        <li class="list-inline-item" onClick="lpo_action('draft')"><span><i
-                                    class="fas fa-file-download"></i></span> Save as draft</li>
-                        <li class="list-inline-item" onClick="print_order()"><span><i class="fas fa-print"></i></span>
-                            Print</li>
+                        <li class="list-inline-item" onClick="lpo_action('draft')"><button><span><i
+                                        class="fas fa-file-download"></i></span> Save as draft</button></li>
+                        <li class="list-inline-item" onClick="print_order()"><button><span><i
+                                        class="fas fa-print"></i></span>
+                                Print</button></li>
                         <!-- <li onClick="email_order()">Email</li> -->
-                        <li class="list-inline-item" onClick="cancel_order()"><span><i
-                                    class="far fa-file-excel"></i></span> Cancel Sales Order</li>
-                        <li class="list-inline-item" onClick="delete_order()"><span><i
-                                    class="far fa-trash-alt"></i></span> Delete</li>
+                        <li class="list-inline-item" onClick="cancel_order()"><button><span><i
+                                        class="far fa-file-excel"></i></span> Cancel Sales Order</button></li>
+                        <li class="list-inline-item" onClick="delete_order()"><button><span><i
+                                        class="far fa-trash-alt"></i></span> Delete</button></li>
 
                     </ul>
                 </div>
@@ -254,13 +250,13 @@
 
                         <div class=" pm-0 sales-container " id="main_place">
 
-                            <div class="packing-slip-header pm-0 bg-light">
+                            <div class="packing-slip-header pm-0">
 
                                 <div class="row p-3">
                                     <div class="col-4">
                                         <h5 class="pm-0">Bill To:</h5>
                                         <hr class="pm-0">
-                                        <div class="row">
+                                        <div class="row mt-2">
                                             <div class="col-5">
                                                 <p>Customer:</p>
                                             </div>
@@ -319,7 +315,7 @@
                                     <div class="col-4">
                                         <h5 class="pm-0">Ship To:</h5>
                                         <hr class="pm-0">
-                                        <div class="row">
+                                        <div class="row mt-2">
                                             <div class="col-5">
                                                 <p>Name:</p>
                                             </div>
@@ -375,7 +371,7 @@
                                     <div class="col-4">
                                         <h5 class="pm-0">Sales Order</h5>
                                         <hr class="pm-0">
-                                        <div class="row">
+                                        <div class="row mt-2">
                                             <div class="col-5">
                                                 <p>Order Date:</p>
                                             </div>
@@ -453,15 +449,15 @@
                                 </div>
                             </div>
                             -->
-                            <div class="container-fluid">
+                            <div class="mt-4">
 
                                 <table class="table table-bordered">
                                     <thead>
-                                        <tr class="d-flex">
-                                            <td class="col-3">Product Category</td>
-                                            <td class="col-5">Description</td>
-                                            <td class="col-2">Order Qty</td>
-                                            <td class="col-2">Unit Price</td>
+                                        <tr class="d-flex table-primary text-center">
+                                            <td class="col-3 font-size-md">Product Category</td>
+                                            <td class="col-5 font-size-md">Description</td>
+                                            <td class="col-2 font-size-md">Order Qty</td>
+                                            <td class="col-2 font-size-md">Unit Price</td>
                                         </tr>
                                     </thead>
                                     <tbody id="items_table">
