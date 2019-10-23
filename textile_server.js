@@ -1687,12 +1687,48 @@ app.post('/update_packing_list',(req,res)=>{
         }
         if(pl !== null){
             var old_pl = JSON.parse(pl.items_list);
-            old_pl.forEach(async (p)=>{
-               await Job_Slip.findOneAndUpdate({number:p.js_num},{$inc:{delivered:-parseInt(p.qty)}},()=>{ });
+            // new_pl.forEach((nl)=>{
+            //     let ml = {};
+            //     old_pl.forEach((ol)=>{
+            //         if(nl.js_num===ol.js_num)
+            //         {
+            //             ml = ol;
+            //         }
+            //     });
+            //     if(ml.qty){
+            //         nl.new_qty = - parseInt(ml.qty) + parseInt(nl.qty);
+            //     }
+            // })
+            console.log("new list",new_pl);
+            let i = 0;
+            old_pl.forEach(async (p,n)=>{
+                let js = await Job_Slip.findOne({number:p.js_num});
+                if(js !== null){
+                    console.log("old->",i,js.delivered);
+                    js.delivered = js.delivered - parseInt(p.qty) ;
+                    i++;
+                    console.log("new->",i,js.delivered);
+                   await js.save();
+                }
+                i++;
+                if(n===(old_pl.length-1)){
+                    new_pl.forEach(async (p)=>{
+                        let js = await Job_Slip.findOne({number:p.js_num});
+                        if(js !== null){
+                            console.log("old->",i,js.delivered);
+                            js.delivered = js.delivered + parseInt(p.qty) ;
+                            i++;
+                            console.log("new->",i,js.delivered);
+                           await js.save();
+                        }
+                        // await Job_Slip.findOneAndUpdate({number:p.js_num},{$inc:{delivered:p.new_qty}},{new: true},(err,doc)=>{                 console.log("second to execute these",doc); });
+                       // let js = await Job_Slip.findOne({number:p.js_num});
+                      console.log("new js",js.delivered)
+                      i++;
+                    })
+                }
             })
-            new_pl.forEach(async (p)=>{
-                await Job_Slip.findOneAndUpdate({number:p.js_num},{$inc:{delivered:parseInt(p.qty)}},()=>{ });
-             })
+           
             console.log(new_pl,old_pl);
             pl.items_list = JSON.stringify(new_pl);
             pl.date = date;
