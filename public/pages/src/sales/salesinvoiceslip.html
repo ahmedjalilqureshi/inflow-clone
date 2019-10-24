@@ -126,175 +126,235 @@
 
         </div>
     </nav>
-    <div id="main" class="wrapper container-fluid m-3">
+    <div class="container-fluid">
 
-        <div id="content" class="container-fluid">
+        <div id="content" class="row">
+            <div class="col-md-3">
+                <div class="cont bg-s-green" style="height: 100%">
 
-            <div class="container sales-container" id="main_place">
+                    <div class="container-fluid  text-dark">
+                        <h4 class="text-left">SALES INVOICE</h4>
+                        <!-- <h6>Edit Old Sales Order</h6> -->
+                        <h6>Search</h6>
 
-                <div class="row">
-                    <div class="col-12">
-                        <img src="../../../assets/img/aa-logo.jpg" class="rounded float-right md-logo" alt="logo"
-                            width="150px">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group m-1">
+                                    <input type="text" placeholder="Search by LPO#" id='input_search_lpo'
+                                        class="form-control" list='lpo_data_list'>
+                                    <datalist id='lpo_data_list'>
+
+                                    </datalist>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group m-1">
+                                    <input type="text" placeholder="Search by Customer" id='input_search_client'
+                                        class="form-control" list='client_data_list'>
+                                    <datalist id='client_data_list'>
+
+                                    </datalist>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group m-1">
+                                    <select id="input_search_order_state">
+                                        <option value="">All Invoices</option>
+                                        <option value="balances">Invoice With Balances</option>
+                                        <option value="completed">Invoices With No balances</option>
+                                        <option value="partials">Invoices with Partial Payments</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class='float-right btn btn-sm btn-primary mr-1'
+                                    onClick='inv_refresh()'>Refresh</button>
+                                <!-- <button class='float-right btn btn-primary mr-1' onClick='lpo_search()'>Search</button> -->
+                            </div>
+                        </div>
                     </div>
+                    <hr class="m-1">
+                    <div class="list_cont" id='inv_list'>
+
+                    </div>
+
                 </div>
-
-                <div class="packing-slip-header">
-
-                    <div>
-                        <h3>Sales InVoice</h3>
-                    </div>
+            </div>
+            <div class="col-md-9">
+                <div class="container sales-container" id="main_place">
 
                     <div class="row">
-
-                        <div class="col-md-4">
-                            <br>
-                            <div class="row">
-                                <div class="col-3">
-                                    <label>Client #</label>
-
-                                </div>
-                                <div class="col-9">
-                                    <select class="form-control" id="client_ref" onchange="set_lpos(this)">
-
-                                    </select>
-                                </div>
-                            </div>
-                            <br>
-
-                        </div>
-
-                        <div class="col-md-4">
-
-                            <br>
-                            <div class="row">
-                                <div class="col-3">
-                                    <label>LPO</label>
-
-                                </div>
-                                <div class="col-9">
-                                    <select class="form-control" id="lpos_ref" onchange="set_invoices(this)">
-
-                                    </select>
-                                </div>
-                            </div>
-                            <br>
-
-                        </div>
-
-                        <div class="col-md-4">
-
-                            <br>
-                            <div class="row">
-                                <div class="col-3">
-                                    <label>Invoice #</label>
-
-                                </div>
-                                <div class="col-9">
-                                    <select class="form-control" id="invoices_ref" onchange="set_invoice(this)">
-
-                                    </select>
-                                </div>
-                            </div>
-                            <br>
-
+                        <div class="col-12">
+                            <img src="../../../assets/img/aa-logo.jpg" class="rounded float-right md-logo" alt="logo"
+                                width="150px">
                         </div>
                     </div>
-                </div>
-                <div class="bill-info row">
-                    <div class="col-6">
-                        <h4>Shipping Info</h4>
-
-                        <div class="row mb-2 mt-4">
-                            <div class="col-md-3">
-                                <label class="form-control-label f-16">Shipment Mode:</label>
-                            </div>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="sm" />
-                            </div>
+    
+                    <div class="packing-slip-header">
+    
+                        <div>
+                            <h3>Sales InVoice</h3>
                         </div>
-
-                        <div class="row mb-2">
-                            <div class="col-md-3">
-                                <label class="form-control-label f-16">Freight Terms:</label>
+    
+                        <div class="row">
+    
+                            <div class="col-md-4">
+                                <br>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label>Client #</label>
+    
+                                    </div>
+                                    <div class="col-9">
+                                        <select class="form-control" id="client_ref" onchange="set_lpos(this)">
+    
+                                        </select>
+                                    </div>
+                                </div>
+                                <br>
+    
                             </div>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="ft" />
+    
+                            <div class="col-md-4">
+    
+                                <br>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label>LPO</label>
+    
+                                    </div>
+                                    <div class="col-9">
+                                        <select class="form-control" id="lpos_ref" onchange="set_invoices(this)">
+    
+                                        </select>
+                                    </div>
+                                </div>
+                                <br>
+    
                             </div>
-                        </div>
-
-                        <div class="row mb-2">
-                            <div class="col-md-3">
-                                <label class="form-control-label f-16">Origin:</label>
+    
+                            <div class="col-md-4">
+    
+                                <br>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label>Invoice #</label>
+    
+                                    </div>
+                                    <div class="col-9">
+                                        <select class="form-control" id="invoices_ref" onchange="set_invoice(this)">
+    
+                                        </select>
+                                    </div>
+                                </div>
+                                <br>
+    
                             </div>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="o" />
-                            </div>
-                        </div>
-
-                        <div class="row mb-2">
-                            <div class="col-md-3">
-                                <label class="form-control-label f-16">Port of loading:</label>
-                            </div>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="pol" />
-                            </div>
-                        </div>
-
-                        <div class="row mb-2">
-                            <div class="col-md-3">
-                                <label class="form-control-label f-16">Port of Discharge:</label>
-                            </div>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="pod" />
-                            </div>
-                        </div>
-
-                        <div class="row mb-2">
-                            <div class="col-md-3">
-                                <label class="form-control-label f-16">Place of delivery:</label>
-                            </div>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="plod" />
-                            </div>
-                        </div>
-                        <br><Br><br>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="container">
-                        <div class="table-responsive">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr class='d-flex'>
-                                        <th class='col-2'>Item</th>
-                                        <th class='col-1'>CTN/Bale #</th>
-                                        <th class='col-2'>PCS Per CTN/Bale</th>
-                                        <th class='col-1'>Size</th>
-                                        <th class='col-2'>Qty.</th>
-                                        <th class='col-2'>Unit Price</th>
-                                        <th class='col-2'>Total Price</th>
-                                    </tr>
-                                </thead>
-                                <tbody id='items_table'>
-
-                                </tbody>
-                            </table>
                         </div>
                     </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-4"></div>
-                    <div class="col-8">
-                        <button class='btn btn-primary' disabled="true" id='btn'
-                            onClick="generate_sales_invoice(this)">Generate Sales Invoice</button>
+                    <div class="bill-info row">
+                        <div class="col-6">
+                            <h4>Shipping Info</h4>
+    
+                            <div class="row mb-2 mt-4">
+                                <div class="col-md-3">
+                                    <label class="form-control-label f-16">Shipment Mode:</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="sm" />
+                                </div>
+                            </div>
+    
+                            <div class="row mb-2">
+                                <div class="col-md-3">
+                                    <label class="form-control-label f-16">Freight Terms:</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="ft" />
+                                </div>
+                            </div>
+    
+                            <div class="row mb-2">
+                                <div class="col-md-3">
+                                    <label class="form-control-label f-16">Origin:</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="o" />
+                                </div>
+                            </div>
+    
+                            <div class="row mb-2">
+                                <div class="col-md-3">
+                                    <label class="form-control-label f-16">Port of loading:</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="pol" />
+                                </div>
+                            </div>
+    
+                            <div class="row mb-2">
+                                <div class="col-md-3">
+                                    <label class="form-control-label f-16">Port of Discharge:</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="pod" />
+                                </div>
+                            </div>
+    
+                            <div class="row mb-2">
+                                <div class="col-md-3">
+                                    <label class="form-control-label f-16">Place of delivery:</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="plod" />
+                                </div>
+                            </div>
+                            <br><Br><br>
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="container">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr class='d-flex'>
+                                            <th class='col-2'>Item</th>
+                                            <th class='col-1'>CTN/Bale #</th>
+                                            <th class='col-2'>PCS Per CTN/Bale</th>
+                                            <th class='col-1'>Size</th>
+                                            <th class='col-2'>Qty.</th>
+                                            <th class='col-2'>Unit Price</th>
+                                            <th class='col-2'>Total Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id='items_table'>
+    
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+    
+                    </div>
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-8">
+                            <button class='btn btn-primary' disabled="true" id='btn'
+                                onClick="generate_sales_invoice(this)">Generate Sales Invoice</button>
+                        </div>
+                    </div>
+    
+    
+    
                 </div>
-
-
-
             </div>
+           
 
 
 
@@ -305,197 +365,8 @@
     </div>
 
 </body>
-<script>
-    var invoices, client, lpos;
-    function set_lpos(e) {
-        let lpos_select = document.getElementById("lpos_ref");
-        let lpos_text = '<option value="">Select L.P.O#</option>'
-        // alert(e.value);
-        lpos.forEach((lpo) => {
-            if (lpo.client === e.value) {
-                lpos_text += `<option value="` + lpo.ref + `">` + lpo.ref + `</option>`
-            }
-        });
-        lpos_select.innerHTML = lpos_text;
-    }
-    function set_invoices(e) {
-        let invoices_select = document.getElementById("invoices_ref");
-        let invoices_text = '<option value="">Select L.P.O#</option>'
-        // alert(e.value);
-        invoices.forEach((i) => {
-            if (i.lpo_ref === e.value) {
-                invoices_text += `<option value="` + i.ref + `">` + i.ref + `</option>`;
-            }
-        });
-        invoices_select.innerHTML = invoices_text;
-    }
-    function generate_sales_invoice(e) {
-        let invoice_ref = document.getElementById('invoices_ref').value,
-            sm = document.getElementById('sm').value,
-            o = document.getElementById('o').value,
-            ft = document.getElementById('ft').value,
-            pod = document.getElementById('pod').value,
-            plod = document.getElementById('plod').value,
-            pol = document.getElementById('pol').value;
-        let tr = document.getElementById("items_table").getElementsByTagName('tr');
-        let arr = [];
-        for (let i = 0; i < tr.length; i++) {
-            let item = tr[i].getElementsByTagName('th')[0].innerHTML;
-            let price = parseInt(tr[i].getElementsByTagName('th')[5].getElementsByTagName('input')[0].value);
-            if (isNaN(price) || price <= 0) {
-                alert("Please select valid prices!");
-                return;
-            }
-            arr.push({ item, price });
-        }
-        if (sm === "" || o === "" || ft === "" || pod === "" || plod === "" || pol === "") {
-            alert("please fill all fields");
-        }
-        else {
-            e.disabled = true;
-            console.log("starting");
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    alert("Sales Invoice is Generated");
-                    e.disabled = false;
 
-                    var link = document.createElement("a");
-                    link.download = 'sales_invoice.xlsx';
-                    link.href = '/sales_invoice_report';
-                    link.click();
-                    document.location.reload();
-                }
-            }
-            xhttp.open("POST", "/generate_sales_invoice", true);
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send("ref=" + invoice_ref + "&sm=" + sm + "&o=" + o +
-                "&ft=" + ft + "&pod=" + pod + "&plod=" + plod + "&pol=" + pol + "&arr=" + JSON.stringify(arr));
-
-        }
-
-    }
-    function set_total(e, qty) {
-        let th = e.parentNode.parentNode.getElementsByTagName('th')[6];
-        th.getElementsByTagName('input')[0].value = e.value * qty;
-    }
-    function set_invoice(e) {
-        let str = ``;
-        invoices.forEach((i) => {
-            if (i.ref === e.value) {
-                lpos.forEach((l) => {
-                    if (l.ref === i.lpo_ref) {
-                        console.log("found2", l);
-                        items_array = JSON.parse(l.items_array);
-                        items_list = JSON.parse(i.items_list);
-                        items_list.forEach((p_item) => {
-                            items_array.forEach((c) => {
-                                if (p_item.item === c.item) {
-                                    p_item.price = c.price;
-                                }
-                            })
-                            i.items_list = JSON.stringify(items_list);
-                        })
-                    }
-                })
-                console.log('i--', i)
-                JSON.parse(i.items_list).forEach((v) => {
-                    str += `<tr class='d-flex'>
-                    <th class='col-2'>${v.item}</th>
-                    <th class='col-1'>${v.ctn}</th>
-                    <th class='col-2'>${v.pcs}</th>
-                    <th class='col-1'>${v.size}</th>
-                    <th class='col-2'>${v.qty}</th>
-                    <th class='col-2'><input value='${v.price}' onKeyUp='set_total(this,${v.qty})'></th>
-                    <th class='col-2'><input readonly value='${v.price * v.qty}'></th>
-                    </tr>`
-
-                })
-
-            }
-        })
-        document.getElementById('items_table').innerHTML = str;
-        if (e.value !== "") {
-            document.getElementById('btn').disabled = false
-        }
-        else {
-            document.getElementById('btn').disabled = true
-        }
-    }
-    function fill() {
-
-        /// clients get
-        var xhttp6 = new XMLHttpRequest();
-        xhttp6.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                clients = JSON.parse(this.responseText).clients;
-                let c_text = '<option value="">Select Customer</option>';
-                // alert(e.innerHTML.length)
-                clients.forEach((client) => {
-                    c_text += `<option value='` + client.company_name + `'>` + client.company_name +
-                        `</option>`;
-                });
-                document.getElementById('client_ref').innerHTML = c_text;
-                console.log("clients:", clients);
-
-            }
-        };
-        xhttp6.open("GET", "/get_clients", true);
-        xhttp6.send();
-
-        /// clients get
-
-        //// lpos get
-        var xhttp2 = new XMLHttpRequest();
-        xhttp2.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                lpos = JSON.parse(this.responseText).lpos;
-
-                console.log("SS-lpos", lpos)
-
-                var xhttp3 = new XMLHttpRequest();
-                xhttp3.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        invoices = JSON.parse(this.responseText).invoices;
-                        str = '<option value="">Select Invoice</option>';
-                        // alert(e.innerHTML.length)
-                        invoices.reverse().forEach((invoice) => {
-                            str += `<option value="` + invoice.ref + `">` + invoice.ref + `</option>`;
-                        });
-                        document.getElementById('invoices_ref').innerHTML = str;
-
-                        console.log("invoices", invoices)
-                    }
-                };
-                xhttp3.open("GET", "/get_invoices", true);
-                xhttp3.send();
-
-            }
-        };
-        xhttp2.open("GET", "/get_lpos", true);
-        xhttp2.send();
-
-
-
-    }
-    fill();
-
-    function set_lpos(e) {
-        let lpos_select = document.getElementById("lpos_ref");
-        let lpos_text = '<option value="">Select L.P.O#</option>'
-        // alert(e.value);
-        lpos.forEach((lpo) => {
-            if (lpo.client === e.value) {
-                lpos_text += `<option value="` + lpo.ref + `">` + lpo.ref + `</option>`
-            }
-        });
-        lpos_select.innerHTML = lpos_text;
-    }
-
-</script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
     integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
     crossorigin="anonymous"></script>
@@ -505,11 +376,6 @@
 
 <script src="../../../js/app.js"></script>
 
-<script>
-  //  let index = 1;
-
-
-
-</script>
+<script src="/js/sales-invoice.js"></script>
 
 </html>

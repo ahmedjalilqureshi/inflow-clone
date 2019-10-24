@@ -1810,7 +1810,8 @@ async function generate_sales_invoice(items_list,company,date,invoice_ref,lpo_re
 
     workbook.xlsx.writeFile(path.join(__dirname,"/assets/reports/sales_invoice_g.xlsx")).then(cb);
 }
-app.post('/generate_sales_invoice',(req,res)=>{
+app.post('/generate_sales_invoice',async (req,res)=>{
+    console.log(req.body);
     let ref = req.body.ref,
         sm = req.body.sm,
         o = req.body.o,
@@ -1819,21 +1820,22 @@ app.post('/generate_sales_invoice',(req,res)=>{
         pod = req.body.pod,
         plod = req.body.plod,
         arr = JSON.parse(req.body.arr);
-        Invoices.findOne({ref:ref},async (err,invoice)=>{
-            let lpo_ref = invoice.lpo_ref,
-            date = invoice.date,
-            lpo = await Lpos.findOne({ref:lpo_ref}),
-            currency = lpo.currency,
-            discount = lpo.discount,
-            tax = lpo.tax,
-            items_list = JSON.parse(invoice.items_list);
-            items_list.forEach((p_item)=>{
-                arr.forEach((i)=>{
-                    if(p_item.item === i.item){
-                        p_item.price = i.price;
-                    }
-                })
+        let invoice = await Invoices.findOne({ref:ref});
+        let lpo_ref = invoice.lpo_ref,
+        date = invoice.date,
+        lpo = await Lpos.findOne({ref:lpo_ref}),
+        currency = lpo.currency,
+        discount = lpo.discount,
+        tax = lpo.tax,
+        client_id = lpo.client_id, 
+        items_list = JSON.parse(invoice.items_list);
+        items_list.forEach((p_item)=>{
+            arr.forEach((i)=>{
+                if(p_item.item === i.item){
+                    p_item.price = i.price;
+                }
             })
+        })
             
             console.log("items array",arr);
             console.log("items list",items_list);
@@ -1850,7 +1852,7 @@ app.post('/generate_sales_invoice',(req,res)=>{
             //    }) 
             
        
-        Clients.findOne({company_name:ref.split("/")[1]},(err,client)=>{
+        Clients.findById(client_id,(err,client)=>{
             var company_name = client.company_name,
                 city = client.city,
                 address = client.street,
@@ -1882,7 +1884,7 @@ app.post('/generate_sales_invoice',(req,res)=>{
 
       
    
-});
+
     
 });
     
