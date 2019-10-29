@@ -42,44 +42,44 @@
                             })
                             if(found){
                                 str += `
-                                <tr class="d-flex" id="` + item.js_num + `">
-                                        <th class="col-2">` + js.person + `</th>
-                                    <th class="col-2">` + item.item + `</th>
-                                    <th class="col-1">` + item.size + `</th>
-                                    <th class="col-1">` + (parseInt(js
+                                <tr id="` + item.js_num + `">
+                                        <td>` + js.person + `</td>
+                                    <td>` + item.item + `</td>
+                                    <td>` + item.size + `</td>
+                                    <td>` + (parseInt(js
                                         .packing) - parseInt(js.delivered)+parseInt(item
-                                            .qty)) + `</th>
-                                    <th class="col-1 ">
+                                            .qty)) + `</td>
+                                    <td class="td-cells">
                                         <input type='text' class='form-control' value='` + (parseInt(item
-                                    .qty)) + `' onChange='check_for_max(this)'  ></th>
-                                    <td class="col-2 td-cells">
+                                    .qty)) + `' onChange='check_for_max(this)'  ></td>
+                                    <td class="td-cells">
                                         <input type='text' class='form-control' value="`+item.ctn+`" >
                                     </td>
-                                    <td class="col-2 td-cells">
+                                    <td class="td-cells">
                                         <input type='text' class='form-control' value="`+item.pcs+`" >
                                     </td>
-                                    <td class="col-1"><input type='hidden' value="" />
-                                    <button onClick="add_in_list(this)">Add in List</button></td>
+                                    <td class="td-cells"><input type='hidden' value="" />
+                                    <button class="btn btn-primary" onClick="add_in_list(this)">Add in List</button></td>
                                 </tr>`;
                                 found =false;
                             }else{
                                 str += `
-                            <tr class="d-flex" id="` + js.number + `">
-                                    <th class="col-2">` + js.person + `</th>
-                                <th class="col-2">` + js.product + `</th>
-                                <th class="col-1">` + js.size + `</th>
-                                <th class="col-1">` + (parseInt(js
-                                    .packing) - parseInt(js.delivered)) + `</th>
-                                <th class="col-1 ">
-                                    <input type='text' class='form-control' value='' onChange='check_for_max(this)'  ></th>
-                                <td class="col-2 td-cells">
+                            <tr id="` + js.number + `">
+                                    <td>` + js.person + `</td>
+                                <td>` + js.product + `</td>
+                                <td>` + js.size + `</td>
+                                <td>` + (parseInt(js
+                                    .packing) - parseInt(js.delivered)) + `</td>
+                                <td class="td-cells">
+                                    <input type='text' class='form-control' value='' onChange='check_for_max(this)'  ></td>
+                                <td class="td-cells">
                                     <input type='text' class='form-control' >
                                 </td>
-                                <td class="col-2 td-cells">
+                                <td class="td-cells">
                                     <input type='text' class='form-control' >
                                 </td>
-                                <td class="col-1"><input type='hidden' value="" />
-                                <button onClick="add_in_list(this)">Add in List</button></td>
+                                <td class="td-cells"><input type='hidden' value="" />
+                                <button class="btn btn-primary" onClick="add_in_list(this)">Add in List</button></td>
                             </tr>`;
                             }
                             
@@ -91,20 +91,20 @@
                     d.querySelector('#pl_btn').style.display="none"
                     JSON.parse(inv.items_list).forEach((i)=>{
                         str += `
-                            <tr class="d-flex" id="` + i.js_num + `">
-                                    <th class="col-2">` + i.person + `</th>
-                                <th class="col-2">` + i.item + `</th>
-                                <th class="col-2">` + i.size + `</th>
-                                <th class="col-1 ">
+                            <tr id="` + i.js_num + `">
+                                    <td>` + i.person + `</td>
+                                <td>` + i.item + `</td>
+                                <td>` + i.size + `</td>
+                                <td>
                                     <input type='text' class='form-control' value='` + (parseInt(i
-                                .qty)) + `' onChange='check_for_max(this)' max='` + (parseInt(i.qty)) + `' ></th>
-                                <td class="col-2 td-cells">
+                                .qty)) + `' onChange='check_for_max(this)' max='` + (parseInt(i.qty)) + `' ></td>
+                                <td>
                                     <input type='text' class='form-control' value="`+i.ctn+`" >
                                 </td>
-                                <td class="col-2 td-cells">
+                                <td>
                                     <input type='text' class='form-control' value="`+i.pcs+`" >
                                 </td>
-                                <td class="col-1"><input type='hidden' value="" />
+                                <td class="td-cells"><input type='hidden' value="" />
                                 <button onClick="add_in_list(this)">Add in List</button></td>
                             </tr>`;
                     })

@@ -8,53 +8,16 @@
     <title>Packing List</title>
 
     <link rel="stylesheet" href="../../../css/styles.css">
-    <link rel="stylesheet" href="../../../css/salesStyle.css">
+    <link rel="stylesheet" href="../../../css/all.min.css">
+    <!-- <link rel="stylesheet" href="../../../css/salesStyle.css"> -->
 
     <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../css/bootstrap-yeti.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
     <!-- Font Awesome -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
-        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
-        </script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
-        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
-        </script>
-    <style>
-        /* .pm-0 {
-                padding: 0px !important;
-    
-                margin: 0px !important;
-            } */
-        .null-space {
-            margin: 0px !important;
-            padding: 0px !important;
-        }
 
-        .pm-0 {
-            padding: 0px !important;
 
-            margin: 0px !important;
-        }
-
-        tr td {
-            padding: 2px !important;
-            margin: 0 !important;
-        }
-
-        tr th {
-            padding: 2px !important;
-            margin: 0 !important;
-        }
-
-        body {
-            /* overflow: hidden;
-                sc */
-            margin: 0;
-            padding: 0;
-            font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif
-        }
-    </style>
 </head>
 
 <body onload="fill()">
@@ -74,7 +37,7 @@
         </div>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto text-light">
+            <ul class="navbar-nav ml-auto text-light f-17">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -129,170 +92,201 @@
 
         </div>
     </nav>
-    <hr class="pm-0">
 
+    <div class="row">
+        <div class="col-sm-2 col-md-3 col-lg-3 bg-s-green">
+            <div class="bg-s-green cont pb-2">
+                <div class="container-fluid text-dark">
 
-    <div id="main" class="wrapper container-fluid m-3">
+                    <h4 class="text-left mb-2 mt-4">Packing List</h4>
+                    <!-- <h6>Edit Old Sales Order</h6> -->
+                    <h6>Search</h6>
 
-        <div class="row">
-                <div class="col-md-3">
-                        <div class="alert-dark  cont" style="height: 100%">
-        
-                            <div class="container-fluid  text-dark">
-                                <h4 class="text-left">Packing List</h4>
-                                <!-- <h6>Edit Old Sales Order</h6> -->
-                                <h6>Search</h6>
-        
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group m-1">
-                                            <input type="text" placeholder="Search by LPO#" id='input_search_lpo'
-                                                class="form-control" list='lpo_data_list'>
-                                            <datalist id='lpo_data_list'>
-        
-                                            </datalist>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group m-1">
-                                            <input type="text" placeholder="Search by Customer" id='input_search_client'
-                                                class="form-control" list='client_data_list'>
-                                            <datalist id='client_data_list'>
-        
-                                            </datalist>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <button class='float-right btn btn-sm btn-primary mr-1'
-                                            onClick='pl_refresh()'>Refresh</button>
-                                        <!-- <button class='float-right btn btn-primary mr-1' onClick='lpo_search()'>Search</button> -->
-                                    </div>
-                                </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-group m-1">
+                                <input type="text" placeholder="Search by LPO#" id='input_search_lpo'
+                                    class="form-control" list='lpo_data_list'>
+                                <datalist id='lpo_data_list'>
+
+                                </datalist>
                             </div>
-                            <hr class="m-1">
-                            <div class="list_cont" id='pl_list'>
-        
-                            </div>
-        
                         </div>
                     </div>
-            <div class="col-md-9">
-                    <div class=" sales-container" id="main_place">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-group m-1">
+                                <input type="text" placeholder="Search by Customer" id='input_search_client'
+                                    class="form-control" list='client_data_list'>
+                                <datalist id='client_data_list'>
 
-                            <div class="container-fluid payscript-container">
-                                <h5 class="doc-head-text">Delivery Order/Packing List</h5>
-                                <div class="row">
-                                    <div class="col-md-4 null-space">
-                                        <div class="col-md-4 null-space">
-                                            Customers
-                                        </div>
-                                        <div class="col-md-8 null-space">
-                                            <select class="form-control" id="lpo_cus" onchange="fill_cust(this)">
-                                                <option value="">Select Customer</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-md-4 null-space">
-                                        <div class="col-md-4 null-space">
-                                            L.P.O Ref
-                                        </div>
-                                        <div class="col-md-8 null-space">
-                                            <select class="form-control" id="lpo_ref" onchange="fill_items(this)">
-                                                <option value="">Select Lpo</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 null-space">
-                                        <div class="col-md-4 null-space">
-                                            Invoice#
-                                        </div>
-                                        <div class="col-md-8 null-space">
-                                            <input class="form-control" id="invoice_ref" type="text" />
-                
-                
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 null-space">
-                                        <div class="col-md-4 null-space">
-                                            Date
-                                        </div>
-                                        <div class="col-md-8 null-space">
-                                            <input class="form-control" id="date" type="date" />
-                
-                
-                                        </div>
-                                    </div>
-                                </div>
-                
-                
-                
-                
+                                </datalist>
                             </div>
-                
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <td>Organization Name:</td>
-                                        <td>Address:</td>
-                                        <td>Contact:</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="td-cells"><span id="buyer-organization-name"></span></td>
-                                        <td class="td-cells"><span id="buyer-address"></span></td>
-                                        <td class="td-cells"><span id="buyer-number"></span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr class="d-flex">
-                                        <td class="col-2">Person</td>
-                                        <td class="col-2">Item</td>
-                                        <td class="col-1">Size</td>
-                                        <td class="col-1">Available Qty</td>
-                                        <td class="col-1">Qty to deliver</td>
-                                        <td class="col-2">Ctn/bale no</td>
-                                        <td class="col-2">pcs per ctn/bale</td>
-                                        <td class="col-1">Add in List</td>
-                                    </tr>
-                                </thead>
-                                <tbody id="container">
-                
-                                </tbody>
-                            </table>
-                
-                            <section class="color-1 text-center">
-                                <p>
-                                        <button onclick="update_packing_list(this)" class="btn btn-primary" style="display: none;" id='plu_btn'>Update
-                                                Packing List</button>
-                                 <button onclick="generate_packing_list(this)" class="btn btn-primary" disabled id='pl_btn'>Generate
-                                        Packing List</button>
-                                </p>
-                            </section>
-                
                         </div>
+                    </div>
+                    <div class="row mt-2 mb-4">
+                        <div class="col-sm-12 col-md-12">
+                            <button class='float-right btn btn-sm btn-primary mr-1'
+                                onClick='pl_refresh()'>Refresh</button>
+                            <!-- <button class='float-right btn btn-primary mr-1' onClick='lpo_search()'>Search</button> -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <hr class="m-1">
+                <div class="list_cont" id='pl_list'>
+
+                </div>
+
             </div>
         </div>
-        
+        <div class="col-sm-10 col-md-9 col-lg-9">
+
+            <div class="container-fluid">
+
+                <!-- menus -->
+                <div class="row mt-2">
+                    <div class="col-md-12">
+
+                        <ul class="list-inline sales-menu">
+                            <li class="list-inline-item" onClick="new_order()"><button> <span><i
+                                            class="far fa-file"></i></span> New</button>
+                            </li>
+                            <li class="list-inline-item" onClick="lpo_action('draft')"><button><span><i
+                                            class="fas fa-file-download"></i></span> Save as draft</button></li>
+                            <li class="list-inline-item" onClick="print_order()"><button><span><i
+                                            class="fas fa-print"></i></span>
+                                    Print</button></li>
+                            <!-- <li onClick="email_order()">Email</li> -->
+                            <li class="list-inline-item" onClick="cancel_order()"><button><span><i
+                                            class="far fa-file-excel"></i></span> Cancel Sales Order</button></li>
+                            <li class="list-inline-item" onClick="delete_order()"><button><span><i
+                                            class="far fa-trash-alt"></i></span> Delete</button></li>
+
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5 class="doc-head-text">Delivery Order/Packing List</h5>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label for="">Customers</label>
+                            </div>
+                            <div class="col-md-9">
+                                <select class="form-control" id="lpo_cus" onchange="fill_cust(this)">
+                                    <option value="">Select Customer</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label for="">L.P.O Ref</label>
+                            </div>
+                            <div class="col-md-9">
+                                <select class="form-control" id="lpo_ref" onchange="fill_items(this)">
+                                    <option value="">Select Lpo</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label for="">Invoice#</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input class="form-control" id="invoice_ref" type="text" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label for="">Date</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input class="form-control" id="date" type="date" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
+            </div>
 
 
+            <div class="table-responsive mt-4" id="main_place">
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>Organization Name:</td>
+                            <td>Address:</td>
+                            <td>Contact:</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span id="buyer-organization-name"></span></td>
+                            <td><span id="buyer-address"></span></td>
+                            <td><span id="buyer-number"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>Person</td>
+                            <td>Item</td>
+                            <td>Size</td>
+                            <td>Available Qty</td>
+                            <td>Qty to deliver</td>
+                            <td>Ctn/bale no</td>
+                            <td>pcs per ctn/bale</td>
+                            <td>Add in List</td>
+                        </tr>
+                    </thead>
+                    <tbody id="container">
+
+                    </tbody>
+                </table>
+
+                <section class="color-1 text-center">
+                    <p>
+                        <button onclick="update_packing_list(this)" class="btn btn-primary" style="display: none;"
+                            id='plu_btn'>Update
+                            Packing List</button>
+                        <button onclick="generate_packing_list(this)" class="btn btn-primary" disabled
+                            id='pl_btn'>Generate
+                            Packing List</button>
+                    </p>
+                </section>
+
+            </div>
+        </div>
     </div>
 
-
-
-    <!-- <p id="n"></p> -->
-    <!-- <button onclick="waqaskhan();">Submit</button>
-<input type="button" id="create_pdf" value="Generate PDF">  -->
 
 </body>
 
@@ -309,8 +303,8 @@
 <script src="../../../js/app.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+<script src="../../../js/all.min.js"></script>
 <script src="/js/packingList.js"></script>
-
 <script>
     //  let index = 1;
 </script>
