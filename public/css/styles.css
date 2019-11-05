@@ -9,8 +9,15 @@ html, body {
 .m-0{
     margin: 0;
 }
+.p-0{
+    padding: 0;
+}
 .f-17{
     font-size: 17px;
+}
+
+.uppercase{
+    text-transform: uppercase;
 }
 .font-size-md{
     font-size: 19px !important;
@@ -20,6 +27,16 @@ html, body {
 	padding: 0px !important;
 	overflow-wrap: break-word;
 }
+.heading-text-md{
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.heading-text-lg{
+    font-size: 2em;
+    font-weight: 500;
+}
+
 
 /* Global Class End */
 
@@ -57,13 +74,14 @@ html, body {
     color: black;
 }
 
-.pay-receipt-lt{
-    background-color:#d6d8d9;
-}
-
 .pay-receipt-container{
     padding-top: 3em;
     padding-bottom: 9em;
+}
+
+.pay-label-rt{
+    font-size: 17px;
+    line-height: -25px;
 }
 
 /* sales pay receipt end */
