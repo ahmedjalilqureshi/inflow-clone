@@ -7,58 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Good Receiving Note</title>
 
-    <!-- <link rel="stylesheet" href="../../../css/style.css"> -->
-    <link rel="stylesheet" href="../../../css/salesStyle.css">
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <link rel="stylesheet" href="../../../css/bootstrap-yeti.min.css">
 
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-    <!-- Font Awesome -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
-        crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
-        crossorigin="anonymous"></script>
-        <style>
-                /* .pm-0 {
-                    padding: 0px !important;
-        
-                    margin: 0px !important;
-                } */
-        
-                .pm-0 {
-                    padding: 0px !important;
-        
-                    margin: 0px !important;
-                }
-        
-                tr td {
-                    padding: 2px !important;
-                    margin: 0 !important;
-                }
-        
-                tr th {
-                    padding: 2px !important;
-                    margin: 0 !important;
-                }
-        
-                body {
-                    /* overflow: hidden;
-                    sc */
-                    margin: 0;
-                    padding: 0;
-                    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif
 
-                }
-            </style>
 </head>
 
-<body onload="fill()">
+<body onload="fill()" class="light-white">
 
   
-        <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
                 <img src="../../../assets/img/aa-logo.jpg" class=" float-right md-logo" alt="logo" width="70px">
-                <a class="navbar-brand text-dark navbar-left ml-3" href="#">
-        
+                <a class="navbar-brand text-light navbar-left ml-3" href="/">
                     ABBAS ALI & SONS UNIFORMS AND TEXTILES
                 </a>
                 <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -70,9 +30,9 @@
                 </div>
         
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto text-light">
+                    <ul class="navbar-nav ml-auto text-light f-17">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Sales
                             </a>
@@ -86,7 +46,7 @@
                         </li>
         
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Purchase
                             </a>
@@ -100,14 +60,14 @@
         
         
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/production">Production</a>
+                            <a class="nav-link text-light" href="/production">Production</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Reports
                             </a>
-                            <div class="dropdown-menu text-dark bg-dark" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item text-info" href="/reports/sales_report">Sales Report</a>
                                 <a class="dropdown-item text-info" href="/reports/purchase_report">Purchase Report</a>
                                 <a class="dropdown-item text-info" href="/reports/production_report">Production Report</a>
@@ -115,150 +75,110 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/master" tabindex="-1" aria-disabled="true">Master Data</a>
+                            <a class="nav-link text-light" href="/master" tabindex="-1" aria-disabled="true">Master Data</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/master_view" tabindex="-1" aria-disabled="true">Master
+                            <a class="nav-link text-light" href="/master_view" tabindex="-1" aria-disabled="true">Master
                                 View</a>
                         </li>
                     </ul>
         
                 </div>
             </nav>
-            <hr class="pm-0">
 
-    <div id="main" class="wrapper container-fluid m-3">
- 
-        <div class="container-fluid">
-
-        <!-- Page Content  -->
-       <div class="container sales-container"  >
-
-                <div class="text-center doc-head-text">
-                    <h5>Goods Receiving Note / Purchase Invoice</h5>
-                    
-                </div>
-
-                <div class="gr-info">
-
-                    <div class="row">
-                        <div class="col-7">
-                                <div class="row">
-                                        <div class="col-md-2">
-                                                <label class='form-control-label'>Vendors</label>
-                        
-                                        </div>
-                                        <div class="col-md-4">
-                                            <select id='vendors_select' name='number' onChange="po_set(this)" class='form-control' ></select>
-                                        </div>          
-                                       
-        
-                                </div>
-                                <br><br>
-                                <div class="row">
-                                        <div class="col-md-2">
-                                                <label class='form-control-label'>PO Ref#</label>
-                        
-                                        </div>
-                                        <div class="col-md-8">
-                                            <select id='s_po_select' class='form-control' onchange="set_items(this)" ></select>
-                                        </div>
-                                </div>
-
-                        </div>
-
-                        <div class="col-5">
-
-                           
-
-                          
-
-                            <div class="row">
-                                <div class="col-4">
-                                    <p>Invoice No:</p>
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" id="gr-invoice-num" class="form-control">
-                                </div>
-
-                                <!--fetch purchase invoice number-->
-                            </div>
-
-                            <div class="row">
-                                <div class="col-4">
-                                    <p>Date :</p>
-                                </div>
-                                <div class="col-8">
-                                    <input type="date" id="gr-date" class="form-control">
-                                </div>
-
-                                <!--good receiving note generate date-->
-                            </div>
-                            <div class="row">
-                                    <div class="col-4">
-                                        <p>Recieved By :</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <input type="text" id="recieved_by" class="form-control">
-                                    </div>
-    
-                                    <!--good receiving note generate date-->
-                             </div>
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row mt-4 mb-2">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <h1 class="text-center">Goods Receiving Note / Purchase Invoice</h1>
                         </div>
                     </div>
 
+                    <div class="row mt-2">
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                                <label class='form-control-label f-17'>Vendors:</label>
+                        </div>
+                        <div class="col-sm-9 col-md-9 col-lg-9">
+                                <select id='vendors_select' name='number' onChange="po_set(this)" class='form-control' ></select>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                    <label class='form-control-label f-17'>Invoice No:</label>
+                            </div>
+                            <div class="col-sm-9 col-md-9 col-lg-9">
+                                    <input type="text" id="gr-invoice-num" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row mt-2">
+                                <div class="col-sm-3 col-md-3 col-lg-3">
+                                        <label class='form-control-label f-17'>PO Ref#</label>
+                                </div>
+                                <div class="col-sm-9 col-md-9 col-lg-9">
+                                        <select id='s_po_select' class='form-control' onchange="set_items(this)" ></select>
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                    <div class="col-sm-3 col-md-3 col-lg-3">
+                                            <label class='form-control-label f-17'>Date :</label>
+                                    </div>
+                                    <div class="col-sm-9 col-md-9 col-lg-9">
+                                            <input type="date" id="gr-date" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="row mt-2">
+                                        <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <label class='form-control-label f-17'>Received By :</label>
+                                        </div>
+                                        <div class="col-sm-9 col-md-9 col-lg-9">
+                                                <input type="text" id="recieved_by" class="form-control">
+                                        </div>
+                                    </div>
                 </div>
 
-                <table class="table table-bordered">
-                    <thead>
-                        <tr class="d-flex">
-                            <td class="col-2">Product Category</td>
-                            <td class="col-4">Description</td>
-                            <td class="col-2">Recieved Qty</td>
-                            <td class="col-2">Total Qty</td>
-                            <td class="col-2">Unit Price (<span id='per_item_currency'></span>)</td>
-                        </tr>
-                    </thead>
-                    <tbody id="container">
-                        <tr class="d-flex">
-                            <td class="col-2 td-cells">
-                                <input type="text" class="form-control" id="pro1category">
-                            </td>
-                            <td class="col-4 td-cells">
-                                <input type="text" class="form-control" id="pro1description">
-                            </td>
-                            <td class="col-2 td-cells">
-                                <input type="text" class="form-control" id="pro1quantityavailable">
-                            </td>
-                            <td class="col-2 td-cells">
-                                <input type="text" class="form-control" id="pro1quantityorder">
-                            </td>
-                            <td class="col-2 td-cells">
-                                <input type="text" class="form-control" id="pro1unitprice" onkeypress="sales_add_new(event)">
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
+                <div class="table-responsive mt-4 ">
+                        <table class="table table-bordered white">
+                                <thead>
+                                    <tr class="d-flex">
+                                        <td class="col-2">Product Category</td>
+                                        <td class="col-4">Description</td>
+                                        <td class="col-2">Recieved Qty</td>
+                                        <td class="col-2">Total Qty</td>
+                                        <td class="col-2">Unit Price (<span id='per_item_currency'></span>)</td>
+                                    </tr>
+                                </thead>
+                                <tbody id="container">
+                                    <tr class="d-flex">
+                                        <td class="col-2 td-cells">
+                                            <input type="text" class="form-control" id="pro1category">
+                                        </td>
+                                        <td class="col-4 td-cells">
+                                            <input type="text" class="form-control" id="pro1description">
+                                        </td>
+                                        <td class="col-2 td-cells">
+                                            <input type="text" class="form-control" id="pro1quantityavailable">
+                                        </td>
+                                        <td class="col-2 td-cells">
+                                            <input type="text" class="form-control" id="pro1quantityorder">
+                                        </td>
+                                        <td class="col-2 td-cells">
+                                            <input type="text" class="form-control" id="pro1unitprice" onkeypress="sales_add_new(event)">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                </div>
 
                 <section class="color-1 text-center">
-                    <p>
-                        <button onclick="generate_gr_note(this)" class="btn btn-primary ">Generate</button>
-                    </p>
-                </section>
-
-
+                        <p>
+                            <button onclick="generate_gr_note(this)" class="btn btn-primary ">Generate</button>
+                        </p>
+                    </section>
             </div>
-
-           
-    
-            </div>
-    
-        
-    </div>
-    <!-- <p id="n"></p> -->
-    <!-- <button onclick="waqaskhan();">Submit</button>
-<input type="button" id="create_pdf" value="Generate PDF">  -->
    
 </body>
 
